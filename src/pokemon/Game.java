@@ -227,7 +227,7 @@ public class Game extends JFrame {
 			String turn;
 			if(seconds%2==0)
 			{
-				 turn="Player's "; 
+				 turn="Player's turn"; 
 				//flag=true;
 			}
 			else
