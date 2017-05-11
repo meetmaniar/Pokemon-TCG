@@ -1,7 +1,7 @@
-
 package pokemon;
 
 import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.Container;
@@ -10,6 +10,7 @@ import java.awt.FlowLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -186,6 +187,38 @@ public class Game extends JFrame {
 		JPanel gamePanel = new JPanel();
 		gamePanel.setLayout(null);
 		
+		//Panel for discardpile--Player begin
+		
+			JPanel discardP=new JPanel();
+			discardP.setBorder(BorderFactory.createLineBorder(Color.black));
+			discardP.setLayout(new CardLayout());
+			discardP.setBounds(10, 650, 90, 90);
+			JLabel discardPileP=new JLabel("DCP P", SwingConstants.CENTER);
+			discardPileP.setBorder(BorderFactory.createLineBorder(Color.black));
+			discardP.add(discardPileP,BorderLayout.PAGE_START);
+			
+		//Panel for discardpile--Player end
+		
+		//Panel for discardpile--AI begin
+			
+			JPanel discardA=new JPanel();
+			discardA.setBorder(BorderFactory.createLineBorder(Color.black));
+			discardA.setLayout(new CardLayout());
+			discardA.setBounds(1580, 10, 90, 90);
+			JLabel discardPileA=new JLabel("DCP AI", SwingConstants.CENTER);
+			discardPileA.setBorder(BorderFactory.createLineBorder(Color.black));
+			discardA.add(discardPileA,BorderLayout.PAGE_START);
+			
+		//Panel for discardpile-- end
+			
+		//Button for passing the turn--begin
+			
+			JButton done=new JButton("DONE");
+			done.setPreferredSize(new Dimension(90,90));
+			done.setBounds(1250, 665, 70, 35);
+			//done.setBackground(Color.red);
+		//Button for passing the turn--end	
+		
 		// game panel start ----
 		
 		PriceCard leftTop = new PriceCard();
@@ -217,6 +250,9 @@ public class Game extends JFrame {
 		
 		gamePanel.add(bench1);
 		gamePanel.add(bench2);
+		gamePanel.add(discardP);
+		gamePanel.add(discardA);
+		gamePanel.add(done);
 		// center image start --
 		
 		
