@@ -220,7 +220,7 @@ public class Game extends JFrame {
 		//Button for passing the turn--end	
 			
 		//Randomly assigning the turn to the players--start
-			long compareTime=System.currentTimeMillis();
+			long compareTime=5;
 			long timePassed=System.currentTimeMillis()-compareTime;
 			long seconds=timePassed/1000;
 			Boolean flag=false;
