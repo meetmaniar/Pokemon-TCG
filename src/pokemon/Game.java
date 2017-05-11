@@ -218,7 +218,34 @@ public class Game extends JFrame {
 			done.setBounds(1250, 665, 70, 35);
 			//done.setBackground(Color.red);
 		//Button for passing the turn--end	
-		
+			
+		//Randomly assigning the turn to the players--start
+			long compareTime=System.currentTimeMillis();
+			long timePassed=System.currentTimeMillis()-compareTime;
+			long seconds=timePassed/1000;
+			Boolean flag;
+			String turn;
+			if(seconds%2==0)
+			{
+				 turn="Player's "; 
+				//flag=true;
+			}
+			else
+			{
+				turn="AI's turn";
+				//flag=false;
+			}
+			
+			JPanel turnPanel=new JPanel();
+			turnPanel.setPreferredSize(new Dimension(90,90));
+			turnPanel.setLayout(new BorderLayout());
+			turnPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+			JLabel turnLabel = new JLabel(turn,SwingConstants.CENTER);
+			turnPanel.add(turnLabel, BorderLayout.CENTER);	
+			turnPanel.setBounds(10, 60, 80, 80);
+			
+			
+		//Randomly assigning the turn to the players--end
 		// game panel start ----
 		
 		PriceCard leftTop = new PriceCard();
