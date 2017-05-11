@@ -223,7 +223,7 @@ public class Game extends JFrame {
 			long compareTime=System.currentTimeMillis();
 			long timePassed=System.currentTimeMillis()-compareTime;
 			long seconds=timePassed/1000;
-			Boolean flag;
+			Boolean flag=false;
 			String turn;
 			if(seconds%2==0)
 			{
@@ -242,7 +242,7 @@ public class Game extends JFrame {
 			turnPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 			JLabel turnLabel = new JLabel(turn,SwingConstants.CENTER);
 			turnPanel.add(turnLabel, BorderLayout.CENTER);	
-			turnPanel.setBounds(10, 60, 80, 80);
+			turnPanel.setBounds(100, 500, 100, 70);
 			
 			
 		//Randomly assigning the turn to the players--end
@@ -280,6 +280,7 @@ public class Game extends JFrame {
 		gamePanel.add(discardP);
 		gamePanel.add(discardA);
 		gamePanel.add(done);
+		gamePanel.add(turnPanel);
 		// center image start --
 		
 		
