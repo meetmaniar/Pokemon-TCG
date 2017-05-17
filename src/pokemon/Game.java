@@ -50,40 +50,40 @@ public class Game extends JFrame {
 		
 		// player 1 panel start ---- 
 		
-		Card c11 = new Card("AI-C-1");
+		Card c11 = new Card("AI-C-1",50,20,20);
 		player1Panel.add(c11);
 		
-		Card c21 = new Card("AI-C-2");
+		Card c21 = new Card("AI-C-2",50,20,20);
 		player1Panel.add(c21);
 		
-		Card c31 = new Card("AI-C-3");
+		Card c31 = new Card("AI-C-3",50,20,20);
 		player1Panel.add(c31);
 		
-		Card c41 = new Card("AI-C-4");
+		Card c41 = new Card("AI-C-4",50,20,20);
 		player1Panel.add(c41);
 		
-		Card c51 = new Card("AI-C-5");
+		Card c51 = new Card("AI-C-5",50,20,20);
 		player1Panel.add(c51);
 
-		Card c61 = new Card("AI-C-6");
+		Card c61 = new Card("AI-C-6",50,20,20);
 		player1Panel.add(c61);
 		
-		Card c71 = new Card("AI-C-7");
+		Card c71 = new Card("AI-C-7",50,20,20);
 		player1Panel.add(c71);
 		
-		Card c81 = new Card("AI-C-8");
+		Card c81 = new Card("AI-C-8",50,20,20);
 		player1Panel.add(c81);
 		
-		Card c91 = new Card("AI-C-9");
+		Card c91 = new Card("AI-C-9",50,20,20);
 		player1Panel.add(c91);
 		
-		Card c101 = new Card("AI-C-10");
+		Card c101 = new Card("AI-C-10",50,20,20);
 		player1Panel.add(c101);
 		
-		Card c111 = new Card("AI-C-11");
+		Card c111 = new Card("AI-C-11",50,20,20);
 		player1Panel.add(c111);
 		
-		Card c121 = new Card("AI-C-12");
+		Card c121 = new Card("AI-C-12",50,20,20);
 		player1Panel.add(c121);
 		
 						
@@ -99,19 +99,19 @@ public class Game extends JFrame {
 		bench1.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		bench1.setBounds(580, 10, 480, 100);
 		
-		Card B1 = new Card("AIC-1");  //AIC: AI bench cards
+		Card B1 = new Card("AIC-1",50,20,20);  //AIC: AI bench cards
 		bench1.add(B1);
 		
-		Card B2 = new Card("AIC-2");
+		Card B2 = new Card("AIC-2",50,20,20);
 		bench1.add(B2);
 		
-		Card B3 = new Card("AIC-3");
+		Card B3 = new Card("AIC-3",50,20,20);
 		bench1.add(B3);
 		
-		Card B4 = new Card("AIC-4");
+		Card B4 = new Card("AIC-4",50,20,20);
 		bench1.add(B4);
 		
-		Card B5 = new Card("AIC-5");
+		Card B5 = new Card("AIC-5",50,20,20);
 		bench1.add(B5);
 		//Player 1 bench cards end---
 		
@@ -124,40 +124,40 @@ public class Game extends JFrame {
 		player2Panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		// player 2 panel start ---- 
 		
-		Card p1 = new Card("pikacu");
+		Card p1 = new Card("pikacu",50,20,20);
 		player2Panel.add(p1);
 		
-		Card p2 = new Card("abc");
+		Card p2 = new Card("abc",50,20,20);
 		player2Panel.add(p2);
 		
-		Card p3 = new Card("pidsf");
+		Card p3 = new Card("pidsf",50,20,20);
 		player2Panel.add(p3);
 		
-		Card p4 = new Card("pikacu");
+		Card p4 = new Card("pikacu",50,20,20);
 		player2Panel.add(p4);
 		
-		Card p5 = new Card("abc");
+		Card p5 = new Card("abc",50,20,20);
 		player2Panel.add(p5);
 		
-		Card p6 = new Card("pidsf");
+		Card p6 = new Card("pidsf",50,20,20);
 		player2Panel.add(p6);
 		
-		Card p7 = new Card("pikacu");
+		Card p7 = new Card("pikacu",50,20,20);
 		player2Panel.add(p7);
 		
-		Card p8 = new Card("abc");
+		Card p8 = new Card("abc",50,20,20);
 		player2Panel.add(p8);
 		
-		Card p9 = new Card("pidsf");
+		Card p9 = new Card("pidsf",50,20,20);
 		player2Panel.add(p9);
 		
-		Card p10 = new Card("pikacu");
+		Card p10 = new Card("pikacu",50,20,20);
 		player2Panel.add(p10);
 		
-		Card p11 = new Card("abc");
+		Card p11 = new Card("abc",50,20,20);
 		player2Panel.add(p11);
 		
-		Card p12 = new Card("pidsf");
+		Card p12 = new Card("pidsf",50,20,20);
 		player2Panel.add(p12);
 		// player 2 panel end ---
 		
@@ -169,19 +169,19 @@ public class Game extends JFrame {
 				bench2.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 				bench2.setBounds(580, 640, 480, 100);
 				
-				Card B11 = new Card("PC-1");  //PC: Player bench cards
+				Card B11 = new Card("PC-1",50,20,20);  //PC: Player bench cards
 				bench2.add(B11);
 				
-				Card B12 = new Card("PC-2");
+				Card B12 = new Card("PC-2",50,20,20);
 				bench2.add(B12);
 				
-				Card B13 = new Card("PC-3");
+				Card B13 = new Card("PC-3",50,20,20);
 				bench2.add(B13);
 				
-				Card B14 = new Card("PC-4");
+				Card B14 = new Card("PC-4",50,20,20);
 				bench2.add(B14);
 				
-				Card B15 = new Card("PC-5");
+				Card B15 = new Card("PC-5",50,20,20);
 				bench2.add(B15); 
 				
 				
