@@ -7,6 +7,7 @@ import java.awt.ComponentOrientation;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -43,11 +44,11 @@ public class Game extends JFrame {
 		subPanel.setLayout(new BorderLayout());
 		
 		JPanel player1Panel = new JPanel();
-		player1Panel.setPreferredSize(new Dimension(700, 100));
+		player1Panel.setPreferredSize(new Dimension(700, 76));
 		player1Panel.setBorder(BorderFactory.createLineBorder(Color.black));
 		player1Panel.setLayout(new FlowLayout());
 		player1Panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		
+		player1Panel.setVisible(false);
 		// player 1 panel start ---- 
 		
 		Card c11 = new Card("AI-C-1",50,20,20);
@@ -97,7 +98,8 @@ public class Game extends JFrame {
 		bench1.setBorder(BorderFactory.createLineBorder(Color.black));
 		bench1.setLayout(new FlowLayout());
 		bench1.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-		bench1.setBounds(580, 10, 480, 100);
+		bench1.setBounds(540, 0, 350, 75);
+		bench1.setVisible(false);
 		
 		Card B1 = new Card("AIC-1",50,20,20);  //AIC: AI bench cards
 		bench1.add(B1);
@@ -118,10 +120,11 @@ public class Game extends JFrame {
 		subPanel.add(player1Panel, BorderLayout.PAGE_START);
 		
 		JPanel player2Panel = new JPanel();
-		player2Panel.setPreferredSize(new Dimension(700, 100));
+		player2Panel.setPreferredSize(new Dimension(700, 76));
 		player2Panel.setBorder(BorderFactory.createLineBorder(Color.black));
 		player2Panel.setLayout(new FlowLayout());
 		player2Panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		player2Panel.setVisible(false);
 		// player 2 panel start ---- 
 		
 		Card p1 = new Card("pikacu",50,20,20);
@@ -167,7 +170,8 @@ public class Game extends JFrame {
 				bench2.setBorder(BorderFactory.createLineBorder(Color.black));
 				bench2.setLayout(new FlowLayout());
 				bench2.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-				bench2.setBounds(580, 640, 480, 100);
+				bench2.setBounds(540, 443, 350, 75);
+				bench2.setVisible(false);
 				
 				Card B11 = new Card("PC-1",50,20,20);  //PC: Player bench cards
 				bench2.add(B11);
@@ -197,11 +201,11 @@ public class Game extends JFrame {
 			JPanel discardP=new JPanel();
 			discardP.setBorder(BorderFactory.createLineBorder(Color.black));
 			discardP.setLayout(new CardLayout());
-			discardP.setBounds(10, 650, 90, 90);
+			discardP.setBounds(3, 427, 90, 90);
 			JLabel discardPileP=new JLabel("DCP P", SwingConstants.CENTER);
 			discardPileP.setBorder(BorderFactory.createLineBorder(Color.black));
 			discardP.add(discardPileP,BorderLayout.PAGE_START);
-			
+			discardP.setVisible(false);
 		//Panel for discardpile--Player end
 		
 		//Panel for discardpile--AI begin
@@ -209,10 +213,11 @@ public class Game extends JFrame {
 			JPanel discardA=new JPanel();
 			discardA.setBorder(BorderFactory.createLineBorder(Color.black));
 			discardA.setLayout(new CardLayout());
-			discardA.setBounds(1580, 10, 90, 90);
+			discardA.setBounds(1274, 1, 90, 90);
 			JLabel discardPileA=new JLabel("DCP AI", SwingConstants.CENTER);
 			discardPileA.setBorder(BorderFactory.createLineBorder(Color.black));
 			discardA.add(discardPileA,BorderLayout.PAGE_START);
+			discardA.setVisible(false);
 			
 		//Panel for discardpile-- end
 			
@@ -220,7 +225,8 @@ public class Game extends JFrame {
 			
 			JButton done=new JButton("DONE");
 			done.setPreferredSize(new Dimension(90,90));
-			done.setBounds(1250, 665, 70, 35);
+			done.setBounds(950, 250, 70, 35);
+			done.setVisible(false);
 			//done.setBackground(Color.red);
 		//Button for passing the turn--end	
 			
@@ -246,24 +252,14 @@ public class Game extends JFrame {
 			JPanel turnPanel=new JPanel();
 			turnPanel.setPreferredSize(new Dimension(90,90));
 			turnPanel.setLayout(new BorderLayout());
-			turnPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+			//turnPanel.setBorder(BorderFactory.createLineBorder(Color.black));
 			JLabel turnLabel = new JLabel(turn,SwingConstants.CENTER);
+			turnLabel.setFont(new Font("Serif",Font.BOLD,74));
 			turnPanel.add(turnLabel, BorderLayout.CENTER);	
-			turnPanel.setBounds(100, 500, 100, 70);
+			turnPanel.setBounds(100, 200, 1200, 100);
 			//Timer timer = new Timer();
 			//timer.schedule(turnPanel.setVisible(true), 1000);
 			
-			JButton okay=new JButton("OKAY");
-			okay.setPreferredSize(new Dimension(90,90));
-			okay.setBounds(400, 665, 70, 35);
-			okay.addActionListener(new ActionListener()
-			{
-			  public void actionPerformed(ActionEvent e)
-			  {
-			    turnPanel.setVisible(false);
-			    okay.setVisible(false);
-			  }
-			});
 			
 			
 			
@@ -273,19 +269,20 @@ public class Game extends JFrame {
 		PriceCard leftTop = new PriceCard();
 		leftTop.setBounds(10, 10, 82, 123);
 		gamePanel.add(leftTop);
+		leftTop.setVisible(false);
 		
 		PriceCard rightBottom = new PriceCard();
-		rightBottom.setBounds(1590, 620, 82, 123);
+		rightBottom.setBounds(1274, 390, 82, 123);
 		gamePanel.add(rightBottom);
-		
+		rightBottom.setVisible(false);
 		JPanel deck1 = new JPanel(); 
 		deck1.setPreferredSize(new Dimension(90,90));
 		deck1.setLayout(new BorderLayout());
 		deck1.setBorder(BorderFactory.createLineBorder(Color.black));
 		JLabel deck1Label = new JLabel("DECK1");
 		deck1.add(deck1Label, BorderLayout.CENTER);
-		deck1.setBounds(10, 160, 80, 80);
-		
+		deck1.setBounds(10, 145, 80, 80);
+		deck1.setVisible(false);
 		gamePanel.add(deck1);
 		
 		JPanel deck2 = new JPanel(); 
@@ -293,8 +290,8 @@ public class Game extends JFrame {
 		deck2.setBorder(BorderFactory.createLineBorder(Color.black));
 		JLabel deck2Label = new JLabel("DECK2");
 		deck2.add(deck2Label, BorderLayout.CENTER);
-		deck2.setBounds(1590, 515, 80, 80);
-		
+		deck2.setBounds(1274, 300, 80, 80);
+		deck2.setVisible(false);
 		gamePanel.add(deck2);
 		
 		gamePanel.add(bench1);
@@ -303,7 +300,7 @@ public class Game extends JFrame {
 		gamePanel.add(discardA);
 		gamePanel.add(done);
 		gamePanel.add(turnPanel);
-		gamePanel.add(okay);
+		
 		// center image start --
 		
 		
@@ -311,12 +308,39 @@ public class Game extends JFrame {
 		JLabel label=new JLabel();
 		label.setIcon(background);
 		gamePanel.setLayout(null);
-		label.setBounds(650,110,2300,530);
+		label.setBounds(570,104,310,310);
+		label.setVisible(false);
 		gamePanel.add(label);
 
 		// center image end --		
 		// game panel end ----
-		
+		JButton okay=new JButton("OKAY");
+		okay.setPreferredSize(new Dimension(90,90));
+		okay.setBounds(665, 350, 70, 35);
+		okay.addActionListener(new ActionListener()
+		{
+		  public void actionPerformed(ActionEvent e)
+		  {
+		    turnPanel.setVisible(false);
+		    okay.setVisible(false);
+		    player1Panel.setVisible(true);
+		    player2Panel.setVisible(true);
+		    gamePanel.setVisible(true);
+		    bench1.setVisible(true);
+		    bench2.setVisible(true);
+		    rightBottom.setVisible(true);
+		    leftTop.setVisible(true);
+		    deck1.setVisible(true);
+		    deck2.setVisible(true);
+		    bench1.setVisible(true);
+		    bench2.setVisible(true);
+		    done.setVisible(true);
+		    label.setVisible(true);
+		    discardP.setVisible(true);
+		    discardA.setVisible(true);
+		  }
+		});
+		mainPanel.add(okay);
 		subPanel.add(gamePanel, BorderLayout.CENTER);
 		
 		mainPanel.add(subPanel,BorderLayout.CENTER);
