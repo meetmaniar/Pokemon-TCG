@@ -7,6 +7,9 @@ import java.awt.ComponentOrientation;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -15,6 +18,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
+import java.time.*;
+import java.util.Timer;
 
 
 public class Game extends JFrame {
@@ -220,6 +225,8 @@ public class Game extends JFrame {
 		//Button for passing the turn--end	
 			
 		//Randomly assigning the turn to the players--start
+			
+			
 			long compareTime=5;
 			long timePassed=System.currentTimeMillis()-compareTime;
 			long seconds=timePassed/1000;
@@ -243,6 +250,21 @@ public class Game extends JFrame {
 			JLabel turnLabel = new JLabel(turn,SwingConstants.CENTER);
 			turnPanel.add(turnLabel, BorderLayout.CENTER);	
 			turnPanel.setBounds(100, 500, 100, 70);
+			//Timer timer = new Timer();
+			//timer.schedule(turnPanel.setVisible(true), 1000);
+			
+			JButton okay=new JButton("OKAY");
+			okay.setPreferredSize(new Dimension(90,90));
+			okay.setBounds(400, 665, 70, 35);
+			okay.addActionListener(new ActionListener()
+			{
+			  public void actionPerformed(ActionEvent e)
+			  {
+			    turnPanel.setVisible(false);
+			    okay.setVisible(false);
+			  }
+			});
+			
 			
 			
 		//Randomly assigning the turn to the players--end
@@ -281,6 +303,7 @@ public class Game extends JFrame {
 		gamePanel.add(discardA);
 		gamePanel.add(done);
 		gamePanel.add(turnPanel);
+		gamePanel.add(okay);
 		// center image start --
 		
 		
