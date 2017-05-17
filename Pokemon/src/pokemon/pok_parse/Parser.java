@@ -1,4 +1,4 @@
-package controllers;
+package pokemon.pok_parse;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -42,7 +42,7 @@ public class Parser {
 						int i=temp.length;
 						pokemon[pok_counter][0]=temp[1]; // QTY
 						pokemon[pok_counter][1]=temp[2]; // NAME
-						pokemon[pok_counter][2]=temp[temp.length-2]; // NAME
+						pokemon[pok_counter][2]=temp[temp.length-2]; // STAGE
 						pokemon[pok_counter][3]=temp[temp.length-1];//HP
 						pok_counter++;
 					}
