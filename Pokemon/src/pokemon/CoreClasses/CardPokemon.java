@@ -143,5 +143,15 @@ public class CardPokemon extends Card{
 
 	}
 
+	
+	
+	public void initPokemon(String name,int type, int HP )
+	{
+		m_name=name;
+		m_hp=HP;
+		m_type=type;
+	}
+	
+	
 
 }

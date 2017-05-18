@@ -7,7 +7,11 @@ public class Card {
 	public static final int TYPE_TRAINER = 2;
 
 	int m_type;
-
+	public Card()
+	{
+		
+	}
+	
 	public Card(int type) {
 		m_type = type;
 	}

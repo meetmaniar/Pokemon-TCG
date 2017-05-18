@@ -9,9 +9,9 @@ import javax.swing.JPanel;
 
 
 
-public class Card extends JPanel {
+public class CardView extends JPanel {
 
-	public Card(String name,int hitPoints,int attackPoints, int specialAttackPoints) {
+	public CardView(String name,int hitPoints,int attackPoints, int specialAttackPoints) {
 		this.setPreferredSize(new Dimension(63, 63));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 

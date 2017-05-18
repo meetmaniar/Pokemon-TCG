@@ -23,10 +23,10 @@ import java.time.*;
 import java.util.Timer;
 
 
-public class Game extends JFrame {
+public class GameView extends JFrame {
 
 	
-	public Game() {
+	public GameView() {
 		this.setTitle("Pokemon");
 		
 		JPanel mainPanel = new JPanel();
@@ -51,47 +51,47 @@ public class Game extends JFrame {
 		player1Panel.setVisible(false);
 		// player 1 panel start ---- 
 		
-		Card c11 = new Card("AI-C-1",50,20,20);
+		CardView c11 = new CardView("AI-C-1",50,20,20);
 		player1Panel.add(c11);
 		
-		Card c21 = new Card("AI-C-2",50,20,20);
+		CardView c21 = new CardView("AI-C-2",50,20,20);
 		player1Panel.add(c21);
 		
-		Card c31 = new Card("AI-C-3",50,20,20);
+		CardView c31 = new CardView("AI-C-3",50,20,20);
 		player1Panel.add(c31);
 		
-		Card c41 = new Card("AI-C-4",50,20,20);
+		CardView c41 = new CardView("AI-C-4",50,20,20);
 		player1Panel.add(c41);
 		
-		Card c51 = new Card("AI-C-5",50,20,20);
+		CardView c51 = new CardView("AI-C-5",50,20,20);
 		player1Panel.add(c51);
 
-		Card c61 = new Card("AI-C-6",50,20,20);
+		CardView c61 = new CardView("AI-C-6",50,20,20);
 		player1Panel.add(c61);
 		
-		Card c71 = new Card("AI-C-7",50,20,20);
+		CardView c71 = new CardView("AI-C-7",50,20,20);
 		player1Panel.add(c71);
 		
-		Card c81 = new Card("AI-C-8",50,20,20);
+		CardView c81 = new CardView("AI-C-8",50,20,20);
 		player1Panel.add(c81);
 		
-		Card c91 = new Card("AI-C-9",50,20,20);
+		CardView c91 = new CardView("AI-C-9",50,20,20);
 		player1Panel.add(c91);
 		
-		Card c101 = new Card("AI-C-10",50,20,20);
+		CardView c101 = new CardView("AI-C-10",50,20,20);
 		player1Panel.add(c101);
 		
-		Card c111 = new Card("AI-C-11",50,20,20);
+		CardView c111 = new CardView("AI-C-11",50,20,20);
 		player1Panel.add(c111);
 		
-		Card c121 = new Card("AI-C-12",50,20,20);
+		CardView c121 = new CardView("AI-C-12",50,20,20);
 		player1Panel.add(c121);
 		
 						
 		
 		// player 1 panel end ---
 		
-		//Player 1 bench cards start---
+		//Player 1 bench CardViews start---
 		
 		JPanel bench1=new JPanel();
 		bench1.setPreferredSize(new Dimension(400,100));
@@ -101,21 +101,21 @@ public class Game extends JFrame {
 		bench1.setBounds(540, 0, 350, 75);
 		bench1.setVisible(false);
 		
-		Card B1 = new Card("AIC-1",50,20,20);  //AIC: AI bench cards
+		CardView B1 = new CardView("AIC-1",50,20,20);  //AIC: AI bench CardViews
 		bench1.add(B1);
 		
-		Card B2 = new Card("AIC-2",50,20,20);
+		CardView B2 = new CardView("AIC-2",50,20,20);
 		bench1.add(B2);
 		
-		Card B3 = new Card("AIC-3",50,20,20);
+		CardView B3 = new CardView("AIC-3",50,20,20);
 		bench1.add(B3);
 		
-		Card B4 = new Card("AIC-4",50,20,20);
+		CardView B4 = new CardView("AIC-4",50,20,20);
 		bench1.add(B4);
 		
-		Card B5 = new Card("AIC-5",50,20,20);
+		CardView B5 = new CardView("AIC-5",50,20,20);
 		bench1.add(B5);
-		//Player 1 bench cards end---
+		//Player 1 bench CardViews end---
 		
 		subPanel.add(player1Panel, BorderLayout.PAGE_START);
 		
@@ -127,44 +127,44 @@ public class Game extends JFrame {
 		player2Panel.setVisible(false);
 		// player 2 panel start ---- 
 		
-		Card p1 = new Card("pikacu",50,20,20);
+		CardView p1 = new CardView("pikacu",50,20,20);
 		player2Panel.add(p1);
 		
-		Card p2 = new Card("abc",50,20,20);
+		CardView p2 = new CardView("abc",50,20,20);
 		player2Panel.add(p2);
 		
-		Card p3 = new Card("pidsf",50,20,20);
+		CardView p3 = new CardView("pidsf",50,20,20);
 		player2Panel.add(p3);
 		
-		Card p4 = new Card("pikacu",50,20,20);
+		CardView p4 = new CardView("pikacu",50,20,20);
 		player2Panel.add(p4);
 		
-		Card p5 = new Card("abc",50,20,20);
+		CardView p5 = new CardView("abc",50,20,20);
 		player2Panel.add(p5);
 		
-		Card p6 = new Card("pidsf",50,20,20);
+		CardView p6 = new CardView("pidsf",50,20,20);
 		player2Panel.add(p6);
 		
-		Card p7 = new Card("pikacu",50,20,20);
+		CardView p7 = new CardView("pikacu",50,20,20);
 		player2Panel.add(p7);
 		
-		Card p8 = new Card("abc",50,20,20);
+		CardView p8 = new CardView("abc",50,20,20);
 		player2Panel.add(p8);
 		
-		Card p9 = new Card("pidsf",50,20,20);
+		CardView p9 = new CardView("pidsf",50,20,20);
 		player2Panel.add(p9);
 		
-		Card p10 = new Card("pikacu",50,20,20);
+		CardView p10 = new CardView("pikacu",50,20,20);
 		player2Panel.add(p10);
 		
-		Card p11 = new Card("abc",50,20,20);
+		CardView p11 = new CardView("abc",50,20,20);
 		player2Panel.add(p11);
 		
-		Card p12 = new Card("pidsf",50,20,20);
+		CardView p12 = new CardView("pidsf",50,20,20);
 		player2Panel.add(p12);
 		// player 2 panel end ---
 		
-		//Player 2 bench cards start---
+		//Player 2 bench CardViews start---
 		
 				JPanel bench2=new JPanel();
 				bench2.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -173,53 +173,53 @@ public class Game extends JFrame {
 				bench2.setBounds(540, 443, 350, 75);
 				bench2.setVisible(false);
 				
-				Card B11 = new Card("PC-1",50,20,20);  //PC: Player bench cards
+				CardView B11 = new CardView("PC-1",50,20,20);  //PC: Player bench CardViews
 				bench2.add(B11);
 				
-				Card B12 = new Card("PC-2",50,20,20);
+				CardView B12 = new CardView("PC-2",50,20,20);
 				bench2.add(B12);
 				
-				Card B13 = new Card("PC-3",50,20,20);
+				CardView B13 = new CardView("PC-3",50,20,20);
 				bench2.add(B13);
 				
-				Card B14 = new Card("PC-4",50,20,20);
+				CardView B14 = new CardView("PC-4",50,20,20);
 				bench2.add(B14);
 				
-				Card B15 = new Card("PC-5",50,20,20);
+				CardView B15 = new CardView("PC-5",50,20,20);
 				bench2.add(B15); 
 				
 				
-		//Player 2 bench cards end---
+		//Player 2 bench CardViews end---
 		
 		subPanel.add(player2Panel, BorderLayout.PAGE_END);
 		
 		JPanel gamePanel = new JPanel();
 		gamePanel.setLayout(null);
 		
-		//Panel for discardpile--Player begin
+		//Panel for disCardViewpile--Player begin
 		
-			JPanel discardP=new JPanel();
-			discardP.setBorder(BorderFactory.createLineBorder(Color.black));
-			discardP.setLayout(new CardLayout());
-			discardP.setBounds(3, 427, 90, 90);
-			JLabel discardPileP=new JLabel("DCP P", SwingConstants.CENTER);
-			discardPileP.setBorder(BorderFactory.createLineBorder(Color.black));
-			discardP.add(discardPileP,BorderLayout.PAGE_START);
-			discardP.setVisible(false);
-		//Panel for discardpile--Player end
+			JPanel disCardViewP=new JPanel();
+			disCardViewP.setBorder(BorderFactory.createLineBorder(Color.black));
+			disCardViewP.setLayout(new CardLayout());
+			disCardViewP.setBounds(3, 427, 90, 90);
+			JLabel disCardViewPileP=new JLabel("DCP P", SwingConstants.CENTER);
+			disCardViewPileP.setBorder(BorderFactory.createLineBorder(Color.black));
+			disCardViewP.add(disCardViewPileP,BorderLayout.PAGE_START);
+			disCardViewP.setVisible(false);
+		//Panel for disCardViewpile--Player end
 		
-		//Panel for discardpile--AI begin
+		//Panel for disCardViewpile--AI begin
 			
-			JPanel discardA=new JPanel();
-			discardA.setBorder(BorderFactory.createLineBorder(Color.black));
-			discardA.setLayout(new CardLayout());
-			discardA.setBounds(1274, 1, 90, 90);
-			JLabel discardPileA=new JLabel("DCP AI", SwingConstants.CENTER);
-			discardPileA.setBorder(BorderFactory.createLineBorder(Color.black));
-			discardA.add(discardPileA,BorderLayout.PAGE_START);
-			discardA.setVisible(false);
+			JPanel disCardViewA=new JPanel();
+			disCardViewA.setBorder(BorderFactory.createLineBorder(Color.black));
+			disCardViewA.setLayout(new CardLayout());
+			disCardViewA.setBounds(1274, 1, 90, 90);
+			JLabel disCardViewPileA=new JLabel("DCP AI", SwingConstants.CENTER);
+			disCardViewPileA.setBorder(BorderFactory.createLineBorder(Color.black));
+			disCardViewA.add(disCardViewPileA,BorderLayout.PAGE_START);
+			disCardViewA.setVisible(false);
 			
-		//Panel for discardpile-- end
+		//Panel for disCardViewpile-- end
 			
 		//Button for passing the turn--begin
 			
@@ -296,8 +296,8 @@ public class Game extends JFrame {
 		
 		gamePanel.add(bench1);
 		gamePanel.add(bench2);
-		gamePanel.add(discardP);
-		gamePanel.add(discardA);
+		gamePanel.add(disCardViewP);
+		gamePanel.add(disCardViewA);
 		gamePanel.add(done);
 		gamePanel.add(turnPanel);
 		
@@ -336,8 +336,8 @@ public class Game extends JFrame {
 		    bench2.setVisible(true);
 		    done.setVisible(true);
 		    label.setVisible(true);
-		    discardP.setVisible(true);
-		    discardA.setVisible(true);
+		    disCardViewP.setVisible(true);
+		    disCardViewA.setVisible(true);
 		  }
 		});
 		mainPanel.add(okay);
@@ -357,9 +357,13 @@ public class Game extends JFrame {
 		this.setLocationRelativeTo(null);
 	}
 	
+	
 	public static void main(String[] args) {
-		Game game = new Game();
-		game.setVisible(true);
+		
+		GameEngine ge = new GameEngine();
+		ge.initGame();
+		
+		
 	}
 
 }
