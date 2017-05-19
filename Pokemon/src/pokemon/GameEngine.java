@@ -104,11 +104,11 @@ public class GameEngine {
 			deck2[i] = trainer2[i];
 		}
 		// Add pokemon cards to deck
-		for (int i = 0; i < 5; i++) {
+		for (int i = 6; i < 10; i++) {
 			deck2[i] = pokemon2[i];
 		}
 		// Add energy cards to deck
-		for (int i = 0; i < 20; i++) {
+		for (int i = 11; i < 30; i++) {
 			deck2[i] = energy2[i];
 		}
 		// --------------------------------------------------------------------------------//
