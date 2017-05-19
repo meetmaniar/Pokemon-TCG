@@ -16,8 +16,8 @@ public class GameEngine {
 	public void initGame() {
 		// initialize the game by starting parser, and initializing the core
 		// classes
-		deck1 = new Card[60];
-		deck2 = new Card[60];
+		deck1 = new Card[30];
+		deck2 = new Card[30];
 		// ----------------------------------DECK
 		// 1----------------------------------------------//
 		// prepare the deck1
@@ -56,11 +56,11 @@ public class GameEngine {
 			deck1[i] = trainer[i];
 		}
 		// Add pokemon cards to deck
-		for (int i = 0; i < 5; i++) {
+		for (int i = 6; i < 10; i++) {
 			deck1[i] = pokemon[i];
 		}
 		// Add energy cards to deck
-		for (int i = 0; i < 20; i++) {
+		for (int i = 11; i < 30; i++) {
 			deck1[i] = energy[i];
 		}
 		// --------------------------------------------------------------------------------//
@@ -117,19 +117,12 @@ public class GameEngine {
 		doShuffle(deck2);
 
 		initUI();
-
-		
-		
 	}
 
-	public void initDeck(Card deck[]) {
-
-	}
-
-	public void doParse() {
-		// Add the parser thread
-
-	}
+//	public void doParse() {
+//		// Add the parser thread
+//
+//	}
 
 	public void doShuffle(Card deck[]) {
 

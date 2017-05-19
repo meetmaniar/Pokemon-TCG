@@ -24,6 +24,12 @@ public class CardPokemon extends Card{
 	boolean									m_active;
 	String									m_evolve;
 
+	
+	public void setActive()
+	{
+		// set the pokemon active
+	}
+	
 	public CardPokemon(String name, int pokemonType, int hp, int retreatCost, String evolve,  int energyType, int energyBasicCost,int energyAdvanceCost, int energyCostColorless) {
 
 		super(Card.TYPE_POKEMON);
