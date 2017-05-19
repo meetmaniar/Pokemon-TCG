@@ -4,6 +4,8 @@ import pokemon.CoreClasses.Card;
 import pokemon.CoreClasses.CardEnergy;
 import pokemon.CoreClasses.CardPokemon;
 import pokemon.CoreClasses.CardTrainer;
+import java.util.concurrent.ThreadLocalRandom;
+
 
 public class GameEngine {
 
