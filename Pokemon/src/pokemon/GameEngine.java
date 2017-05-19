@@ -127,6 +127,21 @@ public class GameEngine {
 	public void doShuffle(Card deck[]) {
 
 		// do the shuffling for the cards
+		Random rnd = ThreadLocalRandom.current();
+		    for (int i = deck.length - 1; i > 0; i--)
+		    {
+		      int index = rnd.nextInt(i + 1);
+		      // Simple swap
+		      Card a = deck[index];
+		      deck[index] = deck[i];
+		      deck[i] = a;
+		      
+		      for (int j = 0; j < deck.length; j++)
+		      {
+		        System.out.print(deck[j] + " ");
+		      }
+		      System.out.println();
+		    }
 
 	}
 
