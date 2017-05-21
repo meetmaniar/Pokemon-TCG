@@ -10,7 +10,7 @@ public class CardTrainer extends Card {
 	String name="";
 	
 	public CardTrainer() {
-	super();
+	super(2);
 	}
 	
 	public void initTrainer(String name,int trainer_type,int heal_amount)

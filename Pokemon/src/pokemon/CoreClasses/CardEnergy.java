@@ -11,6 +11,10 @@ public class CardEnergy extends Card{
 	
 	
 	
+	public CardEnergy()
+	{
+		super(1);
+	}
 	
 	public CardEnergy(int type) {
 		super(type);

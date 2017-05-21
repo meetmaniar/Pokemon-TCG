@@ -171,7 +171,7 @@ public class GameView extends JFrame {
 				bench2.setBounds(540, 443, 350, 75);
 				bench2.setVisible(false);
 				
-				CardView B11 = new CardView("PC-1",50,20,20);  //PC: Player bench cards
+				CardView B11 = new CardView(" ",50,20,20);  //PC: Player bench cards
 				bench2.add(B11);
 				
 				CardView B12 = new CardView("PC-2",50,20,20);
@@ -412,8 +412,8 @@ public class GameView extends JFrame {
 	public static void main(String[] args) {
 		
 		GameEngine ge = new GameEngine();
-		ge.initUI();
-		
+		//ge.initUI();
+		ge.initGame();
 		
 	}
 

@@ -6,7 +6,7 @@ public class Card {
 	public static final int TYPE_ENERGY = 1;
 	public static final int TYPE_TRAINER = 2;
 
-	int m_type;
+	public int m_type;
 	public Card()
 	{
 		
