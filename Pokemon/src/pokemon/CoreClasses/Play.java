@@ -7,6 +7,7 @@ import pokemon.GameEngine;
 
 
 
+
 public class Play {
 	
 	public Card active;
@@ -240,8 +241,6 @@ public class Play {
 		return true;
 		
 	}
-	
-	
 	
 	
 }

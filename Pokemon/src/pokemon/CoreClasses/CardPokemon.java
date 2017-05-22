@@ -23,6 +23,7 @@ public class CardPokemon extends Card{
 	CardPokemonAttack						m_attack;
 	boolean									m_active;
 	String									m_evolve;
+	int 									m_energy;
 
 	public CardPokemon()
 	{
@@ -53,6 +54,7 @@ public class CardPokemon extends Card{
 
 
 		m_energyCards.add(energy);
+		m_energy = m_energy + 10;
 
 
 	}
@@ -94,6 +96,7 @@ public class CardPokemon extends Card{
 			if(accumulatedEnergy >= m_retreatCost){
 				for(int i = 0; i <= m_retreatCost/10; i++){
 					m_energyCards.removeLast();
+					m_energy = m_energy - 10;
 				}
 				m_active = false;
 				removeStatus();
@@ -163,6 +166,19 @@ public class CardPokemon extends Card{
 		m_type=type;
 	}
 	
-	
-
+	public void paralize(CardPokemon opponent){
+		opponent.m_statusEffect = 1;
+	}
+	public void fallasleep(CardPokemon opponent){
+		opponent.m_statusEffect = 2;
+	}
+	public void stuck(CardPokemon opponent){
+		opponent.m_statusEffect = 3;
+	}
+	public void poison(CardPokemon opponent){
+		opponent.m_statusEffect = 4;
+		opponent.m_hp = opponent.m_hp - 10;
+	}
 }
+
+

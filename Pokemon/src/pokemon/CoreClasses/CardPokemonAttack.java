@@ -64,6 +64,4 @@ public class CardPokemonAttack {
 		target.m_hp = target.m_hp - damage;
 	}
 
-
-
 }

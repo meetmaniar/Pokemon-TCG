@@ -11,8 +11,8 @@ import java.util.*;
 
 public class GameEngine {
 
-	Card[] deck1 = new Card[25];
-	Card[] deck2 = new Card[25];
+	public Card[] deck1 = new Card[25];
+	public Card[] deck2 = new Card[25];
 
 	GameEngine() {
 
