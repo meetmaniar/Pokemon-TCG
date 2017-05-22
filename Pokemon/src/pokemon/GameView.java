@@ -8,6 +8,7 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.MouseInfo;
 import java.awt.event.*;
 
 import javax.swing.BorderFactory;
@@ -383,17 +384,19 @@ public class GameView extends JFrame {
 		
 		contentPane.add(mainPanel);
 		
-		/*int t=100;
-		ActionListener taskPerformer=new ActionListener(){
-
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				gamePanel.repaint();
+		MouseListener cursorLocation=new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				double X= MouseInfo.getPointerInfo().getLocation().getX();
+				double Y= MouseInfo.getPointerInfo().getLocation().getY();
+				System.out.println("X=" +X);
+				System.out.println("Y=" + Y);
+								
+				
+				
 			}
-			
 		};
-	Timer timer=new Timer(t,taskPerformer);*/
+		
+		this.addMouseListener(cursorLocation);
 		
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
