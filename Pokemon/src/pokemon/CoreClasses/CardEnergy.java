@@ -8,7 +8,6 @@ public class CardEnergy extends Card{
 	public static final int ENERGY_COLORLESS = 4;
 
 	public int 	m_type;
-	public int 	energy_level;
 	
 	
 	
@@ -22,10 +21,9 @@ public class CardEnergy extends Card{
 		m_type = type;
 	}
 
-	public void initEnergy(int type,int level)
+	public void initEnergy(int type)
 	{
 		m_type=type;
-		energy_level=level;
 	}
 	
 	

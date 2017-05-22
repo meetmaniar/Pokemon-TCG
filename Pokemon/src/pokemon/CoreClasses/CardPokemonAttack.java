@@ -26,18 +26,31 @@ public class CardPokemonAttack {
 	public void attackBasic(CardPokemon attacking, CardPokemon target){
 
 		int collectTypeEnergy = 0;
-		for(int i = 0; i <= attacking.m_energyCards.size(); i++){
-			int m_energyType=0;
-			if(attacking.m_energyCards.get(i).m_type == m_energyType){
-				collectTypeEnergy = collectTypeEnergy + 10;
+		int collectColorlessEnergy = 0;
+		if(m_attacktype1 >= 0){
+			for(int i = 0; i <= attacking.m_energyCards.size(); i++){
+				if(attacking.m_energyCards.get(i).m_type == m_attacktype1){
+					collectTypeEnergy = collectTypeEnergy + 10;
+				}
 			}
 		}
-		if(collectTypeEnergy >= m_energyBasicCost){
-			hit(target,m_energyBasicCost);
+		if(m_colorless1 >=0){
+			for(int i = 0; i <= attacking.m_energyCards.size(); i++){
+				if(attacking.m_energyCards.get(i).m_type != m_attacktype1){
+					collectColorlessEnergy = collectColorlessEnergy + 10;
+				}
+			}
+		}
+		int a = collectTypeEnergy+collectColorlessEnergy;
+		int b = m_energyBasicCost+m_colorless1Cost;
+		if( a >= b ){
+			hit(target,a);
 		}
 		else{
 			System.out.println("Not enough energy");
 		}
+		
+		
 
 	}
 
@@ -45,24 +58,25 @@ public class CardPokemonAttack {
 
 		int collectTypeEnergy = 0;
 		int collectColorlessEnergy = 0;
-		int currentEnergy = 0;
-		int m_energyCostColorless = 0;
-		int needEnergy = m_energyAdvanceCost +	m_energyCostColorless;
-
-		for(int i = 0; i <= attacking.m_energyCards.size(); i++){
-			int m_energyType = 0;
-			if(attacking.m_energyCards.get(i).m_type == m_energyType){
-				collectTypeEnergy = collectTypeEnergy + 10;
-			}
-			else{
-				collectColorlessEnergy = collectColorlessEnergy + 10;
+		
+		if(m_attacktype2 >= 0){
+			for(int i = 0; i <= attacking.m_energyCards.size(); i++){
+				if(attacking.m_energyCards.get(i).m_type == m_attacktype2){
+					collectTypeEnergy = collectTypeEnergy + 10;
+				}
 			}
 		}
-
-		currentEnergy = collectTypeEnergy + collectColorlessEnergy;
-
-		if(currentEnergy >= needEnergy){
-			hit(target,needEnergy);
+		if(m_colorless2 >=0){
+			for(int i = 0; i <= attacking.m_energyCards.size(); i++){
+				if(attacking.m_energyCards.get(i).m_type != m_attacktype2){
+					collectColorlessEnergy = collectColorlessEnergy + 10;
+				}
+			}
+		}
+		int a = collectTypeEnergy+collectColorlessEnergy;
+		int b = m_energyBasicCost+m_colorless1Cost;
+		if( a >= b ){
+			hit(target,a);
 		}
 		else{
 			System.out.println("Not enough energy");
