@@ -31,23 +31,31 @@ public class CardPokemon extends Card{
 	}
 	
 	
-	public void setActive()
-	{
-		// set the pokemon active
-	}
+//	public CardPokemon(String name, int pokemonType, int hp, int retreatCost, String evolve,  int energyType, int energyBasicCost,int energyAdvanceCost, int energyCostColorless) {
+//
+//		super(Card.TYPE_POKEMON);
+//
+//		m_name = name;
+//		m_pokemonType = pokemonType;
+//		m_hp = hp;
+//		m_retreatCost = retreatCost;
+//		m_energyCards = new LinkedList<CardEnergy>();
+//		m_attack = new CardPokemonAttack(energyType, energyBasicCost, energyAdvanceCost, energyCostColorless);
+//		m_evolve = evolve;
+//
+//	}
 	
-	public CardPokemon(String name, int pokemonType, int hp, int retreatCost, String evolve,  int energyType, int energyBasicCost,int energyAdvanceCost, int energyCostColorless) {
-
-		super(Card.TYPE_POKEMON);
-
-		m_name = name;
+	public void initPokemon(String name, int pokemonType, int energyType, int HP , int retreatCost, int attacktype1, int energyBasicCost, int colorless1, int colorless1Cost, int attacktype2, int energyAdvanceCost, int colorless2, int colorless2Cost)
+	{
+		m_name=name;
 		m_pokemonType = pokemonType;
-		m_hp = hp;
+		m_type=energyType;
+		m_hp=HP;
 		m_retreatCost = retreatCost;
 		m_energyCards = new LinkedList<CardEnergy>();
-		m_attack = new CardPokemonAttack(energyType, energyBasicCost, energyAdvanceCost, energyCostColorless);
-		m_evolve = evolve;
-
+		m_attack = new CardPokemonAttack(attacktype1, energyBasicCost, colorless1, colorless1Cost, attacktype2, energyAdvanceCost, colorless2, colorless2Cost );
+		
+		
 	}
 
 	public void addEnergy(CardEnergy energy) {
@@ -93,8 +101,8 @@ public class CardPokemon extends Card{
 
 			// Retreat.
 			int accumulatedEnergy = m_energyCards.size() * 10;
-			if(accumulatedEnergy >= m_retreatCost){
-				for(int i = 0; i <= m_retreatCost/10; i++){
+			if(accumulatedEnergy >= m_retreatCost * 10){
+				for(int i = 0; i <= m_retreatCost; i++){
 					m_energyCards.removeLast();
 					m_energy = m_energy - 10;
 				}
@@ -157,14 +165,6 @@ public class CardPokemon extends Card{
 
 	}
 
-	
-	
-	public void initPokemon(String name,int type, int HP )
-	{
-		m_name=name;
-		m_hp=HP;
-		m_type=type;
-	}
 	
 	public void paralize(CardPokemon opponent){
 		opponent.m_statusEffect = 1;

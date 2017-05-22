@@ -2,18 +2,25 @@ package pokemon.CoreClasses;
 
 public class CardPokemonAttack {
 
-	int	m_energyType;
+	int	m_attacktype1;
 	int m_energyBasicCost;
+	int m_colorless1;
+	int m_colorless1Cost;
+	int m_attacktype2;
 	int m_energyAdvanceCost;
-	int m_energyCostColorless;
+	int m_colorless2;
+	int m_colorless2Cost;
+	
 
-	public CardPokemonAttack(int energyType, int energyBasicCost, int energyAdvanceCost, int energyCostColorless) {
-
-		m_energyType = energyType;
+	public CardPokemonAttack(int attacktype1, int energyBasicCost, int colorless1, int colorless1Cost, int attacktype2, int energyAdvanceCost, int colorless2, int colorless2Cost) {
+		m_attacktype1 = attacktype1;
 		m_energyBasicCost = energyBasicCost;
+		m_colorless1 = colorless1;
+		m_colorless1Cost = colorless1Cost;
+		m_attacktype2 = attacktype2;
 		m_energyAdvanceCost = energyAdvanceCost;
-		m_energyCostColorless = energyCostColorless;
-
+		m_colorless2 = colorless2;
+		m_colorless2Cost = colorless2Cost;
 	}
 
 	public void attackBasic(CardPokemon attacking, CardPokemon target){

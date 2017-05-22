@@ -5,6 +5,7 @@ public class CardEnergy extends Card{
 	public static final int ENERGY_LIGHTING = 1;
 	public static final int ENERGY_PSYCHIC 	= 2;
 	public static final int ENERGY_FIGHTING = 3;
+	public static final int ENERGY_COLORLESS = 4;
 
 	int 	m_type;
 	int 	energy_level;
