@@ -27,6 +27,7 @@ public class CardPokemonAttack {
 
 		int collectTypeEnergy = 0;
 		for(int i = 0; i <= attacking.m_energyCards.size(); i++){
+			int m_energyType=0;
 			if(attacking.m_energyCards.get(i).m_type == m_energyType){
 				collectTypeEnergy = collectTypeEnergy + 10;
 			}
@@ -45,9 +46,11 @@ public class CardPokemonAttack {
 		int collectTypeEnergy = 0;
 		int collectColorlessEnergy = 0;
 		int currentEnergy = 0;
+		int m_energyCostColorless = 0;
 		int needEnergy = m_energyAdvanceCost +	m_energyCostColorless;
 
 		for(int i = 0; i <= attacking.m_energyCards.size(); i++){
+			int m_energyType = 0;
 			if(attacking.m_energyCards.get(i).m_type == m_energyType){
 				collectTypeEnergy = collectTypeEnergy + 10;
 			}

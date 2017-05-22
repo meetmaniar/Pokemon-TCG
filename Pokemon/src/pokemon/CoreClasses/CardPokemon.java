@@ -56,6 +56,8 @@ public class CardPokemon extends Card{
 		m_retreatCost = retreatCost;
 		m_energyCards = new LinkedList<CardEnergy>();
 		m_attack = new CardPokemonAttack(attacktype1, energyBasicCost, colorless1, colorless1Cost, attacktype2, energyAdvanceCost, colorless2, colorless2Cost );
+		
+		
 	}
 
 	public void addEnergy(CardEnergy energy) {

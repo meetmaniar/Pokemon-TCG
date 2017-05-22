@@ -35,19 +35,11 @@ public class CardView extends JPanel {
 		JLabel hpLabel=new JLabel("HP:" +String.valueOf(hitPoints));
 		hpLabel.setBounds(5,14,700,20);
 		
-		MouseListener listener=new MouseAdapter(){
-			public void mouseEntered(MouseEvent e){
-				
-				System.out.println("working");
-				
-				
-				
-			}
-		};
+		
 
 		this.add(nameLabel);
 		this.add(hpLabel);
-		this.addMouseListener(listener);
+		//this.addMouseListener(listener);
 	
 	}
 
@@ -67,19 +59,9 @@ public CardView(CardTrainer e) {
 		hpLabel.setBounds(5,14,700,20);
 
 		
-		MouseListener listener=new MouseAdapter(){
-			public void mouseEntered(MouseEvent e){
-				
-				//System.out.println("working");
-				System.out.println(name + hitPoints + attackPoints + specialAttackPoints);
-				
-				
-			}
-		};
-
 		this.add(typeLabel);
 		this.add(hpLabel);
-		this.addMouseListener(listener);
+		//this.addMouseListener(listener);
 	
 	}
 	
@@ -111,7 +93,7 @@ public CardView(CardEnergy e) {
 
 	this.add(typeLabel);
 	this.add(hpLabel);
-	this.addMouseListener(listener);
+	//this.addMouseListener(listener);
 
 }
 
