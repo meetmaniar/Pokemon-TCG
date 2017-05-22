@@ -74,21 +74,21 @@ public class GameEngine {
 			energy[i]= new CardEnergy();
 		
 		try{
-		energy[0].initEnergy(0, 40);
-		energy[1].initEnergy(0, 30);
-		energy[2].initEnergy(0, 30);
-		energy[3].initEnergy(0, 20);
-		energy[4].initEnergy(0, 10);
-		energy[5].initEnergy(0, 40);
-		energy[6].initEnergy(0, 30);
-		energy[7].initEnergy(0, 30);
-		energy[8].initEnergy(0, 20);
-		energy[9].initEnergy(0, 10);
-		energy[10].initEnergy(0, 40);
-		energy[11].initEnergy(0, 30);
-		energy[12].initEnergy(0, 30);
-		energy[13].initEnergy(0, 20);
-		energy[14].initEnergy(0, 10);
+		energy[0].initEnergy(1);
+		energy[1].initEnergy(1);
+		energy[2].initEnergy(1);
+		energy[3].initEnergy(1);
+		energy[4].initEnergy(1);
+		energy[5].initEnergy(1);
+		energy[6].initEnergy(1);
+		energy[7].initEnergy(1);
+		energy[8].initEnergy(1);
+		energy[9].initEnergy(1);
+		energy[10].initEnergy(1);
+		energy[11].initEnergy(1);
+		energy[12].initEnergy(1);
+		energy[13].initEnergy(1);
+		energy[14].initEnergy(1);
 		}
 		
 		catch(Exception e)
@@ -116,81 +116,60 @@ public class GameEngine {
 		// 2---------------------------------------------//
 		
 		// fetched from card.txt 
-		
-		
-//		Meowstic:pokemon:cat:stage-one:Espurr:cat:psychic:90:retreat:cat:colorless:1:attacks:cat:psychic:1:36,cat:psychic:3:37
-//		Jynx:pokemon:cat:basic:cat:psychic:70:retreat:cat:colorless:1:attacks:cat:colorless:2,cat:psychic:1:38
-//		Jirachi:pokemon:cat:basic:cat:psychic:70:retreat:cat:colorless:1:attacks:cat:psychic:1:39,cat:colorless:2,cat:psychic:1:40
-//		Meowth:pokemon:cat:basic:cat:colorless:60:retreat:cat:colorless:1:attacks:cat:colorless:1:41
-//		Meowth:pokemon:cat:basic:cat:colorless:60:retreat:cat:colorless:1:attacks:cat:colorless:1:42
-///Meowth:pokemon:cat:basic:cat:colorless
-		
-		
-		
-		
-		
 		// prepare the deck2
 		CardPokemon[] pokemon2 = new CardPokemon[5];
 		
 		for(int i=0;i<5;i++)
 		pokemon2[i]= new CardPokemon();
 		
-		//public void initPokemon(String name, int pokemonType, int energyType, int HP , int retreatCost, int attacktype1, int energyBasicCost, int colorless1, int colorless1Cost, int attacktype2, int energyAdvanceCost, int colorless2, int colorless2Cost)
-		
-		
-		
-		pokemon2[0].initPokemon("Meowstic", 0, 30, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
-		pokemon2[1].initPokemon("Jynx", 0, 40, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
-		pokemon2[2].initPokemon("Jirachi", 0, 60, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
-		pokemon2[3].initPokemon("Meowth", 0, 80, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
-		pokemon2[4].initPokemon("Machop", 0, 120, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+		pokemon2[0].initPokemon("Meowstic", 0, 0, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+		pokemon2[1].initPokemon("Jynx", 0, 0, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+		pokemon2[2].initPokemon("Jirachi", 0, 0, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+		pokemon2[3].initPokemon("Meowth", 0, 0, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+		pokemon2[4].initPokemon("Machop", 0, 0, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
 		
 		CardTrainer[] trainer2 = new CardTrainer[5];
 		for(int i=0;i<5;i++)
 			trainer2[i]= new CardTrainer();
+		
 		trainer2[0].initTrainer("Pokemon Center Lady", 0, 40);
 		trainer2[1].initTrainer("Potion", 0, 30);
 		trainer2[2].initTrainer("Super Power", 0, 30);
 		trainer2[3].initTrainer("Upgrade Power", 0, 20);
 		trainer2[4].initTrainer("Misty Power", 0, 10);
 
-		CardEnergy[] energy2 = new CardEnergy[20];
-		for(int i=0;i<20;i++)
+		CardEnergy[] energy2 = new CardEnergy[5];
+		for(int i=0;i<5;i++)
 			energy2[i]= new CardEnergy();
 		
-		energy2[0].initEnergy(0, 40);
-		energy2[1].initEnergy(0, 30);
-		energy2[2].initEnergy(0, 30);
-		energy2[3].initEnergy(0, 20);
-		energy2[4].initEnergy(0, 10);
-		energy2[5].initEnergy(0, 40);
-		energy2[6].initEnergy(0, 30);
-		energy2[7].initEnergy(0, 30);
-		energy2[8].initEnergy(0, 20);
-		energy2[9].initEnergy(0, 10);
-		energy2[10].initEnergy(0, 40);
-		energy2[11].initEnergy(0, 30);
-		energy2[12].initEnergy(0, 30);
-		energy2[13].initEnergy(0, 20);
-		energy2[14].initEnergy(0, 10);
+		energy2[0].initEnergy(1);
+		energy2[1].initEnergy(1);
+		energy2[2].initEnergy(1);
+		energy2[3].initEnergy(1);
+		energy2[4].initEnergy(1);
+
 
 		// Add trainer cards to deck
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 5; i++) 
+		{
 			deck2[deck2_top] = trainer2[i];
 			deck2_top++;
 		}
 		
 		// Add pokemon cards to deck
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 5; i++) 
+		{
 			deck2[deck2_top] = pokemon2[i];
 			deck2_top++;
 		}
 		
 		// Add energy cards to deck
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 5; i++) 
+		{
 			deck2[deck2_top] = energy2[i];
 			deck2_top++;
 		}
+		
 		// --------------------------------------------------------------------------------//
 
 		doShuffle(deck1);
@@ -201,7 +180,7 @@ public class GameEngine {
 		}
 		*/
 		
-		doShuffle(deck2);
+		//doShuffle(deck2);
 		
 		/*	System.out.println();
 		for(int a=0; a<deck2.length; a++)
@@ -244,9 +223,16 @@ public class GameEngine {
 		}
 		    for (int j = 0; j < deck.length -1 ; j++)
 		      {
-		        System.out.println("Type of the pokemon "+deck[j].m_type + " ");
+		    	try
+		    	{
+		        //System.out.println("Type of the pokemon "+deck[j].m_type + " ");
+		    	}
+		    	catch (Exception e)
+		    	{
+		    		e.printStackTrace();
+		    	}
 		      }
-		      System.out.println();
+		      
 		    
 		    
 	}

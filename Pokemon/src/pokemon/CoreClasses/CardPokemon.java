@@ -30,6 +30,8 @@ public class CardPokemon extends Card{
 	public CardPokemon()
 	{
 		super(0);
+		System.out.println("Poke Init Done");
+		
 	}
 	
 	

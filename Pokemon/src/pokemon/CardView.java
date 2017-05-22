@@ -68,7 +68,7 @@ public CardView(CardTrainer e) {
 public CardView(CardEnergy e) {
 	
 	int type=e.m_type;
-	int energy_level=e.energy_level;
+	int energy_level=10; // 10 because the energy amount for the damage is same for each pokemon right now.
 	this.setPreferredSize(new Dimension(63, 63));
 	this.setBorder(BorderFactory.createLineBorder(Color.black));
 

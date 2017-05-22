@@ -134,6 +134,9 @@ public class GameView extends JFrame {
 
 		subPanel.add(player1Panel, BorderLayout.PAGE_START);
 
+		
+		// Dynamic Back-end Connectivity
+		
 		JPanel player2Panel = new JPanel();
 		player2Panel.setPreferredSize(new Dimension(700, 76));
 		player2Panel.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -143,24 +146,44 @@ public class GameView extends JFrame {
 
 		// player 2 panel start ----
 
-		CardView hand[] = new CardView[30];
+		CardView hand[] = new CardView[15];
 
-		Card hand_backend[] = new Card[15];
+		 
+		
+		
+		
+		for (int i = 0; i < 15; i++) {
+			try{
+				
+			System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );	
+			
+			if (HUMAN.hand[i].m_type == 0)
+			{
+				hand[i] = new CardView((CardPokemon) HUMAN.hand[i]);
+			}
+			if (HUMAN.hand[i].m_type == 1)
+				hand[i] = new CardView((CardEnergy) HUMAN.hand[i]);
 
-		for (int i = 0; i < 14; i++) {
-			if (hand_backend[i].m_type == 0)
-				hand[i] = new CardView((CardPokemon) hand_backend[i]);
-
-			if (hand_backend[i].m_type == 1)
-				hand[i] = new CardView((CardEnergy) hand_backend[i]);
-
-			if (hand_backend[i].m_type == 2)
-				hand[i] = new CardView((CardTrainer) hand_backend[i]);
+			if (HUMAN.hand[i].m_type == 2)
+				hand[i] = new CardView((CardTrainer) HUMAN.hand[i]);
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
 
 		}
 
-		for (int i = 0; i < 14; i++) {
-			player2Panel.add(hand[i]);
+		for (int i = 0; i < 15; i++) {
+			try{
+				player2Panel.add(hand[i]);
+			}
+			catch(Exception e)
+			{
+				System.out.println(i);
+				e.printStackTrace();
+			}
+			
 		}
 
 		// Player 2 bench cards start---
