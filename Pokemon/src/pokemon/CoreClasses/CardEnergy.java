@@ -7,8 +7,8 @@ public class CardEnergy extends Card{
 	public static final int ENERGY_FIGHTING = 3;
 	public static final int ENERGY_COLORLESS = 4;
 
-	int 	m_type;
-	int 	energy_level;
+	public int 	m_type;
+	public int 	energy_level;
 	
 	
 	

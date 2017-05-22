@@ -5,8 +5,8 @@ public class CardTrainer extends Card {
 	public static final int TRAINER_SUPPORT = 1;
 	public static final int TRAINER_ITEM 	= 2;
 
-	int trainer_type;
-	int heal_amount;
+	public int trainer_type;
+	public int heal_amount;
 	String name="";
 	
 	public CardTrainer() {

@@ -14,16 +14,18 @@ public class CardPokemon extends Card{
 	public static final int STATUS_EFFECT_STUCK = 3;
 	public static final int STATUS_EFFECT_POISONED = 4;
 
-	String 									m_name;
-	int 									m_pokemonType;
-	int 									m_hp;
-	int										m_retreatCost;
-	int										m_statusEffect;
-	LinkedList<CardEnergy> 					m_energyCards;
-	CardPokemonAttack						m_attack;
-	boolean									m_active;
-	String									m_evolve;
-	int 									m_energy;
+
+	public String 									m_name;
+	public int 									m_pokemonType;
+	public int 									m_hp;
+	public int										m_retreatCost;
+	public int										m_statusEffect;
+	public LinkedList<CardEnergy> 					m_energyCards;
+	public CardPokemonAttack						m_attack;
+	public boolean									m_active;
+	public String									m_evolve;
+	public int 									m_energy;
+
 
 	public CardPokemon()
 	{
@@ -54,8 +56,6 @@ public class CardPokemon extends Card{
 		m_retreatCost = retreatCost;
 		m_energyCards = new LinkedList<CardEnergy>();
 		m_attack = new CardPokemonAttack(attacktype1, energyBasicCost, colorless1, colorless1Cost, attacktype2, energyAdvanceCost, colorless2, colorless2Cost );
-		
-		
 	}
 
 	public void addEnergy(CardEnergy energy) {

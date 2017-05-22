@@ -11,11 +11,19 @@ import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import pokemon.CoreClasses.Card;
+import pokemon.CoreClasses.CardEnergy;
+import pokemon.CoreClasses.CardPokemon;
+import pokemon.CoreClasses.CardTrainer;
 
+//String name,int hitPoints,int attackPoints, int specialAttackPoints
 
 public class CardView extends JPanel {
 	public String Publicname; 
-	public CardView(String name,int hitPoints,int attackPoints, int specialAttackPoints) {
+	public CardView(CardPokemon e) {
+		
+		String name=e.m_name;
+		int hitPoints=e.m_hp;
 		this.setPreferredSize(new Dimension(63, 63));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 
@@ -26,12 +34,38 @@ public class CardView extends JPanel {
 
 		JLabel hpLabel=new JLabel("HP:" +String.valueOf(hitPoints));
 		hpLabel.setBounds(5,14,700,20);
+		
+		MouseListener listener=new MouseAdapter(){
+			public void mouseEntered(MouseEvent e){
+				
+				System.out.println("working");
+				
+				
+				
+			}
+		};
 
-		JLabel apLabel=new JLabel("AP:" +String.valueOf(attackPoints));
-		apLabel.setBounds(5,29,700,20);
+		this.add(nameLabel);
+		this.add(hpLabel);
+		this.addMouseListener(listener);
+	
+	}
 
-		JLabel sapLabel=new JLabel("SAP:" +String.valueOf(specialAttackPoints));
-		sapLabel.setBounds(0,44,700,20);
+public CardView(CardTrainer e) {
+		
+		int type=e.trainer_type;
+		int heal_amount=e.heal_amount;
+		this.setPreferredSize(new Dimension(63, 63));
+		this.setBorder(BorderFactory.createLineBorder(Color.black));
+
+		this.setLayout(null);
+
+		JLabel typeLabel = new JLabel(Integer.toString(type));
+		typeLabel.setBounds(5, 0, 700, 20);
+
+		JLabel hpLabel=new JLabel("Heal Amount:" +String.valueOf(heal_amount));
+		hpLabel.setBounds(5,14,700,20);
+
 		
 		MouseListener listener=new MouseAdapter(){
 			public void mouseEntered(MouseEvent e){
@@ -43,12 +77,44 @@ public class CardView extends JPanel {
 			}
 		};
 
-		this.add(nameLabel);
+		this.add(typeLabel);
 		this.add(hpLabel);
-		this.add(apLabel);
-		this.add(sapLabel);
 		this.addMouseListener(listener);
 	
 	}
+	
+public CardView(CardEnergy e) {
+	
+	int type=e.m_type;
+	int energy_level=e.energy_level;
+	this.setPreferredSize(new Dimension(63, 63));
+	this.setBorder(BorderFactory.createLineBorder(Color.black));
 
+	this.setLayout(null);
+
+	JLabel typeLabel = new JLabel(Integer.toString(type));
+	typeLabel.setBounds(5, 0, 700, 20);
+
+	JLabel hpLabel=new JLabel("Energy Amount:" +String.valueOf(energy_level));
+	hpLabel.setBounds(5,14,700,20);
+
+	
+	MouseListener listener=new MouseAdapter(){
+		public void mouseEntered(MouseEvent e){
+			
+			System.out.println("working");
+			
+			
+			
+		}
+	};
+
+	this.add(typeLabel);
+	this.add(hpLabel);
+	this.addMouseListener(listener);
+
+}
+
+	
+	
 }

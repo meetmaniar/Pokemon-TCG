@@ -5,10 +5,17 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.ComponentOrientation;
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.MouseInfo;
+import java.awt.GridLayout;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.dnd.DnDConstants;
+import java.awt.dnd.DragGestureEvent;
+import java.awt.dnd.DragGestureListener;
+import java.awt.dnd.DragSource;
 import java.awt.event.*;
 
 import javax.swing.BorderFactory;
@@ -17,9 +24,18 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
+
+import pokemon.CoreClasses.Card;
+
+//
 import java.time.*;
 import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 
 public class GameView extends JFrame {
@@ -126,42 +142,18 @@ public class GameView extends JFrame {
 		player2Panel.setVisible(false);
 		// player 2 panel start ---- 
 		
-		CardView p1 = new CardView("pikacu",50,20,20);
-		player2Panel.add(p1);
+		CardView hand [] = new CardView[30];
+
+		Card hand_backend[]=new Card[15];
 		
-		CardView p2 = new CardView("abc",50,20,20);
-		player2Panel.add(p2);
+		for(int i=0;i<14;i++)
+		hand[i] = new CardView(hand_backend[i]);
 		
-		CardView p3 = new CardView("pidsf",50,20,20);
-		player2Panel.add(p3);
 		
-		CardView p4 = new CardView("pikacu",50,20,20);
-		player2Panel.add(p4);
 		
-		CardView p5 = new CardView("abc",50,20,20);
-		player2Panel.add(p5);
 		
-		CardView p6 = new CardView("pidsf",50,20,20);
-		player2Panel.add(p6);
 		
-		CardView p7 = new CardView("pikacu",50,20,20);
-		player2Panel.add(p7);
 		
-		CardView p8 = new CardView("abc",50,20,20);
-		player2Panel.add(p8);
-		
-		CardView p9 = new CardView("pidsf",50,20,20);
-		player2Panel.add(p9);
-		
-		CardView p10 = new CardView("pikacu",50,20,20);
-		player2Panel.add(p10);
-		
-		CardView p11 = new CardView("abc",50,20,20);
-		player2Panel.add(p11);
-		
-		CardView p12 = new CardView("pidsf",50,20,20);
-		player2Panel.add(p12);
-		// player 2 panel end ---
 		
 		//Player 2 bench cards start---
 		
@@ -172,7 +164,13 @@ public class GameView extends JFrame {
 				bench2.setBounds(540, 443, 350, 75);
 				bench2.setVisible(false);
 				
-				CardView B11 = new CardView(" ",50,20,20);  //PC: Player bench cards
+				
+				
+				
+				
+				
+				
+				CardView B11 = new CardView("PC-1",50,20,20);  //PC: Player bench cards
 				bench2.add(B11);
 				
 				CardView B12 = new CardView("PC-2",50,20,20);
@@ -189,6 +187,14 @@ public class GameView extends JFrame {
 				
 				
 		//Player 2 bench cards end---
+				
+				
+				
+		//--drag and drop--start
+		//new DragAndDropCardView(p1, B11);
+
+		//--drag and drop--end
+				
 		
 		subPanel.add(player2Panel, BorderLayout.PAGE_END);
 		
@@ -370,11 +376,53 @@ public class GameView extends JFrame {
 		    discardP.setVisible(true);
 		    discardA.setVisible(true);
 		    toolTip.setVisible(true);
+
+		 
+		 // remove the cards on bench start--
+		    ScheduledExecutorService exec = Executors.newScheduledThreadPool(1);
+	    
+		    Runnable taskRun = new Runnable() {
+	    	int secondsToWait = 2;
+	        public void run() {
+	            secondsToWait--;
+	            System.out.println("Ticks");
+	            if (secondsToWait == 0) {
+	            	//System.out.println("Ticks Com");	
+	            	B11.setVisible(false);
+	            	B12.setVisible(false);
+	            	B13.setVisible(false);
+	            	B14.setVisible(false);
+	            	B15.setVisible(false);
+	            
+	            	exec.shutdown();
+	            	
+	            	
+	            }
+	        }
+	    };
+	    
+	    exec.scheduleAtFixedRate(taskRun, 1, 1, TimeUnit.SECONDS);
+	 // remove the cards on bench end--
+	    
+	    
+//	  //--add JTextArea--start
+//	    for(int i = 0; i < 5; i++) {
+//	    	JTextArea area = new JTextArea();
+//
+//	        bench2.setLayout(new GridLayout(1, 1));
+//	        bench2.add(area);
+//	    }
+//	    
+//	    //--add JTextArea--end
+	    
+	
+
+		
+
 		  }
 		});
-		
-		
-		
+	    
+
 		mainPanel.add(okay);
 		subPanel.add(gamePanel, BorderLayout.CENTER);
 		
@@ -384,19 +432,17 @@ public class GameView extends JFrame {
 		
 		contentPane.add(mainPanel);
 		
-		MouseListener cursorLocation=new MouseAdapter(){
-			public void mouseEntered(MouseEvent e){
-				double X= MouseInfo.getPointerInfo().getLocation().getX();
-				double Y= MouseInfo.getPointerInfo().getLocation().getY();
-				System.out.println("X=" +X);
-				System.out.println("Y=" + Y);
-								
-				
-				
+		/*int t=100;
+		ActionListener taskPerformer=new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				gamePanel.repaint();
 			}
+			
 		};
-		
-		this.addMouseListener(cursorLocation);
+	Timer timer=new Timer(t,taskPerformer);*/
 		
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -409,14 +455,21 @@ public class GameView extends JFrame {
 		
 		
 		//addMouseListener(new MouseListener())
+		
+		
+		
+		
+		
+
 	}
 	
 	
 	public static void main(String[] args) {
 		
 		GameEngine ge = new GameEngine();
-		//ge.initUI();
-		ge.initGame();
+
+		ge.initUI();
+		
 		
 	}
 
