@@ -16,16 +16,16 @@ public class CardPokemon extends Card{
 
 
 	public String 									m_name;
-	public int 									m_pokemonType;
-	public int 									m_hp;
+	public int 										m_pokemonType;
+	public int 										m_hp;
 	public int										m_retreatCost;
 	public int										m_statusEffect;
 	public LinkedList<CardEnergy> 					m_energyCards;
 	public CardPokemonAttack						m_attack;
 	public boolean									m_active;
 	public String									m_evolve;
-	public int 									m_energy;
-
+	public int 										m_energy;
+	
 
 	public CardPokemon()
 	{
