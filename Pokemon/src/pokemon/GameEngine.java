@@ -35,12 +35,12 @@ public class GameEngine {
 		
 		try{
 		
-		pokemon[0].initPokemon("Pikachu", 0, 40);
-		pokemon[1].initPokemon("Electabuzz", 0, 80);
-		pokemon[2].initPokemon("Celebi", 0, 50);
-		pokemon[3].initPokemon("Eevee", 0, 70);
-		pokemon[4].initPokemon("Ditto", 0, 90);
-		}
+			pokemon[0].initPokemon("Meowstic", 0, 30, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+			pokemon[1].initPokemon("Jynx", 0, 40, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+			pokemon[2].initPokemon("Jirachi", 0, 60, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+			pokemon[3].initPokemon("Meowth", 0, 80, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+			pokemon[4].initPokemon("Machop", 0, 120, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+			}
 		catch(Exception e)
 		{
 			e.printStackTrace();
@@ -114,18 +114,37 @@ public class GameEngine {
 
 		// -----------------------------------DECK
 		// 2---------------------------------------------//
+		
+		// fetched from card.txt 
+		
+		
+//		Meowstic:pokemon:cat:stage-one:Espurr:cat:psychic:90:retreat:cat:colorless:1:attacks:cat:psychic:1:36,cat:psychic:3:37
+//		Jynx:pokemon:cat:basic:cat:psychic:70:retreat:cat:colorless:1:attacks:cat:colorless:2,cat:psychic:1:38
+//		Jirachi:pokemon:cat:basic:cat:psychic:70:retreat:cat:colorless:1:attacks:cat:psychic:1:39,cat:colorless:2,cat:psychic:1:40
+//		Meowth:pokemon:cat:basic:cat:colorless:60:retreat:cat:colorless:1:attacks:cat:colorless:1:41
+//		Meowth:pokemon:cat:basic:cat:colorless:60:retreat:cat:colorless:1:attacks:cat:colorless:1:42
+///Meowth:pokemon:cat:basic:cat:colorless
+		
+		
+		
+		
+		
 		// prepare the deck2
 		CardPokemon[] pokemon2 = new CardPokemon[5];
 		
 		for(int i=0;i<5;i++)
 		pokemon2[i]= new CardPokemon();
 		
-		pokemon2[0].initPokemon("Charmender", 0, 40);
-		pokemon2[1].initPokemon("Charizard", 0, 80);
-		pokemon2[2].initPokemon("Mewtwo", 0, 50);
-		pokemon2[3].initPokemon("Greninja", 0, 70);
-		pokemon2[4].initPokemon("Gengar", 0, 90);
-
+		//public void initPokemon(String name, int pokemonType, int energyType, int HP , int retreatCost, int attacktype1, int energyBasicCost, int colorless1, int colorless1Cost, int attacktype2, int energyAdvanceCost, int colorless2, int colorless2Cost)
+		
+		
+		
+		pokemon2[0].initPokemon("Meowstic", 0, 30, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+		pokemon2[1].initPokemon("Jynx", 0, 40, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+		pokemon2[2].initPokemon("Jirachi", 0, 60, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+		pokemon2[3].initPokemon("Meowth", 0, 80, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+		pokemon2[4].initPokemon("Machop", 0, 120, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top);
+		
 		CardTrainer[] trainer2 = new CardTrainer[5];
 		for(int i=0;i<5;i++)
 			trainer2[i]= new CardTrainer();
@@ -175,18 +194,27 @@ public class GameEngine {
 		// --------------------------------------------------------------------------------//
 
 		doShuffle(deck1);
-	/*	for(int a=0; a<deck1.length; a++)
+		
+		/*	for(int a=0; a<deck1.length; a++)
 		{
 			System.out.print(deck1[a].m_type+" ");
 		}
 		*/
+		
 		doShuffle(deck2);
-	/*	System.out.println();
+		
+		/*	System.out.println();
 		for(int a=0; a<deck2.length; a++)
 		{
 			System.out.print(deck2[a].m_type+" ");
 		}
 		*/
+		
+		// Initializing Deck 1 to AI and Deck 2 to HUMAN
+		GameView.AI.hand=deck1;
+		GameView.HUMAN.hand=deck2;
+		
+		
 		initUI();
 	}
 
