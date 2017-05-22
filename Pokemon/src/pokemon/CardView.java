@@ -36,8 +36,8 @@ public class CardView extends JPanel {
 		MouseListener listener=new MouseAdapter(){
 			public void mouseEntered(MouseEvent e){
 				
-				System.out.println("working");
-				
+				//System.out.println("working");
+				System.out.println(name + hitPoints + attackPoints + specialAttackPoints);
 				
 				
 			}
