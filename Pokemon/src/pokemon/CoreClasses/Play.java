@@ -123,15 +123,16 @@ public class Play {
 	
 	//organize card in hand and bench
 	public void swap(Card c[], int i){
-		for(int m = i; m < c.length-1; m++ ){
-			if(i == hand.length - 1){
+		for(int m = i; m < c.length; m++ ){
+			if(m == c.length - 1){
+				System.out.println("*Value of m "+m);
 				hand[m] = null;
 			}
 			else{
 				System.out.println("Value of m "+m);
 				hand[m] = hand [m+1];
+				}	
 			}	
-		}
 	}
 	
 	public void placeBench(int i){
@@ -193,11 +194,11 @@ public class Play {
 		
 	}
 	
-	public void useTrainerCard(CardTrainer a, CardPokemon c, CardPokemon d){
+	public void useTrainerCard(CardTrainer a, GameEngine g, CardPokemon c, CardPokemon d){
 		switch(a.trainer_ability) {
 
 			case 1:
-					a.abilityTrainer.ability1_Tierno(this);
+					a.abilityTrainer.ability1_Tierno(this, g);
 
 			case 2:
 					a.abilityTrainer.ability2_Potion(c);;
@@ -209,19 +210,19 @@ public class Play {
 					a.abilityTrainer.ability4_PokmonCenterLady(c, d);
 					
 			case 5:
-					//a.abilityTrainer.ability5_Clemont(this, g);
+					a.abilityTrainer.ability5_Clemont(this, g);
 					
 			case 6:
 					a.abilityTrainer.ability6_FloralCrown();
 					
 			case 7:
-					//a.abilityTrainer.ability7_PokemonBall(this, g);
+					a.abilityTrainer.ability7_PokemonBall(this, g);
 			
 			case 8:
 					a.abilityTrainer.ability8_Shauna();
 					
 			case 9:
-					//a.abilityTrainer.ability9_PokmonFanClub(this, g);
+					a.abilityTrainer.ability9_PokmonFanClub(this, g);
 			
 			case 10:
 					a.abilityTrainer.ability10_Switch((CardPokemon) active, c);
