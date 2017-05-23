@@ -12,7 +12,7 @@ public class GameEngine {
 	public Card[] deck1 = new Card[25];
 	public Card[] deck2 = new Card[25];
 
-	GameEngine() {
+	public GameEngine() {
 
 	}
 

@@ -15,11 +15,13 @@ public class Play {
 	public Card hand [];
 	public Card prize[];
 	public Card discard[];
+	public GameEngine g;
 	int bench_top;
 	int prize_top;
 	int discard_top;
 	int deck_top;
 	boolean role;
+	
 	
 	public Play(){	
 		active = new Card();
@@ -27,6 +29,7 @@ public class Play {
 		hand = new Card[30];
 		prize = new Card[6];
 		discard = new Card[60];
+		g = new GameEngine();
 	}
 	
 	//if player is AI, set role to true 
@@ -43,7 +46,7 @@ public class Play {
 	}
 	
 
-	public void drawSevenCards(GameEngine g){
+	public void drawSevenCards(){
 		if(!role){
 			deck_top = 0;
 			for(int i = 0; i < 7; i++){
@@ -62,7 +65,7 @@ public class Play {
 		
 	}
 	
-	public void drawPrizeCards(GameEngine g){
+	public void drawPrizeCards(){
 		if(!role){
 			for(int i = 0; i < 6; i++){
 				prize[i] = g.deck1[deck_top];
@@ -78,7 +81,7 @@ public class Play {
 		
 	}
 	
-	public void drawOneCard(GameEngine g){
+	public void drawOneCard(){
 		if(!role){
 			if(deck_top == 61){
 				System.out.println("No cards in decks");
@@ -183,7 +186,7 @@ public class Play {
 		
 	}
 	
-	public void useTrainerCard(CardTrainer a, GameEngine g, CardPokemon c, CardPokemon d){
+	public void useTrainerCard(CardTrainer a, CardPokemon c, CardPokemon d){
 		switch(a.trainer_ability) {
 
 			case 1:
@@ -316,7 +319,7 @@ public class Play {
 		}
 	}
 	
-	public boolean checkEnd(GameEngine g, Play opponent){
+	public boolean checkEnd(Play opponent){
 		if(prize == null){
 			System.out.println("Congrats! You Win");
 			return true;
