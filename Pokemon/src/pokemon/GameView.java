@@ -43,6 +43,9 @@ import java.util.concurrent.TimeUnit;
 
 public class GameView extends JFrame {
 
+	public JPanel toolTip ;
+
+	
 	public GameView() {
 		this.setTitle("Pokemon");
 
@@ -147,23 +150,19 @@ public class GameView extends JFrame {
 		// player 2 panel start ----
 
 		CardView hand[] = new CardView[15];
-
-		 
-		
-		
 		System.out.println("Shuffling Over Complete");
 		for (int i = 0; i < 15; i++) {
 			try{
 			System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );	
 			if (HUMAN.hand[i].m_type == 0)
 			{
-				hand[i] = new CardView((CardPokemon) HUMAN.hand[i]);
+				hand[i] = new CardView((CardPokemon) HUMAN.hand[i],this,i);
 			}
 			if (HUMAN.hand[i].m_type == 1)
-				hand[i] = new CardView((CardEnergy) HUMAN.hand[i]);
+				hand[i] = new CardView((CardEnergy) HUMAN.hand[i],this,i);
 
 			if (HUMAN.hand[i].m_type == 2)
-				hand[i] = new CardView((CardTrainer) HUMAN.hand[i]);
+				hand[i] = new CardView((CardTrainer) HUMAN.hand[i],this,i);
 			}
 			catch(Exception e)
 			{
@@ -330,20 +329,14 @@ public class GameView extends JFrame {
 		gamePanel.add(label);
 
 		// toolTip begin---
-		JPanel toolTip = new JPanel();
+		toolTip = new JPanel();
 		toolTip.setPreferredSize(new Dimension(700, 76));
 		toolTip.setBorder(BorderFactory.createLineBorder(Color.black));
 		toolTip.setLayout(new FlowLayout());
 		toolTip.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		toolTip.setVisible(false);
 		toolTip.setBounds(300, 100, 200, 400);
-		JLabel ttLabel = new JLabel("test");
-		JLabel ttnameLabel = new JLabel("working1");
-		JLabel ttattackLabel = new JLabel("working2");
-		JLabel ttspecialLabel = new JLabel("working3");
-		JLabel tthitLabel = new JLabel("working4");
-		toolTip.add(ttLabel, BorderLayout.CENTER);
-
+		
 		/*
 		 * MouseListener listener=new MouseAdapter(){ public void
 		 * mouseEntered(MouseEvent e){
