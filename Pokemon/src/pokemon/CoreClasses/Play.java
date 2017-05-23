@@ -183,8 +183,52 @@ public class Play {
 		
 	}
 	
-	public void useTrainer(CardTrainer a){
-		
+	public void useTrainerCard(CardTrainer a, GameEngine g, CardPokemon c, CardPokemon d){
+		switch(a.trainer_ability) {
+
+			case 1:
+					a.abilityTrainer.ability1_Tierno(this, g);
+
+			case 2:
+					a.abilityTrainer.ability2_Potion(c);;
+
+			case 3:
+					a.abilityTrainer.ability3_MistyDetermination();
+
+			case 4:
+					a.abilityTrainer.ability4_PokmonCenterLady(c, d);
+					
+			case 5:
+					a.abilityTrainer.ability5_Clemont(this, g);
+					
+			case 6:
+					a.abilityTrainer.ability6_FloralCrown();
+					
+			case 7:
+					a.abilityTrainer.ability7_PokemonBall(this, g);
+			
+			case 8:
+					a.abilityTrainer.ability8_Shauna();
+					
+			case 9:
+					a.abilityTrainer.ability9_PokmonFanClub(this, g);
+			
+			case 10:
+					a.abilityTrainer.ability10_Switch((CardPokemon) active, c);
+				
+			case 11:
+					a.abilityTrainer.ability11_EnergySwitch(c, d, 20);
+			
+			case 12:
+					a.abilityTrainer.ability12_RedCard();
+			
+			case 13:
+					a.abilityTrainer.ability13_Wally();
+
+			default:
+					System.out.println("do nothing");
+
+		}
 	}
 	
 //	public Card search(GameEngine g, int type){
