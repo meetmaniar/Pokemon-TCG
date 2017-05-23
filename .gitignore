@@ -1,1 +1,10 @@
+<<<<<<< Updated upstream
 /bin/
+=======
+
+*.class
+
+*.class
+>>>>>>> Stashed changes
+
+Pokemon/src/pokemon/GameView.java

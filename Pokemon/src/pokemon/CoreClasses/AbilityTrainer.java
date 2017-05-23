@@ -24,7 +24,7 @@ public class AbilityTrainer {
 	}
 	
 	// heal and destat
-	public void ability4_Pok¨¦monCenterLady(CardPokemon a, CardPokemon b){
+	public void ability4_PokmonCenterLady(CardPokemon a, CardPokemon b){
 		a.m_hp = a.m_hp + 60;
 		b.removeStatus();
 	}
@@ -45,7 +45,7 @@ public class AbilityTrainer {
 		
 	}
 	
-//	public void ability7_Pok¨¦Ball(Play p, GameEngine g){
+//	public void ability7_Pokï¿½ï¿½Ball(Play p, GameEngine g){
 //		//flip a coin
 //		int i = ThreadLocalRandom.current().nextInt(0,2);
 //		if(i == 1){
@@ -62,7 +62,7 @@ public class AbilityTrainer {
 		
 	}
 	
-//	public void ability8_Pok¨¦monFanClub(Play p, GameEngine g){
+//	public void ability8_Pokï¿½ï¿½monFanClub(Play p, GameEngine g){
 //		for(int i = 0; i < 2; i++){
 //			for(int j = 0; j < p.hand.length; j ++){
 //				if(p.hand[j] == null){
