@@ -71,6 +71,9 @@ public class Play {
 	
 	public void drawOneCard(GameEngine g){
 		if(!role){
+			if(deck_top == 61){
+				System.out.println("No cards in decks");
+			}
 			for(int i = 0; i <hand.length; i++){
 				if(hand[i] == null){
 					hand[i] = g.deck1[deck_top];
@@ -80,6 +83,9 @@ public class Play {
 			}
 		}
 		else{
+			if(deck_top == 61){
+				System.out.println("No cards in decks");
+			}
 			for(int i = 0; i <hand.length; i++){
 				if(hand[i] == null){
 					hand[i] = g.deck2[deck_top];
@@ -172,6 +178,46 @@ public class Play {
 		
 	}
 	
+//	public Card search(GameEngine g, int type){
+//		if(!role){
+//			for(int i = 0; i <= g.deck1.length; i++){
+//				if(g.deck1[deck_top+i].m_type == type){
+//					deck_top = deck_top + 1;
+//					return g.deck1[deck_top+i-1];
+//				}
+//			}
+//		}
+//		else{
+//			for(int i = 0; i <= g.deck1.length; i++){
+//				if(g.deck2[deck_top+i].m_type == type){
+//					deck_top = deck_top + 1;
+//					return g.deck2[deck_top+i-1];
+//				}
+//			}
+//		}
+//		return null;
+//	}
+	
+//	public Card searchBasicPokemon(GameEngine g){
+//		if(!role){
+//			for(int i =  ; i <= g.deck1.length; i++){
+//				if(g.deck1[deck_top+i].m_type == 0 && ((CardPokemon)g.deck1[deck_top+i]).m_pokemonType == 0){
+//					deck_top = deck_top + 1;
+//					return g.deck1[deck_top+i-1];
+//				}
+//			}
+//		}
+//		else{
+//			for(int i = 0; i <= g.deck1.length; i++){
+//				if(g.deck2[deck_top+i].m_type == 0 && ((CardPokemon)g.deck2[deck_top+i]).m_pokemonType == 0){
+//					deck_top = deck_top + 1;
+//					return g.deck2[deck_top+i-1];
+//				}
+//			}
+//		}
+//		return null;
+//	}
+	
 	public void retreatActive(int i){
 		((CardPokemon) active).retreat();
 	}
@@ -227,13 +273,13 @@ public class Play {
 			return true;
 		}
 		if(!role){
-			if(g.deck2 == null){
+			if(opponent.deck_top == 61){
 				System.out.println("Congrats! You Win!");
 				return true;
 			}
 		}
 		else{
-			if(g.deck1 == null){
+			if(opponent.deck_top == 61){
 				System.out.println("Oops! You Lose!");
 				return true;
 			}
