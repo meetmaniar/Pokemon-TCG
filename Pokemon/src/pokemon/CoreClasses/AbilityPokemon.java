@@ -2,7 +2,6 @@ package pokemon.CoreClasses;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import pokemon.GameEngine;
 
 public class AbilityPokemon {
 	
