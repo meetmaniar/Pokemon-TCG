@@ -18,7 +18,8 @@ import pokemon.CoreClasses.CardTrainer;
 
 //String name,int hitPoints,int attackPoints, int specialAttackPoints
 
-public class CardView extends JPanel {
+public class CardView extends JPanel 
+{
 	public String Publicname; 
 	public CardView(CardPokemon e) {
 		
@@ -46,7 +47,7 @@ public class CardView extends JPanel {
 public CardView(CardTrainer e) {
 		
 		int type=e.trainer_type;
-		int heal_amount=e.heal_amount;
+		int heal_amount=10;
 		this.setPreferredSize(new Dimension(63, 63));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 

@@ -54,11 +54,11 @@ public class GameEngine {
 			trainer[i]= new CardTrainer();
 		try{
 		
-		trainer[0].initTrainer("Pokemon Center Lady", 0, 40);
-		trainer[1].initTrainer("Potion", 0, 30);
-		trainer[2].initTrainer("Super Power", 0, 30);
-		trainer[3].initTrainer("Upgrade Power", 0, 20);
-		trainer[4].initTrainer("Misty Power", 0, 10);
+		trainer[0].initTrainer("Pokemon Center Lady", 0);
+		trainer[1].initTrainer("Potion", 0);
+		trainer[2].initTrainer("Super Power", 0);
+		trainer[3].initTrainer("Upgrade Power", 0);
+		trainer[4].initTrainer("Misty Power", 0);
 		}
 		
 		
@@ -132,11 +132,11 @@ public class GameEngine {
 		for(int i=0;i<5;i++)
 			trainer2[i]= new CardTrainer();
 		
-		trainer2[0].initTrainer("Pokemon Center Lady", 0, 40);
-		trainer2[1].initTrainer("Potion", 0, 30);
-		trainer2[2].initTrainer("Super Power", 0, 30);
-		trainer2[3].initTrainer("Upgrade Power", 0, 20);
-		trainer2[4].initTrainer("Misty Power", 0, 10);
+		trainer2[0].initTrainer("Pokemon Center Lady", 0);
+		trainer2[1].initTrainer("Potion", 0);
+		trainer2[2].initTrainer("Super Power", 0);
+		trainer2[3].initTrainer("Upgrade Power", 0);
+		trainer2[4].initTrainer("Misty Power", 0);
 
 		CardEnergy[] energy2 = new CardEnergy[5];
 		for(int i=0;i<5;i++)
@@ -180,7 +180,7 @@ public class GameEngine {
 		}
 		*/
 		
-		//doShuffle(deck2);
+		doShuffle(deck2);
 		
 		/*	System.out.println();
 		for(int a=0; a<deck2.length; a++)
@@ -213,10 +213,14 @@ public class GameEngine {
 		    {
 		      int index = rnd.nextInt(i + 1);
 		      // Simple swap
-		      Card a = new Card();
+		      Card a;
 		       a = deck[index];
 		      deck[index] = deck[i];
 		      deck[i] = a;
+		      
+		      
+		      
+		      
 		    }
 		}catch(Exception e){
 			e.printStackTrace();
@@ -232,7 +236,7 @@ public class GameEngine {
 		    		e.printStackTrace();
 		    	}
 		      }
-		      
+		      System.out.println("Shuffling Done");
 		    
 		    
 	}

@@ -151,12 +151,10 @@ public class GameView extends JFrame {
 		 
 		
 		
-		
+		System.out.println("Shuffling Over Complete");
 		for (int i = 0; i < 15; i++) {
 			try{
-				
 			System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );	
-			
 			if (HUMAN.hand[i].m_type == 0)
 			{
 				hand[i] = new CardView((CardPokemon) HUMAN.hand[i]);
