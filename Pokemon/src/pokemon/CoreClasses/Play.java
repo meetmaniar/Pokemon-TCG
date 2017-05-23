@@ -33,7 +33,16 @@ public class Play {
 	public void setDeck(){
 		role = true;
 	}
+	public void handToBench(int hand_index){
+		System.arraycopy(hand, hand_index, bench, 0, 1);
+		for(int i=hand_index+1;i<=hand.length;i++)
+		{
+			hand[i-1]=hand[i];    /*Please check this method*/
+		}
+		
+	}
 	
+
 	public void drawSevenCards(GameEngine g){
 		if(!role){
 			deck_top = 0;
