@@ -190,7 +190,7 @@ public class Play {
 		switch(a.trainer_ability) {
 
 			case 1:
-					a.abilityTrainer.ability1_Tierno(this, g);
+					a.abilityTrainer.ability1_Tierno(this);
 
 			case 2:
 					a.abilityTrainer.ability2_Potion(c);;

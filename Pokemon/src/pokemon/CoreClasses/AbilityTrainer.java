@@ -8,10 +8,10 @@ public class AbilityTrainer {
 	
 	
 	//draw 3 cards
-	public void ability1_Tierno(Play p, GameEngine g){
-		p.drawOneCard(g);
-		p.drawOneCard(g);
-		p.drawOneCard(g);
+	public void ability1_Tierno(Play p){
+		p.drawOneCard();
+		p.drawOneCard();
+		p.drawOneCard();
 	}
 	
 	//heal
