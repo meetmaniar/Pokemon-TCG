@@ -12,7 +12,7 @@ public class GameEngine {
 	public Card[] deck1 = new Card[15];
 	public Card[] deck2 = new Card[15];
 
-	GameEngine() {
+	public GameEngine() {
 
 	}
 
@@ -52,11 +52,11 @@ public class GameEngine {
 			trainer[i] = new CardTrainer();
 		try {
 
-			trainer[0].initTrainer("Pokemon Center Lady", 0);
-			trainer[1].initTrainer("Potion", 0);
-			trainer[2].initTrainer("Super Power", 0);
-			trainer[3].initTrainer("Upgrade Power", 0);
-			trainer[4].initTrainer("Misty Power", 0);
+			trainer[0].initTrainer("Pokemon Center Lady", 0,1);
+			trainer[1].initTrainer("Potion", 0,2);
+			trainer[2].initTrainer("Super Power", 0,3);
+			trainer[3].initTrainer("Upgrade Power", 0,4);
+			trainer[4].initTrainer("Misty Power", 0,5);
 		}
 
 		catch (Exception e) {
@@ -131,11 +131,11 @@ public class GameEngine {
 		for (int i = 0; i < 5; i++)
 			trainer2[i] = new CardTrainer();
 
-		trainer2[0].initTrainer("Pokemon Center Lady", 0);
-		trainer2[1].initTrainer("Potion", 0);
-		trainer2[2].initTrainer("Super Power", 0);
-		trainer2[3].initTrainer("Upgrade Power", 0);
-		trainer2[4].initTrainer("Misty Power", 0);
+		trainer2[0].initTrainer("Pokemon Center Lady", 0,6);
+		trainer2[1].initTrainer("Potion", 0,7);
+		trainer2[2].initTrainer("Super Power", 0,8);
+		trainer2[3].initTrainer("Upgrade Power", 0,9);
+		trainer2[4].initTrainer("Misty Power", 0,10);
 
 		CardEnergy[] energy2 = new CardEnergy[5];
 		for (int i = 0; i < 5; i++)

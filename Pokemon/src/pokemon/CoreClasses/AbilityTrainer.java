@@ -8,10 +8,10 @@ public class AbilityTrainer {
 	
 	
 	//draw 3 cards
-	public void ability1_Tierno(Play p, GameEngine g){
-		p.drawOneCard(g);
-		p.drawOneCard(g);
-		p.drawOneCard(g);
+	public void ability1_Tierno(Play p){
+		//p.drawOneCard();
+		//p.drawOneCard();
+		//p.drawOneCard();
 	}
 	
 	//heal
@@ -20,7 +20,7 @@ public class AbilityTrainer {
 	}
 	
 	public void ability3_MistyDetermination(){
-		
+		System.out.println("not developed");
 	}
 	
 	// heal and destat
@@ -30,7 +30,7 @@ public class AbilityTrainer {
 	}
 	
 	//search
-//	public void ability5_Clemont(Play p, GameEngine g){
+	public void ability5_Clemont(Play p, GameEngine g){
 //		for(int i = 0; i < 4; i++){
 //			for(int j = 0; j < p.hand.length; j ++){
 //				if(p.hand[j] == null){
@@ -39,13 +39,14 @@ public class AbilityTrainer {
 //				}
 //			}
 //		}	
-//	}
-	
-	public void ability6_FloralCrown(){
-		
+		System.out.println("not developed");
 	}
 	
-//	public void ability7_Pok��Ball(Play p, GameEngine g){
+	public void ability6_FloralCrown(){
+		System.out.println("not developed");
+	}
+	
+	public void ability7_PokemonBall(Play p, GameEngine g){
 //		//flip a coin
 //		int i = ThreadLocalRandom.current().nextInt(0,2);
 //		if(i == 1){
@@ -56,13 +57,14 @@ public class AbilityTrainer {
 //				}
 //			}
 //		}
-//	}
-//	
-	public void ability7_Shauna(){
-		
+		System.out.println("not developed");
 	}
 	
-//	public void ability8_Pok��monFanClub(Play p, GameEngine g){
+	public void ability8_Shauna(){
+		System.out.println("not developed");
+	}
+	
+	public void ability9_PokmonFanClub(Play p, GameEngine g){
 //		for(int i = 0; i < 2; i++){
 //			for(int j = 0; j < p.hand.length; j ++){
 //				if(p.hand[j] == null){
@@ -71,15 +73,17 @@ public class AbilityTrainer {
 //				}
 //			}
 //		}	
-//	}
+		System.out.println("not developed");
+	}
 	
-	public void ability9_Switch(CardPokemon active, CardPokemon bench){
+	public void ability10_Switch(CardPokemon active, CardPokemon bench){
 		CardPokemon a = active;
 		active = bench;
 		bench = a;
 	}
 	
-	public void ability10_EnergySwitch(CardPokemon source, CardPokemon destination, int amount){
+	//reenergize
+	public void ability11_EnergySwitch(CardPokemon source, CardPokemon destination, int amount){
 		source.m_energy = source.m_energy - amount*10;
 		destination.m_energy = destination.m_energy + amount*10;
 		for(int i = 0; i < amount; i ++){
@@ -87,12 +91,12 @@ public class AbilityTrainer {
 		}
 	}
 	
-	public void ability11_RedCard(){
-		
+	public void ability12_RedCard(){
+		System.out.println("not developed");
 	}
 	
-	public void ability12_Wally(){
-		
+	public void ability13_Wally(){
+		System.out.println("not developed");
 	}
 	
 }

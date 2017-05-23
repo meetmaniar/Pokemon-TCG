@@ -16,6 +16,7 @@ public class Play {
 	public Card prize[];
 	public Card discard[];
 	public Card shuffled_deck[];
+	
 	int bench_top;
 	int prize_top;
 	int discard_top;
@@ -24,6 +25,7 @@ public class Play {
 	
 	boolean role;
 	
+	
 	public Play(){	
 		active = new Card();
 		bench = new Card[5];
@@ -31,6 +33,7 @@ public class Play {
 		prize = new Card[6];
 		discard = new Card[30];
 		shuffled_deck = new Card[15];
+		
 	}
 	
 	//if player is AI, set role to true 
@@ -190,8 +193,52 @@ public class Play {
 		
 	}
 	
-	public void useTrainer(CardTrainer a){
-		
+	public void useTrainerCard(CardTrainer a, CardPokemon c, CardPokemon d){
+		switch(a.trainer_ability) {
+
+			case 1:
+					a.abilityTrainer.ability1_Tierno(this);
+
+			case 2:
+					a.abilityTrainer.ability2_Potion(c);;
+
+			case 3:
+					a.abilityTrainer.ability3_MistyDetermination();
+
+			case 4:
+					a.abilityTrainer.ability4_PokmonCenterLady(c, d);
+					
+			case 5:
+					//a.abilityTrainer.ability5_Clemont(this, g);
+					
+			case 6:
+					a.abilityTrainer.ability6_FloralCrown();
+					
+			case 7:
+					//a.abilityTrainer.ability7_PokemonBall(this, g);
+			
+			case 8:
+					a.abilityTrainer.ability8_Shauna();
+					
+			case 9:
+					//a.abilityTrainer.ability9_PokmonFanClub(this, g);
+			
+			case 10:
+					a.abilityTrainer.ability10_Switch((CardPokemon) active, c);
+				
+			case 11:
+					a.abilityTrainer.ability11_EnergySwitch(c, d, 20);
+			
+			case 12:
+					a.abilityTrainer.ability12_RedCard();
+			
+			case 13:
+					a.abilityTrainer.ability13_Wally();
+
+			default:
+					System.out.println("do nothing");
+
+		}
 	}
 	
 //	public Card search(GameEngine g, int type){
@@ -279,7 +326,7 @@ public class Play {
 		}
 	}
 	
-	public boolean checkEnd(GameEngine g, Play opponent){
+	public boolean checkEnd(Play opponent){
 		if(prize == null){
 			System.out.println("Congrats! You Win");
 			return true;
