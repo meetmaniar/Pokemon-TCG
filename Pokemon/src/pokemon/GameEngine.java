@@ -9,8 +9,8 @@ import java.util.*;
 
 public class GameEngine {
 
-	public Card[] deck1 = new Card[25];
-	public Card[] deck2 = new Card[25];
+	public Card[] deck1 = new Card[15];
+	public Card[] deck2 = new Card[15];
 
 	GameEngine() {
 
@@ -32,16 +32,15 @@ public class GameEngine {
 			pokemon[i] = new CardPokemon();
 
 		try {
-
-			pokemon[0].initPokemon("Meowstic", 0, 30, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top,
+			pokemon[0].initPokemon("Meowstic", 0, 0, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top,
 					deck2_top, deck2_top, deck2_top, deck2_top);
-			pokemon[1].initPokemon("Jynx", 0, 40, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top,
+			pokemon[1].initPokemon("Jynx", 0, 0, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top,
 					deck2_top, deck2_top, deck2_top, deck2_top);
-			pokemon[2].initPokemon("Jirachi", 0, 60, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top,
+			pokemon[2].initPokemon("Jirachi", 0, 0, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top,
 					deck2_top, deck2_top, deck2_top, deck2_top);
-			pokemon[3].initPokemon("Meowth", 0, 80, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top,
+			pokemon[3].initPokemon("Meowth", 0, 0, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top,
 					deck2_top, deck2_top, deck2_top, deck2_top);
-			pokemon[4].initPokemon("Machop", 0, 120, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top,
+			pokemon[4].initPokemon("Machop", 0, 0, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top, deck2_top,
 					deck2_top, deck2_top, deck2_top, deck2_top);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -101,7 +100,7 @@ public class GameEngine {
 			deck1_top++;
 		}
 		// Add energy cards to deck
-		for (int i = 0; i < 15; i++) {
+		for (int i = 0; i < 5; i++) {
 			deck1[deck1_top] = energy[i];
 			deck1_top++;
 		}
@@ -140,32 +139,29 @@ public class GameEngine {
 
 		CardEnergy[] energy2 = new CardEnergy[5];
 		for (int i = 0; i < 5; i++)
+		{
 			energy2[i] = new CardEnergy();
-
-		energy2[0].initEnergy(1);
-		energy2[1].initEnergy(1);
-		energy2[2].initEnergy(1);
-		energy2[3].initEnergy(1);
-		energy2[4].initEnergy(1);
+			energy2[i].initEnergy(1);
+		}
+		
+		
 
 		// Add trainer cards to deck
 		for (int i = 0; i < 5; i++) {
 			deck2[deck2_top] = trainer2[i];
 			deck2_top++;
 		}
-
+		
 		// Add pokemon cards to deck
 		for (int i = 0; i < 5; i++) {
 			deck2[deck2_top] = pokemon2[i];
 			deck2_top++;
 		}
-
 		// Add energy cards to deck
 		for (int i = 0; i < 5; i++) {
 			deck2[deck2_top] = energy2[i];
 			deck2_top++;
 		}
-
 		// --------------------------------------------------------------------------------//
 
 		doShuffle(deck1);
@@ -175,16 +171,19 @@ public class GameEngine {
 		 * System.out.print(deck1[a].m_type+" "); }
 		 */
 
-		//doShuffle(deck2);
+		doShuffle(deck2);
 
 		/*
 		 * System.out.println(); for(int a=0; a<deck2.length; a++) {
 		 * System.out.print(deck2[a].m_type+" "); }
 		 */
 
+		GameView.AI.drawSevenCards(this);
+		GameView.HUMAN.drawSevenCards(this);
+		
 		// Initializing Deck 1 to AI and Deck 2 to HUMAN
-		GameView.AI.hand = deck1;
-		GameView.HUMAN.hand = deck2;
+		//GameView.AI.hand = deck1;
+		//GameView.HUMAN.hand = deck2;
 
 		initUI();
 	}
@@ -205,24 +204,15 @@ public class GameEngine {
 				int index = rnd.nextInt(i + 1);
 				// Simple swap
 				Card a;
-				
-				
-				
-				
-				
-				
 				a = deck[index];
 				deck[index] = deck[i];
 				deck[i] = a;
-
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		for (int j = 0; j < deck.length - 1; j++) {
 			try {
-				// System.out.println("Type of the pokemon "+deck[j].m_type + "
-				// ");
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

@@ -15,18 +15,22 @@ public class Play {
 	public Card hand [];
 	public Card prize[];
 	public Card discard[];
+	public Card shuffled_deck[];
 	int bench_top;
 	int prize_top;
 	int discard_top;
 	int deck_top;
+	int hand_top;
+	
 	boolean role;
 	
 	public Play(){	
 		active = new Card();
 		bench = new Card[5];
-		hand = new Card[30];
+		hand = new Card[15];
 		prize = new Card[6];
-		discard = new Card[60];
+		discard = new Card[30];
+		shuffled_deck = new Card[15];
 	}
 	
 	//if player is AI, set role to true 
@@ -108,17 +112,20 @@ public class Play {
 	
 	public void placeActive( int i){
 		active = hand[i];
+		
+		System.out.println("Poke" + hand[i].m_type);
 		((CardPokemon) active).m_active = true;
 		swap(hand,i);
 	}
 	
 	//organize card in hand and bench
 	public void swap(Card c[], int i){
-		for(int m = i; m < c.length; m++ ){
+		for(int m = i; m < c.length-1; m++ ){
 			if(i == hand.length - 1){
 				hand[m] = null;
 			}
 			else{
+				System.out.println("Value of m "+m);
 				hand[m] = hand [m+1];
 			}	
 		}
@@ -297,5 +304,70 @@ public class Play {
 		
 	}
 	
+	//------ AI Function ------// 
+	
+	
+	public void nextMove()
+	{
+	
+		addPokemonToBenchForAI();
+		selectActivePokemon();
+		addEnergyToAP();
+		attack();
+		//refreshUI();
+	}
+	
+	
+	
+	
+	public void selectActivePokemon()
+	{	
+		//1. Return false if the active Pokemon is available else select the new pokemon
+		
+		//2. check the hand to select the most powerful pokemon to make the acitve pokemon.
+		
+	}
+	
+	public void addPokemonToBenchForAI()
+	{
+		// check the hand to see if the pokemon is available, If yes, Move it to deck.
+	int selected_pokemon=0,max_hp=0;
+		for(int i=0;i<hand_top;i++)
+		{
+			if(hand[i].m_type==0)
+			{
+				int temp=((CardPokemon)hand[i]).m_hp;
+				if(temp>max_hp)
+				{
+					selected_pokemon=i;
+					max_hp=temp;
+				}	
+			}
+		}
+		placeBench(selected_pokemon);
+	}
+	
+	
+	
+	public void addEnergyToAP()
+	{
+		// check if Energy Card is available in the deck, Attach the energy card to the AP
+	
+		for(int i=0;i<hand_top;i++)
+		{
+			if(hand[i].m_type==1)
+			{
+				//int temp=(CardEnergy)
+			}
+		}
+		
+		
+	}
+	
+	public void attack()
+	{
+		// Create the Damage
+	
+	}
 	
 }

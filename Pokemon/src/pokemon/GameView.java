@@ -71,41 +71,47 @@ public class GameView extends JFrame {
 		player1Panel.setVisible(false);
 		// player 1 panel start ----
 
-		// CardView c11 = new CardView("AI-C-1",50,20,20);
-		// player1Panel.add(c11);
-		//
-		// CardView c21 = new CardView("AI-C-2",50,20,20);
-		// player1Panel.add(c21);
-		//
-		// CardView c31 = new CardView("AI-C-3",50,20,20);
-		// player1Panel.add(c31);
-		//
-		// CardView c41 = new CardView("AI-C-4",50,20,20);
-		// player1Panel.add(c41);
-		//
-		// CardView c51 = new CardView("AI-C-5",50,20,20);
-		// player1Panel.add(c51);
-		//
-		// CardView c61 = new CardView("AI-C-6",50,20,20);
-		// player1Panel.add(c61);
-		//
-		// CardView c71 = new CardView("AI-C-7",50,20,20);
-		// player1Panel.add(c71);
-		//
-		// CardView c81 = new CardView("AI-C-8",50,20,20);
-		// player1Panel.add(c81);
-		//
-		// CardView c91 = new CardView("AI-C-9",50,20,20);
-		// player1Panel.add(c91);
-		//
-		// CardView c101 = new CardView("AI-C-10",50,20,20);
-		// player1Panel.add(c101);
-		//
-		// CardView c111 = new CardView("AI-C-11",50,20,20);
-		// player1Panel.add(c111);
-		//
-		// CardView c121 = new CardView("AI-C-12",50,20,20);
-		// player1Panel.add(c121);
+		
+		
+		CardView hand_ai[] = new CardView[15];
+		System.out.println("Shuffling Over Complete");
+		for (int i = 0; i < 15; i++) {
+			try{
+			//System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );	
+			if(AI.hand[i]==null)
+			{
+				System.out.println("Hand Null");
+			}
+			if (AI.hand[i].m_type == 0)
+			{
+				hand_ai[i] = new CardView((CardPokemon) AI.hand[i],this,i);
+				
+			}
+			if (AI.hand[i].m_type == 1)
+				hand_ai[i] = new CardView((CardEnergy) AI.hand[i],this,i);
+
+			if (AI.hand[i].m_type == 2)
+				hand_ai[i] = new CardView((CardTrainer) AI.hand[i],this,i);
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+
+		}
+
+		for (int i = 0; i < 15; i++) {
+			try
+			{
+				player1Panel.add(hand_ai[i]);
+			}
+			catch(Exception e)
+			{
+				System.out.println(i);
+				e.printStackTrace();
+			}
+			
+		}
 
 		// player 1 panel end ---
 
@@ -149,20 +155,24 @@ public class GameView extends JFrame {
 
 		// player 2 panel start ----
 
-		CardView hand[] = new CardView[15];
+		CardView hand_player[] = new CardView[15];
 		System.out.println("Shuffling Over Complete");
 		for (int i = 0; i < 15; i++) {
 			try{
-			System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );	
+			//System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );	
+			if(HUMAN.hand[i]==null)
+			{
+				System.out.println("Hand Null");
+			}
 			if (HUMAN.hand[i].m_type == 0)
 			{
-				hand[i] = new CardView((CardPokemon) HUMAN.hand[i],this,i);
+				hand_player[i] = new CardView((CardPokemon) HUMAN.hand[i],this,i);
 			}
 			if (HUMAN.hand[i].m_type == 1)
-				hand[i] = new CardView((CardEnergy) HUMAN.hand[i],this,i);
+				hand_player[i] = new CardView((CardEnergy) HUMAN.hand[i],this,i);
 
 			if (HUMAN.hand[i].m_type == 2)
-				hand[i] = new CardView((CardTrainer) HUMAN.hand[i],this,i);
+				hand_player[i] = new CardView((CardTrainer) HUMAN.hand[i],this,i);
 			}
 			catch(Exception e)
 			{
@@ -173,7 +183,7 @@ public class GameView extends JFrame {
 
 		for (int i = 0; i < 15; i++) {
 			try{
-				player2Panel.add(hand[i]);
+				player2Panel.add(hand_player[i]);
 			}
 			catch(Exception e)
 			{
@@ -259,7 +269,7 @@ public class GameView extends JFrame {
 		long compareTime = 5;
 		long timePassed = System.currentTimeMillis() - compareTime;
 		long seconds = timePassed / 1000;
-		Boolean flag = false;
+		
 		String turn;
 		if (seconds % 2 == 0) {
 			turn = "Player's turn";
@@ -436,7 +446,6 @@ public class GameView extends JFrame {
 		 */
 
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 		this.setMinimumSize(new Dimension(600, 710));
 		this.setResizable(true);
 		this.pack();
