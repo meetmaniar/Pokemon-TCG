@@ -175,4 +175,6 @@ public class CardView extends JPanel implements MouseListener {
 		// gameView.refreshUI();
 	}
 
+	
+	
 }
