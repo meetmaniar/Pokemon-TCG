@@ -70,25 +70,13 @@ public class CardPokemonAttack {
 				attacking.m_abilityPokemon.ability6_QuickAttack(target);
 					
 			case 7:
-					a.abilityTrainer.ability7_PokemonBall(this, g);
+				attacking.m_abilityPokemon.ability7_CircleCircuit(target);
 			
 			case 8:
-					a.abilityTrainer.ability8_Shauna();
+				attacking.m_abilityPokemon.ability8_Thunderbolt(target, attacking, 20);
 					
 			case 9:
-					a.abilityTrainer.ability9_PokmonFanClub(this, g);
-			
-			case 10:
-					a.abilityTrainer.ability10_Switch((CardPokemon) active, c);
-				
-			case 11:
-					a.abilityTrainer.ability11_EnergySwitch(c, d, 20);
-			
-			case 12:
-					a.abilityTrainer.ability12_RedCard();
-			
-			case 13:
-					a.abilityTrainer.ability13_Wally();
+				attacking.m_abilityPokemon.ability9_RainSplash(target);
 
 			default:
 					System.out.println("do nothing");

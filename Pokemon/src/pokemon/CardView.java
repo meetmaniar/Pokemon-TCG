@@ -157,7 +157,7 @@ public class CardView extends JPanel implements MouseListener {
 		}
 		if (temp.index_bench > -1) {
 			System.out.println("Moving to Active");
-			GameView.HUMAN.placeActive(temp.index_bench);
+			GameView.HUMAN.placeBenchtoActive(temp.index_bench);
 		} else {
 			System.out.println("Moving to Bench");
 			GameView.HUMAN.placeBench(temp.index_hand);
