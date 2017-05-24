@@ -65,30 +65,12 @@ public class GameEngine {
 
 		CardEnergy[] energy = new CardEnergy[20];
 
-		for (int i = 0; i < 20; i++)
+		for (int i = 0; i < 5; i++)
+		{
 			energy[i] = new CardEnergy();
-
-		try {
-			energy[0].initEnergy(1);
-			energy[1].initEnergy(1);
-			energy[2].initEnergy(1);
-			energy[3].initEnergy(1);
-			energy[4].initEnergy(1);
-			energy[5].initEnergy(1);
-			energy[6].initEnergy(1);
-			energy[7].initEnergy(1);
-			energy[8].initEnergy(1);
-			energy[9].initEnergy(1);
-			energy[10].initEnergy(1);
-			energy[11].initEnergy(1);
-			energy[12].initEnergy(1);
-			energy[13].initEnergy(1);
-			energy[14].initEnergy(1);
+			energy[i].initEnergy(1);
 		}
-
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+		
 		// Add trainer cards to deck
 		for (int i = 0; i < 5; i++) {
 			deck1[deck1_top] = trainer[i];

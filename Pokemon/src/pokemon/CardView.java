@@ -115,7 +115,7 @@ public void mouseClicked(MouseEvent e) {
 	// TODO Auto-generated method stub
 	
 	System.out.println(index_hand);
-	gameView.refreshUI();
+	
 	
 	
 }
@@ -140,7 +140,7 @@ public void mouseEntered(MouseEvent e) {
 	gameView.toolTip.add(hpLabel);
 	gameView.toolTip.repaint();
 	//gameView.toolTip.revalidate();
-	gameView.refreshUI();
+	
 }
 
 @Override
@@ -150,7 +150,7 @@ public void mouseExited(MouseEvent e) {
 	gameView.toolTip.repaint();
 	this.add(nameLabel);
 	this.add(hpLabel);
-	gameView.refreshUI();
+	
 }
 
 @Override
@@ -158,11 +158,11 @@ public void mousePressed(MouseEvent e) {
 	// TODO Auto-generated method stub
 	
 	CardView temp = (CardView) e.getSource();
-	GameView.HUMAN.placeActive(temp.index_hand);
+	GameView.HUMAN.placeBench(temp.index_hand);
 	
+	gameView.refreshUI();
 	
-	
-	System.out.println(((CardPokemon)GameView.HUMAN.active).m_name);
+	//System.out.println(((CardPokemon)GameView.HUMAN.active).m_name);
 	//gameView.refreshUI();
 }
 

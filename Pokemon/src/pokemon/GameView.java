@@ -45,6 +45,9 @@ public class GameView extends JFrame {
 
 	public JPanel toolTip;
 
+	JPanel player1Panel;
+	JPanel player2Panel;
+	JPanel bench2;
 	public GameView() {
 		this.setTitle("Pokemon");
 
@@ -62,7 +65,7 @@ public class GameView extends JFrame {
 		JPanel subPanel = new JPanel();
 		subPanel.setLayout(new BorderLayout());
 
-		JPanel player1Panel = new JPanel();
+		player1Panel = new JPanel();
 		player1Panel.setPreferredSize(new Dimension(700, 76));
 		player1Panel.setBorder(BorderFactory.createLineBorder(Color.black));
 		player1Panel.setLayout(new FlowLayout());
@@ -75,9 +78,7 @@ public class GameView extends JFrame {
 		for (int i = 0; i < 15; i++) {
 			try {
 				// System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );
-				if (AI.hand[i] == null) {
-					System.out.println("Hand Null");
-				}
+				
 				if (AI.hand[i].m_type == 0) {
 					hand_ai[i] = new CardView((CardPokemon) AI.hand[i], this, i);
 
@@ -88,7 +89,7 @@ public class GameView extends JFrame {
 				if (AI.hand[i].m_type == 2)
 					hand_ai[i] = new CardView((CardTrainer) AI.hand[i], this, i);
 			} catch (Exception e) {
-				e.printStackTrace();
+				
 			}
 
 		}
@@ -98,7 +99,7 @@ public class GameView extends JFrame {
 				player1Panel.add(hand_ai[i]);
 			} catch (Exception e) {
 				System.out.println(i);
-				e.printStackTrace();
+				
 			}
 
 		}
@@ -135,13 +136,13 @@ public class GameView extends JFrame {
 
 		// Dynamic Back-end Connectivity
 
-		JPanel player2Panel = new JPanel();
+		player2Panel = new JPanel();
 		player2Panel.setPreferredSize(new Dimension(700, 76));
 		player2Panel.setBorder(BorderFactory.createLineBorder(Color.black));
 		player2Panel.setLayout(new FlowLayout());
 		player2Panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		player2Panel.setVisible(false);
-
+		
 		// player 2 panel start ----
 
 		CardView hand_player[] = new CardView[15];
@@ -150,7 +151,7 @@ public class GameView extends JFrame {
 			try {
 				// System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );
 				if (HUMAN.hand[i] == null) {
-					System.out.println("Hand Null");
+					
 				}
 				if (HUMAN.hand[i].m_type == 0) {
 					hand_player[i] = new CardView((CardPokemon) HUMAN.hand[i], this, i);
@@ -161,7 +162,7 @@ public class GameView extends JFrame {
 				if (HUMAN.hand[i].m_type == 2)
 					hand_player[i] = new CardView((CardTrainer) HUMAN.hand[i], this, i);
 			} catch (Exception e) {
-				e.printStackTrace();
+				
 			}
 
 		}
@@ -170,15 +171,15 @@ public class GameView extends JFrame {
 			try {
 				player2Panel.add(hand_player[i]);
 			} catch (Exception e) {
-				System.out.println(i);
-				e.printStackTrace();
+				
+				
 			}
 
 		}
 
 		// Player 2 bench cards start---
 
-		JPanel bench2 = new JPanel();
+		bench2 = new JPanel();
 		bench2.setBorder(BorderFactory.createLineBorder(Color.black));
 		bench2.setLayout(new FlowLayout());
 		bench2.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
@@ -466,9 +467,14 @@ public class GameView extends JFrame {
 
 	public void refreshUI() {
 		
+		player2Panel.removeAll();
+		bench2.removeAll();
+		refreshPlayer2Panel();
+		refreshBench();
 		invalidate();
 		validate();
 		repaint();
+		
 		System.out.println("refresh working");
 	}
 
@@ -481,4 +487,69 @@ public class GameView extends JFrame {
 		ge.initGame();
 	}
 
+	
+	public void refreshPlayer2Panel()
+	{
+		CardView hand_player[] = new CardView[15];
+		System.out.println("Shuffling Over Complete");
+		for (int i = 0; i < 15; i++) {
+			try {
+				// System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );
+				if (HUMAN.hand[i] == null) {
+					
+				}
+				if (HUMAN.hand[i].m_type == 0) {
+					hand_player[i] = new CardView((CardPokemon) HUMAN.hand[i], this, i);
+				}
+				if (HUMAN.hand[i].m_type == 1)
+					hand_player[i] = new CardView((CardEnergy) HUMAN.hand[i], this, i);
+
+				if (HUMAN.hand[i].m_type == 2)
+					hand_player[i] = new CardView((CardTrainer) HUMAN.hand[i], this, i);
+			} catch (Exception e) {
+				
+			}
+
+		}
+
+		for (int i = 0; i < 15; i++) {
+			try {
+				player2Panel.add(hand_player[i]);
+			} catch (Exception e) {
+				
+				
+			}
+
+		}
+	}
+	
+	
+	public void refreshBench()
+	{
+		CardView bench_player[] = new CardView[5];
+		for (int i = 0; i < 15; i++) {
+			try{
+				if (HUMAN.bench[i].m_type == 0) {
+					
+					bench_player[i] = new CardView((CardPokemon) HUMAN.bench[i], this, i);
+					}
+					
+				}
+			catch(Exception e)
+			{
+				
+			}
+			}
+
+		for (int i = 0; i < 5; i++) {
+			try{
+				bench2.add(bench_player[i]);
+			}
+			catch(Exception e)
+			{
+				
+			}
+		}
+	}
+	
 }
