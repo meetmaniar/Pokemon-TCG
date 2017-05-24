@@ -29,8 +29,11 @@ public class CardView extends JPanel implements MouseListener
 	int index_hand=-1;
 	int index_bench=-1;
 	int index_active=-1;
-	public CardView(CardPokemon e,GameView ge,int index) {
-		index_hand=index;
+	public CardView(CardPokemon e,GameView ge,int index_hand,int index_bench,int index_active) {
+		this.index_hand=index_hand;
+		this.index_bench=index_bench;
+		this.index_active=index_active;
+		
 		this.gameView=ge;
 		String name=e.m_name;
 		int hitPoints=e.m_hp;
@@ -157,9 +160,23 @@ public void mouseExited(MouseEvent e) {
 public void mousePressed(MouseEvent e) {
 	// TODO Auto-generated method stub
 	
-	CardView temp = (CardView) e.getSource();
-	GameView.HUMAN.placeBench(temp.index_hand);
 	
+	
+	
+	CardView temp = (CardView) e.getSource();
+	if(GameView.HUMAN.hand[temp.index_hand].m_type!=0)
+		return;
+	if(temp.index_bench>-1)
+	{
+		System.out.println("Moving to Active");
+		GameView.HUMAN.placeActive(temp.index_bench);
+	}
+	else
+	{
+		System.out.println("Moving to Active");
+		GameView.HUMAN.placeBench(temp.index_hand);
+		temp.index_bench=GameView.AI.bench_top;
+	}
 	gameView.refreshUI();
 	
 	//System.out.println(((CardPokemon)GameView.HUMAN.active).m_name);

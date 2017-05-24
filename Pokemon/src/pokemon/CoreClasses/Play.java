@@ -17,10 +17,10 @@ public class Play {
 	public Card discard[];
 	public Card shuffled_deck[];
 	
-	int bench_top;
-	int prize_top;
-	int discard_top;
-	int deck_top;
+	public int bench_top;
+	public int prize_top;
+	public int discard_top;
+	public int deck_top;
 	int hand_top;
 	
 	boolean role;
