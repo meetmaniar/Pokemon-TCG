@@ -135,11 +135,11 @@ public class Play {
 		for(int m = i; m < c.length; m++ ){
 			if(m == c.length - 1){
 				//System.out.println("*Value of m "+m);
-				hand[m] = null;
+				c[m] = null;
 			}
 			else{
 				//sSystem.out.println("Value of m "+m);
-				hand[m] = hand [m+1];
+				c[m] = c [m+1];
 				}	
 			}	
 	}
