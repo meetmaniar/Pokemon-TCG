@@ -114,11 +114,18 @@ public class Play {
 	}
 	
 	public void placeActive( int i){
-		active = bench[i];
+		active = hand[i];
 		
-		System.out.println("Poke" + bench[i].m_type);
+		//System.out.println("Poke" + bench[i].m_type);
 		((CardPokemon) active).m_active = true;
-		swap(bench,i);
+		swap(hand,i);
+	}
+	
+	public void placeBenchtoActive(int i){
+		active = bench[i];
+		((CardPokemon) active).m_active = true;
+		swap(bench, i);
+		
 	}
 	
 	//organize card in hand and bench
