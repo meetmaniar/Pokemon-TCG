@@ -18,10 +18,12 @@ public class AbilityPokemon {
 		}
 	}
 	
-	//choice 0:AI, 1:HUMAN, 2:random
-	public void deck(GameEngine g, int choice, int amount){
-		
-	}
+	//target:0(AI),1(HUMAN) destination:0(deck),1(discard) choice:0(AI),1(HUMAN),2(random)
+//	public void deck(int target, int destination, int choice, int amount, GameEngine g){
+//		if(target == 0){
+//			
+//		}
+//	}
 	
 	public void ability1_ActCute(){
 		

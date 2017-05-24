@@ -50,7 +50,7 @@ public class CardPokemon extends Card{
 //
 //	}
 	
-	public void initPokemon(String name, int pokemonType, int energyType, int HP , int retreatCost, int attacktype1, int energyBasicCost, int colorless1, int colorless1Cost, int attacktype2, int energyAdvanceCost, int colorless2, int colorless2Cost)
+	public void initPokemon(String name, int pokemonType, int energyType, int HP , int retreatCost, int attacktype1, int energyBasicCost, int colorless1, int colorless1Cost, int ability1, int attacktype2, int energyAdvanceCost, int colorless2, int colorless2Cost, int ability2)
 	{
 		m_name=name;
 		m_pokemonType = pokemonType;
@@ -58,8 +58,9 @@ public class CardPokemon extends Card{
 		m_hp=HP;
 		m_retreatCost = retreatCost;
 		m_energyCards = new LinkedList<CardEnergy>();
-		m_attack = new CardPokemonAttack(attacktype1, energyBasicCost, colorless1, colorless1Cost, attacktype2, energyAdvanceCost, colorless2, colorless2Cost );
+		m_attack = new CardPokemonAttack(attacktype1, energyBasicCost, colorless1, colorless1Cost, ability1, attacktype2, energyAdvanceCost, colorless2, colorless2Cost, ability2 );
 		m_abilityPokemon = new AbilityPokemon();
+		
 		
 	}
 

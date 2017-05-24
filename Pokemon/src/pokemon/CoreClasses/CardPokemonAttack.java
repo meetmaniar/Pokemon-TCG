@@ -10,9 +10,11 @@ public class CardPokemonAttack {
 	int m_energyAdvanceCost;
 	int m_colorless2;
 	int m_colorless2Cost;
+	int m_ability1;
+	int m_ability2;
 	
 
-	public CardPokemonAttack(int attacktype1, int energyBasicCost, int colorless1, int colorless1Cost, int attacktype2, int energyAdvanceCost, int colorless2, int colorless2Cost) {
+	public CardPokemonAttack(int attacktype1, int energyBasicCost, int colorless1, int colorless1Cost, int ability1, int attacktype2, int energyAdvanceCost, int colorless2, int colorless2Cost, int ability2) {
 		m_attacktype1 = attacktype1;
 		m_energyBasicCost = energyBasicCost;
 		m_colorless1 = colorless1;
@@ -21,6 +23,9 @@ public class CardPokemonAttack {
 		m_energyAdvanceCost = energyAdvanceCost;
 		m_colorless2 = colorless2;
 		m_colorless2Cost = colorless2Cost;
+		m_ability1 = ability1;
+		m_ability2 = ability2;
+		
 	}
 
 	public void attackBasic(CardPokemon attacking, CardPokemon target){
@@ -44,7 +49,53 @@ public class CardPokemonAttack {
 		int a = collectTypeEnergy+collectColorlessEnergy;
 		int b = m_energyBasicCost+m_colorless1Cost;
 		if( a >= b ){
-			hit(target,a);
+			switch(m_ability1) {
+
+			case 1:
+				attacking.m_abilityPokemon.ability1_ActCute();
+
+			case 2:
+				attacking.m_abilityPokemon.ability2_Scratch(target);
+
+			case 3:
+				attacking.m_abilityPokemon.ability3_QuickAttack(target);
+
+			case 4:
+				attacking.m_abilityPokemon.ability4_FlyingElekick(target);
+					
+			case 5:
+				attacking.m_abilityPokemon.ability5_Nuzzle(target);
+					
+			case 6:
+				attacking.m_abilityPokemon.ability6_QuickAttack(target);
+					
+			case 7:
+					a.abilityTrainer.ability7_PokemonBall(this, g);
+			
+			case 8:
+					a.abilityTrainer.ability8_Shauna();
+					
+			case 9:
+					a.abilityTrainer.ability9_PokmonFanClub(this, g);
+			
+			case 10:
+					a.abilityTrainer.ability10_Switch((CardPokemon) active, c);
+				
+			case 11:
+					a.abilityTrainer.ability11_EnergySwitch(c, d, 20);
+			
+			case 12:
+					a.abilityTrainer.ability12_RedCard();
+			
+			case 13:
+					a.abilityTrainer.ability13_Wally();
+
+			default:
+					System.out.println("do nothing");
+
+		}
+			
+			//hit(target,a);
 		}
 		else{
 			System.out.println("Not enough energy");
