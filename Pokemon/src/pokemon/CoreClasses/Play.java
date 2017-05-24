@@ -116,7 +116,6 @@ public class Play {
 	
 	public void placeActive( int i){
 		active = hand[i];
-		hand[i] = null;
 		
 		//System.out.println("Poke" + bench[i].m_type);
 		((CardPokemon) active).m_active = true;
@@ -147,7 +146,6 @@ public class Play {
 	
 	public void placeBench(int i){
 		bench[bench_top] = hand[i];
-		hand[i] = null;
 		bench_top = bench_top + 1;
 		swap(hand, i);
 	}
