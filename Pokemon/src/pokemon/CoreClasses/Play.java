@@ -114,22 +114,22 @@ public class Play {
 	}
 	
 	public void placeActive( int i){
-		active = hand[i];
+		active = bench[i];
 		
-		System.out.println("Poke" + hand[i].m_type);
+		System.out.println("Poke" + bench[i].m_type);
 		((CardPokemon) active).m_active = true;
-		swap(hand,i);
+		swap(bench,i);
 	}
 	
 	//organize card in hand and bench
 	public void swap(Card c[], int i){
 		for(int m = i; m < c.length; m++ ){
 			if(m == c.length - 1){
-				System.out.println("*Value of m "+m);
+				//System.out.println("*Value of m "+m);
 				hand[m] = null;
 			}
 			else{
-				System.out.println("Value of m "+m);
+				//sSystem.out.println("Value of m "+m);
 				hand[m] = hand [m+1];
 				}	
 			}	

@@ -484,6 +484,44 @@ public class GameView extends JFrame {
 		invalidate();
 		validate();
 		repaint();
+		try{
+		System.out.println("Bench");
+		for(int i=0;i<HUMAN.bench.length;i++)
+		{
+			System.out.println(HUMAN.bench[i].m_type);
+		}
+
+		
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		try{
+			System.out.println("Hand" + HUMAN.hand.length);
+			for(int i=0;i<HUMAN.hand.length;i++)
+			{
+				System.out.println(HUMAN.hand[i].m_type);
+			}
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		
+		
+		
+		try{
+			
+			System.out.println("Active");
+			
+			System.out.println(HUMAN.active.m_type);
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
 		
 		System.out.println("refresh working");
 	}
@@ -553,7 +591,7 @@ public class GameView extends JFrame {
 
 		for (int i = 0; i < 5; i++) {
 			try{
-				bench2.add(active_player[i]);
+				active2.add(active_player[i]);
 			}
 			catch(Exception e)
 			{
@@ -568,7 +606,7 @@ public class GameView extends JFrame {
 		for (int i = 0; i < 5; i++) {
 			try{
 				if (HUMAN.bench[i].m_type == 0) {
-					
+					System.out.println("Setting -1");
 					bench_player[i] = new CardView( (CardPokemon) HUMAN.bench[i],this, -1,i,-1);
 					}
 					
