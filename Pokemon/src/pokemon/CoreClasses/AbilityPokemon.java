@@ -2,6 +2,8 @@ package pokemon.CoreClasses;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import pokemon.GameEngine;
+
 
 public class AbilityPokemon {
 	 
@@ -14,6 +16,11 @@ public class AbilityPokemon {
 		for(int i = 0; i < amount; i ++){
 			c.m_energyCards.removeLast();
 		}
+	}
+	
+	//choice 0:AI, 1:HUMAN, 2:random
+	public void deck(GameEngine g, int choice, int amount){
+		
 	}
 	
 	public void ability1_ActCute(){
