@@ -40,14 +40,14 @@ public class Play {
 	public void setDeck(){
 		role = true;
 	}
-	public void handToBench(int hand_index){
-		System.arraycopy(hand, hand_index, bench, 0, 1);
-		for(int i=hand_index+1;i<=hand.length;i++)
-		{
-			hand[i-1]=hand[i];    /*Please check this method*/
-		}
-		
-	}
+//	public void handToBench(int hand_index){
+//		System.arraycopy(hand, hand_index, bench, 0, 1);
+//		for(int i=hand_index+1;i<=hand.length;i++)
+//		{
+//			hand[i-1]=hand[i];    /*Please check this method*/
+//		}
+//		
+//	}
 	
 
 	public void drawSevenCards(GameEngine g){
@@ -113,13 +113,13 @@ public class Play {
 		
 	}
 	
-	public void placeActive( int i){
-		active = hand[i];
-		
-		//System.out.println("Poke" + bench[i].m_type);
-		((CardPokemon) active).m_active = true;
-		swap(hand,i);
-	}
+//	public void placeActive( int i){
+//		active = hand[i];
+//		
+//		//System.out.println("Poke" + bench[i].m_type);
+//		((CardPokemon) active).m_active = true;
+//		swap(hand,i);
+//	}
 	
 	public void placeBenchtoActive(int i){
 		active = bench[i];
@@ -140,6 +140,8 @@ public class Play {
 				hand[m] = hand [m+1];
 				}	
 			}	
+		
+		
 	}
 	
 	public void placeBench(int i){
