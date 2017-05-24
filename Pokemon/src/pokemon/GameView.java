@@ -466,8 +466,10 @@ public class GameView extends JFrame {
 
 	public void refreshUI() {
 		
-		revalidate();
+		invalidate();
+		validate();
 		repaint();
+		System.out.println("refresh working");
 	}
 
 	public static Play AI, HUMAN;
