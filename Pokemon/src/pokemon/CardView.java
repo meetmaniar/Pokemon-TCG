@@ -160,7 +160,7 @@ public void mousePressed(MouseEvent e) {
 	
 	
 	System.out.println(((CardPokemon)GameView.HUMAN.active).m_name);
-	
+	gameView.refreshUI();
 }
 
 @Override

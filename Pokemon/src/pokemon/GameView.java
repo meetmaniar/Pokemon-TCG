@@ -43,9 +43,8 @@ import java.util.concurrent.TimeUnit;
 
 public class GameView extends JFrame {
 
-	public JPanel toolTip ;
+	public JPanel toolTip;
 
-	
 	public GameView() {
 		this.setTitle("Pokemon");
 
@@ -71,46 +70,37 @@ public class GameView extends JFrame {
 		player1Panel.setVisible(false);
 		// player 1 panel start ----
 
-		
-		
 		CardView hand_ai[] = new CardView[15];
 		System.out.println("Shuffling Over Complete");
 		for (int i = 0; i < 15; i++) {
-			try{
-			//System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );	
-			if(AI.hand[i]==null)
-			{
-				System.out.println("Hand Null");
-			}
-			if (AI.hand[i].m_type == 0)
-			{
-				hand_ai[i] = new CardView((CardPokemon) AI.hand[i],this,i);
-				
-			}
-			if (AI.hand[i].m_type == 1)
-				hand_ai[i] = new CardView((CardEnergy) AI.hand[i],this,i);
+			try {
+				// System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );
+				if (AI.hand[i] == null) {
+					System.out.println("Hand Null");
+				}
+				if (AI.hand[i].m_type == 0) {
+					hand_ai[i] = new CardView((CardPokemon) AI.hand[i], this, i);
 
-			if (AI.hand[i].m_type == 2)
-				hand_ai[i] = new CardView((CardTrainer) AI.hand[i],this,i);
-			}
-			catch(Exception e)
-			{
+				}
+				if (AI.hand[i].m_type == 1)
+					hand_ai[i] = new CardView((CardEnergy) AI.hand[i], this, i);
+
+				if (AI.hand[i].m_type == 2)
+					hand_ai[i] = new CardView((CardTrainer) AI.hand[i], this, i);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 
 		}
 
 		for (int i = 0; i < 15; i++) {
-			try
-			{
+			try {
 				player1Panel.add(hand_ai[i]);
-			}
-			catch(Exception e)
-			{
+			} catch (Exception e) {
 				System.out.println(i);
 				e.printStackTrace();
 			}
-			
+
 		}
 
 		// player 1 panel end ---
@@ -143,9 +133,8 @@ public class GameView extends JFrame {
 
 		subPanel.add(player1Panel, BorderLayout.PAGE_START);
 
-		
 		// Dynamic Back-end Connectivity
-		
+
 		JPanel player2Panel = new JPanel();
 		player2Panel.setPreferredSize(new Dimension(700, 76));
 		player2Panel.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -158,39 +147,33 @@ public class GameView extends JFrame {
 		CardView hand_player[] = new CardView[15];
 		System.out.println("Shuffling Over Complete");
 		for (int i = 0; i < 15; i++) {
-			try{
-			//System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );	
-			if(HUMAN.hand[i]==null)
-			{
-				System.out.println("Hand Null");
-			}
-			if (HUMAN.hand[i].m_type == 0)
-			{
-				hand_player[i] = new CardView((CardPokemon) HUMAN.hand[i],this,i);
-			}
-			if (HUMAN.hand[i].m_type == 1)
-				hand_player[i] = new CardView((CardEnergy) HUMAN.hand[i],this,i);
+			try {
+				// System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );
+				if (HUMAN.hand[i] == null) {
+					System.out.println("Hand Null");
+				}
+				if (HUMAN.hand[i].m_type == 0) {
+					hand_player[i] = new CardView((CardPokemon) HUMAN.hand[i], this, i);
+				}
+				if (HUMAN.hand[i].m_type == 1)
+					hand_player[i] = new CardView((CardEnergy) HUMAN.hand[i], this, i);
 
-			if (HUMAN.hand[i].m_type == 2)
-				hand_player[i] = new CardView((CardTrainer) HUMAN.hand[i],this,i);
-			}
-			catch(Exception e)
-			{
+				if (HUMAN.hand[i].m_type == 2)
+					hand_player[i] = new CardView((CardTrainer) HUMAN.hand[i], this, i);
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 
 		}
 
 		for (int i = 0; i < 15; i++) {
-			try{
+			try {
 				player2Panel.add(hand_player[i]);
-			}
-			catch(Exception e)
-			{
+			} catch (Exception e) {
 				System.out.println(i);
 				e.printStackTrace();
 			}
-			
+
 		}
 
 		// Player 2 bench cards start---
@@ -202,6 +185,32 @@ public class GameView extends JFrame {
 		bench2.setBounds(540, 443, 350, 75);
 		bench2.setVisible(false);
 
+		
+		CardView bench_player[] = new CardView[5];
+		for (int i = 0; i < 15; i++) {
+			try{
+				if (HUMAN.bench[i].m_type == 0) {
+					
+					bench_player[i] = new CardView((CardPokemon) HUMAN.bench[i], this, i);
+					}
+					
+				}
+			catch(Exception e)
+			{
+				
+			}
+			}
+
+		for (int i = 0; i < 5; i++) {
+			try{
+				bench2.add(bench_player[i]);
+			}
+			catch(Exception e)
+			{
+				
+			}
+		}
+		
 		// CardView B11 = new CardView("PC-1",50,20,20); //PC: Player bench
 		// cards
 		// bench2.add(B11);
@@ -269,7 +278,7 @@ public class GameView extends JFrame {
 		long compareTime = 5;
 		long timePassed = System.currentTimeMillis() - compareTime;
 		long seconds = timePassed / 1000;
-		
+
 		String turn;
 		if (seconds % 2 == 0) {
 			turn = "Player's turn";
@@ -346,7 +355,7 @@ public class GameView extends JFrame {
 		toolTip.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		toolTip.setVisible(false);
 		toolTip.setBounds(300, 100, 200, 400);
-		
+
 		/*
 		 * MouseListener listener=new MouseAdapter(){ public void
 		 * mouseEntered(MouseEvent e){
@@ -453,6 +462,12 @@ public class GameView extends JFrame {
 
 		// addMouseListener(new MouseListener())
 
+	}
+
+	public void refreshUI() {
+		
+		revalidate();
+		repaint();
 	}
 
 	public static Play AI, HUMAN;
