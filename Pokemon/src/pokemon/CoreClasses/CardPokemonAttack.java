@@ -115,16 +115,45 @@ public class CardPokemonAttack {
 		int a = collectTypeEnergy+collectColorlessEnergy;
 		int b = m_energyBasicCost+m_colorless1Cost;
 		if( a >= b ){
-			hit(target,a);
+			switch(m_ability2) {
+
+			case 1:
+				attacking.m_abilityPokemon.ability1_ActCute();
+
+			case 2:
+				attacking.m_abilityPokemon.ability2_Scratch(target);
+
+			case 3:
+				attacking.m_abilityPokemon.ability3_QuickAttack(target);
+
+			case 4:
+				attacking.m_abilityPokemon.ability4_FlyingElekick(target);
+					
+			case 5:
+				attacking.m_abilityPokemon.ability5_Nuzzle(target);
+					
+			case 6:
+				attacking.m_abilityPokemon.ability6_QuickAttack(target);
+					
+			case 7:
+				attacking.m_abilityPokemon.ability7_CircleCircuit(target);
+			
+			case 8:
+				attacking.m_abilityPokemon.ability8_Thunderbolt(target, attacking, 20);
+					
+			case 9:
+				attacking.m_abilityPokemon.ability9_RainSplash(target);
+
+			default:
+					System.out.println("do nothing");
+
+		}
+			
 		}
 		else{
 			System.out.println("Not enough energy");
 		}
 
-	}
-
-	void hit(CardPokemon target, int damage){
-		target.m_hp = target.m_hp - damage;
 	}
 
 }
