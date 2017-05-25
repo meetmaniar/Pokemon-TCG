@@ -551,6 +551,8 @@ public class GameView extends JFrame {
 		player1Panel.removeAll();
 		bench1.removeAll();
 		bench2.removeAll();
+		active1.removeAll();
+		active2.removeAll();
 		refreshPlayer2Panel();
 		refreshBench();
 		refreshActive();
@@ -559,8 +561,8 @@ public class GameView extends JFrame {
 		repaint();
 		try {
 			System.out.println("Bench");
-			for (int i = 0; i < AI.bench.length; i++) {
-				System.out.println(AI.bench[i].m_type);
+			for (int i = 0; i < HUMAN.bench.length; i++) {
+				System.out.println(HUMAN.bench[i].m_type);
 			}
 		} catch (Exception e) {
 			// e.printStackTrace();
@@ -568,8 +570,8 @@ public class GameView extends JFrame {
 
 		try {
 			System.out.println("Hand");
-			for (int i = 0; i < AI.hand.length; i++) {
-				System.out.println(AI.hand[i].m_type);
+			for (int i = 0; i < HUMAN.hand.length; i++) {
+				System.out.println(HUMAN.hand[i].m_type);
 			}
 		} catch (Exception e) {
 			// e.printStackTrace();
@@ -579,7 +581,9 @@ public class GameView extends JFrame {
 
 			System.out.println("Active");
 
-			System.out.println(AI.active.m_type);
+			System.out.println("Pokemon Active "+HUMAN.active.m_type+ ((CardPokemon)HUMAN.active).m_energy);
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

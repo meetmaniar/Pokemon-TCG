@@ -23,7 +23,7 @@ public class Play {
 	public boolean role;
 
 	public Play() {
-		active = new Card();
+		//active;
 		bench = new Card[5];
 		hand = new Card[15];
 		prize = new Card[6];
@@ -179,16 +179,18 @@ public class Play {
 
 	// choose card in hand[i] to evolve pokemon on bench[j]
 	public void attachEnergyBench(int i, int j) {
-		((CardPokemon) bench[j]).addEnergy((CardEnergy) hand[i]);
+		((CardPokemon) bench[j]).addEnergy(10);
 		swap(hand, i);
 
 	}
 
 	// choose card in hand[i] to evolve pokemon on bench[j]
-	public void attachEnergyActive(int i) {
-		((CardPokemon) active).addEnergy((CardEnergy) hand[i]);
+	public void attachEnergyActive(int i) 
+	{
+		System.out.println("Energy Card Detected");
+		System.out.println(i);
+		((CardPokemon) active).addEnergy(10);
 		swap(hand, i);
-
 	}
 
 	public void useTrainerCard(CardTrainer a, GameEngine g, CardPokemon c, CardPokemon d) {

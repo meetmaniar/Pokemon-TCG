@@ -54,7 +54,7 @@ public class CardPokemon extends Card{
 	{
 		m_name=name;
 		m_pokemonType = pokemonType;
-		m_type=energyType;
+		m_energy=energyType;
 		m_hp=HP;
 		m_retreatCost = retreatCost;
 		m_energyCards = new LinkedList<CardEnergy>();
@@ -64,9 +64,9 @@ public class CardPokemon extends Card{
 		
 	}
 
-	public void addEnergy(CardEnergy energy) {
+	public void addEnergy(int energy_val) {
 
-		m_energyCards.add(energy);
+		//m_energyCards.add(energy);
 		m_energy = m_energy + 10;
 	}
 

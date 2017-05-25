@@ -25,6 +25,7 @@ public class CardView extends JPanel implements MouseListener {
 	JLabel hpLabel;
 	JLabel apLabel;
 	JLabel sapLabel;
+	
 	int index_hand = -1;
 	int index_bench = -1;
 	int index_active = -1;
@@ -39,6 +40,7 @@ public class CardView extends JPanel implements MouseListener {
 		this.gameView = ge;
 		String name = e.m_name;
 		int hitPoints = e.m_hp;
+		int energy= e.m_energy;
 
 		this.setPreferredSize(new Dimension(63, 63));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -51,8 +53,14 @@ public class CardView extends JPanel implements MouseListener {
 		hpLabel = new JLabel("HP:" + String.valueOf(hitPoints));
 		hpLabel.setBounds(5, 14, 700, 20);
 
+		System.out.print("Energy "+energy);
+		
+		apLabel = new JLabel("E:" + String.valueOf(energy));
+		apLabel.setBounds(5, 29, 700, 20);
+		
 		this.add(nameLabel);
 		this.add(hpLabel);
+		this.add(apLabel);
 		this.addMouseListener(this);
 
 	}
@@ -74,9 +82,7 @@ public class CardView extends JPanel implements MouseListener {
 		hpLabel = new JLabel("Heal Amount:" + String.valueOf(heal_amount));
 		hpLabel.setBounds(5, 14, 700, 20);
 
-		nameLabel = new JLabel("Heal Amount:" + String.valueOf(heal_amount));
-		nameLabel.setBounds(5, 0, 700, 20);
-
+		
 		this.add(typeLabel);
 		this.add(hpLabel);
 		this.addMouseListener(this);
@@ -130,10 +136,15 @@ public class CardView extends JPanel implements MouseListener {
 		if (nameLabel == null) {
 			System.out.println("Null nameLabel");
 		}
-
+		try{
 		gameView.toolTip.add(nameLabel);
 		gameView.toolTip.add(hpLabel);
 		gameView.toolTip.repaint();
+		}
+		catch(Exception ee)
+		{
+			
+		}
 		// gameView.toolTip.revalidate();
 
 	}
@@ -141,11 +152,18 @@ public class CardView extends JPanel implements MouseListener {
 	@Override
 	public void mouseExited(MouseEvent e) {
 
+		try{
+			
+		
 		gameView.toolTip.removeAll();
 		gameView.toolTip.repaint();
 		this.add(nameLabel);
 		this.add(hpLabel);
-
+		}
+		catch(Exception eead)
+		{
+		
+		}
 	}
 
 	@Override
@@ -157,16 +175,20 @@ public class CardView extends JPanel implements MouseListener {
 		
 		CardView temp = (CardView) e.getSource();
 		
-		if(temp.place.equals(""))
+		if(temp.place.equals("E"))
 		if(temp.IS_AI==0)
 		{
+			GameView.HUMAN.attachEnergyActive(temp.index_hand);	
+			System.out.println("Energy for the Human AP"+((CardPokemon)GameView.HUMAN.active).m_energy);
+			gameView.refreshUI();
 			
-			
+			return;
 		}
 		else
 		{
-			
-			
+			GameView.AI.attachEnergyActive(temp.index_hand);	
+			gameView.refreshUI();
+			return;
 		}
 		
 		

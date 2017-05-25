@@ -32,15 +32,15 @@ public class GameEngine {
 			pokemon[i] = new CardPokemon();
 
 		try {
-			pokemon[0].initPokemon("Pikachu", 0, 0, 50, deck2_top, deck2_top, 0,0,deck2_top, deck2_top, deck2_top,
+			pokemon[0].initPokemon("Pikachu", 0, 30, 50, deck2_top, deck2_top, 0,0,deck2_top, deck2_top, deck2_top,
 					deck2_top, deck2_top, deck2_top, deck2_top);
-			pokemon[1].initPokemon("Raichu", 0, 0, 60, deck2_top, deck2_top, deck2_top,0,0, deck2_top, deck2_top,
+			pokemon[1].initPokemon("Raichu", 0, 40, 60, deck2_top, deck2_top, deck2_top,0,0, deck2_top, deck2_top,
 					deck2_top, deck2_top, deck2_top, deck2_top);
-			pokemon[2].initPokemon("Bulbasor", 0, 0, 70, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top,
+			pokemon[2].initPokemon("Bulbasor", 0, 30, 70, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top,
 					deck2_top, deck2_top, deck2_top, deck2_top);
-			pokemon[3].initPokemon("Gengar", 0, 0, 80, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top,
+			pokemon[3].initPokemon("Gengar", 0, 20, 80, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top,
 					deck2_top, deck2_top, deck2_top, deck2_top);
-			pokemon[4].initPokemon("TeamRocket", 0, 0, 40, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top,
+			pokemon[4].initPokemon("TeamRocket", 0, 50, 40, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top,
 					deck2_top, deck2_top, deck2_top, deck2_top);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -98,15 +98,15 @@ public class GameEngine {
 		for (int i = 0; i < 5; i++)
 			pokemon2[i] = new CardPokemon();
 
-		pokemon2[0].initPokemon("Meowstic", 0, 0, 50, deck2_top, deck2_top, 0,0,deck2_top, deck2_top, deck2_top,
+		pokemon2[0].initPokemon("Meowstic", 0, 20, 50, deck2_top, deck2_top, 0,0,deck2_top, deck2_top, deck2_top,
 				deck2_top, deck2_top, deck2_top, deck2_top);
-		pokemon2[1].initPokemon("Jynx", 0, 0, 60, deck2_top, deck2_top, deck2_top,0,0, deck2_top, deck2_top,
+		pokemon2[1].initPokemon("Jynx", 0, 30, 60, deck2_top, deck2_top, deck2_top,0,0, deck2_top, deck2_top,
 				deck2_top, deck2_top, deck2_top, deck2_top);
-		pokemon2[2].initPokemon("Jirachi", 0, 0, 70, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top,
+		pokemon2[2].initPokemon("Jirachi", 0, 40, 70, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top,
 				deck2_top, deck2_top, deck2_top, deck2_top);
-		pokemon2[3].initPokemon("Meowth", 0, 0, 80, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top,
+		pokemon2[3].initPokemon("Meowth", 0, 50, 80, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top,
 				deck2_top, deck2_top, deck2_top, deck2_top);
-		pokemon2[4].initPokemon("Machop", 0, 0, 40, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top,
+		pokemon2[4].initPokemon("Machop", 0, 10, 40, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top,
 				deck2_top, deck2_top, deck2_top, deck2_top);
 
 		CardTrainer[] trainer2 = new CardTrainer[5];
