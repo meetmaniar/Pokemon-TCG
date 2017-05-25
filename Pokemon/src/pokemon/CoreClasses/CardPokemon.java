@@ -64,11 +64,12 @@ public class CardPokemon extends Card{
 		
 	}
 
-	public void addEnergy(CardEnergy energy) {
-
-
-		m_energyCards.add(energy);
+	public void addEnergy(Play p, int i) {
+		
+		
+		m_energyCards.add((CardEnergy) p.hand[i]);
 		m_energy = m_energy + 10;
+		p.swap(p.hand, i);
 
 
 	}
