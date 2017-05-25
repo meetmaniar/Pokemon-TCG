@@ -8,7 +8,7 @@ import pokemon.CoreClasses.Card;
 import pokemon.CoreClasses.CardPokemon;
 import pokemon.CoreClasses.Play;
 
-public class placeActiveTest {
+public class placeBenchtoActiveTest {
 
 	@Test
 	public void test() {
@@ -36,12 +36,12 @@ public class placeActiveTest {
 			e.printStackTrace();
 		}
 		for (int i = 0; i < 5; i++) {
-			player.hand[deck1_top] = pokemon[i];
+			player.bench[deck1_top] = pokemon[i];
 			deck1_top++;
 		}
 		
-		result1 = player.hand[1];
-		player.placeActive(1);
+		result1 = player.bench[1];
+		player.placeBenchtoActive(1);
 		result2 = player.active;
 		assertEquals(result1, result2);
 		
