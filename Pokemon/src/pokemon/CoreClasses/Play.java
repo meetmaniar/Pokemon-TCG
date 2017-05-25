@@ -355,7 +355,7 @@ public class Play {
 
 	public void nextMove() {
 		//selectActivePokemon();
-
+		
 		addPokemonToBenchForAI();
 
 		addPokemontoActiveForAI();
@@ -372,9 +372,6 @@ public class Play {
 
 		// 2. check the hand to select the most powerful pokemon to make the
 		// acitve pokemon.
-		
-		
-		
 		
 	}
 
@@ -433,6 +430,17 @@ public class Play {
 
 	}
 
-	
+	public void attack ( )
+	{
+		if(this.role==true)
+		{
+			((CardPokemon)GameView.HUMAN.active).m_hp=((CardPokemon)GameView.HUMAN.active).m_hp-20;
+		}
+		else
+		{
+			((CardPokemon)GameView.AI.active).m_hp=((CardPokemon)GameView.AI.active).m_hp-20;
+		}
+		
+	}
 
 }

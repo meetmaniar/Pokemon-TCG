@@ -28,12 +28,14 @@ public class CardView extends JPanel implements MouseListener {
 	int index_hand = -1;
 	int index_bench = -1;
 	int index_active = -1;
-
-	public CardView(CardPokemon e, GameView ge, int index_hand, int index_bench, int index_active) {
+	int IS_AI=0;
+	String place="";
+	public CardView(CardPokemon e, GameView ge, int index_hand, int index_bench, int index_active,int IS_AI,String place) {
+		this.place=place;
 		this.index_hand = index_hand;
 		this.index_bench = index_bench;
 		this.index_active = index_active;
-
+		this.IS_AI=IS_AI;
 		this.gameView = ge;
 		String name = e.m_name;
 		int hitPoints = e.m_hp;
@@ -55,7 +57,8 @@ public class CardView extends JPanel implements MouseListener {
 
 	}
 
-	public CardView(CardTrainer e, GameView ge, int index) {
+	public CardView(CardTrainer e, GameView ge, int index,String place) {
+		this.place=place;
 		index_hand = index;
 		this.gameView = ge;
 		int type = e.trainer_type;
@@ -80,7 +83,8 @@ public class CardView extends JPanel implements MouseListener {
 
 	}
 
-	public CardView(CardEnergy e, GameView ge, int index) {
+	public CardView(CardEnergy e, GameView ge, int index,String place) {
+		this.place=place;
 		index_hand = index;
 		this.gameView = ge;
 		int type = e.m_type;
@@ -148,7 +152,24 @@ public class CardView extends JPanel implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 		// TODO Auto-generated method stub
 
+		
+		
+		
 		CardView temp = (CardView) e.getSource();
+		
+		if(temp.place.equals(""))
+		if(temp.IS_AI==0)
+		{
+			
+			
+		}
+		else
+		{
+			
+			
+		}
+		
+		
 		try {
 			if (GameView.HUMAN.hand[temp.index_hand].m_type != 0)
 				return;

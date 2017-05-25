@@ -85,14 +85,12 @@ public class GameView extends JFrame {
 				// System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );
 
 				if (AI.hand[i].m_type == 0) {
-					hand_ai[i] = new CardView((CardPokemon) AI.hand[i], this, i, -1, -1);
-
+					hand_ai[i] = new CardView((CardPokemon) AI.hand[i], this, i, -1, -1,1,"P");
 				}
 				if (AI.hand[i].m_type == 1)
-					hand_ai[i] = new CardView((CardEnergy) AI.hand[i], this, i);
-
+					hand_ai[i] = new CardView((CardEnergy) AI.hand[i], this, i,"E");
 				if (AI.hand[i].m_type == 2)
-					hand_ai[i] = new CardView((CardTrainer) AI.hand[i], this, i);
+					hand_ai[i] = new CardView((CardTrainer) AI.hand[i], this, i,"T");
 			} catch (Exception e) {
 
 			}
@@ -134,7 +132,7 @@ public class GameView extends JFrame {
 			try {
 				if (AI.bench[i].m_type == 0) {
 
-					bench_ai[i] = new CardView((CardPokemon) AI.bench[i], this, i, -1, -1);
+					bench_ai[i] = new CardView((CardPokemon) AI.bench[i], this, i, -1, -1,1,"P");
 				}
 
 			} catch (Exception e) {
@@ -173,13 +171,13 @@ public class GameView extends JFrame {
 
 				}
 				if (HUMAN.hand[i].m_type == 0) {
-					hand_player[i] = new CardView((CardPokemon) HUMAN.hand[i], this, i, -1, -1);
+					hand_player[i] = new CardView((CardPokemon) HUMAN.hand[i], this, i, -1, -1,0,"P");
 				}
 				if (HUMAN.hand[i].m_type == 1)
-					hand_player[i] = new CardView((CardEnergy) HUMAN.hand[i], this, i);
+					hand_player[i] = new CardView((CardEnergy) HUMAN.hand[i], this, i,"E");
 
 				if (HUMAN.hand[i].m_type == 2)
-					hand_player[i] = new CardView((CardTrainer) HUMAN.hand[i], this, i);
+					hand_player[i] = new CardView((CardTrainer) HUMAN.hand[i], this, i,"T");
 			} catch (Exception e) {
 
 			}
@@ -216,7 +214,7 @@ public class GameView extends JFrame {
 			try {
 				if (HUMAN.bench[i].m_type == 0) {
 
-					bench_player[i] = new CardView((CardPokemon) HUMAN.bench[i], this, i, -1, -1);
+					bench_player[i] = new CardView((CardPokemon) HUMAN.bench[i], this, i, -1, -1,0,"P");
 				}
 
 			} catch (Exception e) {
@@ -296,6 +294,7 @@ public class GameView extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				GameView.AI.drawOneCard(ge);
 				AI.nextMove();
 				refreshUI();
 			}
@@ -317,6 +316,33 @@ public class GameView extends JFrame {
 
 		});
 		
+		JButton draw = new JButton("Draw");
+		draw.setPreferredSize(new Dimension(90, 90));
+		draw.setBounds(1350, 250, 70, 35);
+		draw.setVisible(false);
+		draw.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				GameView.HUMAN.drawOneCard(ge);
+				refreshUI();
+			}
+
+		});
+		
+		JButton attack = new JButton("Attack");
+		attack.setPreferredSize(new Dimension(90, 90));
+		attack.setBounds(1050, 450, 70, 35);
+		attack.setVisible(false);
+		attack.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				GameView.HUMAN.drawOneCard(ge);
+				refreshUI();
+			}
+
+		});
 		
 		
 		// done.setBackground(Color.red);
@@ -328,14 +354,15 @@ public class GameView extends JFrame {
 		long timePassed = System.currentTimeMillis() - compareTime;
 		long seconds = timePassed / 1000;
 
-		String turn;
-		if (seconds % 2 == 0) {
+		String turn = "";
+		if (true) {
 			turn = "Player's turn";
 			// flag=true;
-		} else {
-			turn = "AI's turn";
-			// flag=false;
-		}
+		} 
+//		else {
+//			turn = "AI's turn";
+//			// flag=false;
+//		}
 
 		JPanel turnPanel = new JPanel();
 		turnPanel.setPreferredSize(new Dimension(90, 90));
@@ -387,6 +414,8 @@ public class GameView extends JFrame {
 		gamePanel.add(discardA);
 		gamePanel.add(done);
 		gamePanel.add(refresh);
+		gamePanel.add(draw);
+		gamePanel.add(attack);
 		gamePanel.add(turnPanel);
 
 		// center image start --
@@ -448,6 +477,8 @@ public class GameView extends JFrame {
 				bench2.setVisible(true);
 				done.setVisible(true);
 				refresh.setVisible(true);
+				draw.setVisible(true);
+				attack.setVisible(true);
 				label.setVisible(true);
 				discardP.setVisible(true);
 				discardA.setVisible(true);
@@ -494,13 +525,9 @@ public class GameView extends JFrame {
 
 		mainPanel.add(okay);
 		subPanel.add(gamePanel, BorderLayout.CENTER);
-
 		mainPanel.add(subPanel, BorderLayout.CENTER);
-
 		Container contentPane = getContentPane();
-
 		contentPane.add(mainPanel);
-
 		/*
 		 * int t=100; ActionListener taskPerformer=new ActionListener(){
 		 * 
@@ -509,24 +536,21 @@ public class GameView extends JFrame {
 		 * 
 		 * }; Timer timer=new Timer(t,taskPerformer);
 		 */
-
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setMinimumSize(new Dimension(600, 710));
 		this.setResizable(true);
 		this.pack();
 		this.setLocationRelativeTo(null);
-
 		// addMouseListener(new MouseListener())
 
 	}
 
-	public void refreshUI() {
-
+	public void refreshUI() 
+	{
 		player2Panel.removeAll();
 		player1Panel.removeAll();
 		bench1.removeAll();
 		bench2.removeAll();
-
 		refreshPlayer2Panel();
 		refreshBench();
 		refreshActive();
@@ -538,7 +562,6 @@ public class GameView extends JFrame {
 			for (int i = 0; i < AI.bench.length; i++) {
 				System.out.println(AI.bench[i].m_type);
 			}
-
 		} catch (Exception e) {
 			// e.printStackTrace();
 		}
@@ -565,9 +588,9 @@ public class GameView extends JFrame {
 	}
 
 	public static Play AI, HUMAN;
-
+	static GameEngine ge;
 	public static void main(String[] args) {
-		GameEngine ge = new GameEngine();
+		ge = new GameEngine();
 		AI = new Play();
 		HUMAN = new Play();
 		
@@ -587,13 +610,13 @@ public class GameView extends JFrame {
 
 				}
 				if (HUMAN.hand[i].m_type == 0) {
-					hand_player[i] = new CardView((CardPokemon) HUMAN.hand[i], this, i, -1, -1);
+					hand_player[i] = new CardView((CardPokemon) HUMAN.hand[i], this, i, -1, -1,0,"P");
 				}
 				if (HUMAN.hand[i].m_type == 1)
-					hand_player[i] = new CardView((CardEnergy) HUMAN.hand[i], this, i);
+					hand_player[i] = new CardView((CardEnergy) HUMAN.hand[i], this, i,"E");
 
 				if (HUMAN.hand[i].m_type == 2)
-					hand_player[i] = new CardView((CardTrainer) HUMAN.hand[i], this, i);
+					hand_player[i] = new CardView((CardTrainer) HUMAN.hand[i], this, i,"T");
 			} catch (Exception e) {
 
 			}
@@ -616,14 +639,14 @@ public class GameView extends JFrame {
 				// System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );
 
 				if (AI.hand[i].m_type == 0) {
-					hand_ai[i] = new CardView((CardPokemon) AI.hand[i], this, i, -1, -1);
+					hand_ai[i] = new CardView((CardPokemon) AI.hand[i], this, i, -1, -1,1,"P");
 
 				}
 				if (AI.hand[i].m_type == 1)
-					hand_ai[i] = new CardView((CardEnergy) AI.hand[i], this, i);
+					hand_ai[i] = new CardView((CardEnergy) AI.hand[i], this, i,"E");
 
 				if (AI.hand[i].m_type == 2)
-					hand_ai[i] = new CardView((CardTrainer) AI.hand[i], this, i);
+					hand_ai[i] = new CardView((CardTrainer) AI.hand[i], this, i,"T");
 			} catch (Exception e) {
 
 			}
@@ -647,17 +670,17 @@ public class GameView extends JFrame {
 		try {
 			CardView active_player,active_ai;
 
-			active_player = new CardView((CardPokemon) HUMAN.active, this, -1, -1, 1);
+			active_player = new CardView((CardPokemon) HUMAN.active, this, -1, -1, 1,0,"P");
 			active2.add(active_player);
 			active2.repaint();
 			
-			active_ai = new CardView((CardPokemon) AI.active, this, -1, -1, 1);
+			active_ai = new CardView((CardPokemon) AI.active, this, -1, -1, 1,1,"P");
 			active1.add(active_ai);
 			active1.repaint();
 			
 			
 		} catch (Exception e) {
-			 e.printStackTrace();
+			 //e.printStackTrace();
 		}
 
 	}
@@ -668,7 +691,7 @@ public class GameView extends JFrame {
 			try {
 				if (HUMAN.bench[i].m_type == 0) {
 					System.out.println("----------------------------New SET---------------------------");
-					bench_player[i] = new CardView((CardPokemon) HUMAN.bench[i], this, -1, i, -1);
+					bench_player[i] = new CardView((CardPokemon) HUMAN.bench[i], this, -1, i, -1,0,"P");
 				}
 			} catch (Exception e) {
 			}
@@ -687,7 +710,7 @@ public class GameView extends JFrame {
 			try {
 				if (AI.bench[i].m_type == 0) {
 
-					bench_ai[i] = new CardView((CardPokemon) AI.bench[i], this, i, -1, -1);
+					bench_ai[i] = new CardView((CardPokemon) AI.bench[i], this, i, -1, -1,1,"P");
 				}
 
 			} catch (Exception e) {
@@ -704,5 +727,8 @@ public class GameView extends JFrame {
 		}
 
 	}
+	
+	
+	
 
 }
