@@ -436,13 +436,15 @@ public class Play {
 	{
 		if(this.role==true)
 		{
-			((CardPokemon)GameView.HUMAN.active).m_hp=((CardPokemon)GameView.HUMAN.active).m_hp-20;
+			((CardPokemon)GameView.HUMAN.active).m_hp=((CardPokemon)GameView.HUMAN.active).m_hp-((CardPokemon)GameView.AI.active).m_energy;
 		}
 		else
 		{
-			((CardPokemon)GameView.AI.active).m_hp=((CardPokemon)GameView.AI.active).m_hp-20;
+			((CardPokemon)GameView.AI.active).m_hp=((CardPokemon)GameView.AI.active).m_hp-((CardPokemon)GameView.HUMAN.active).m_energy;
 		}
 		
 	}
+	
+	
 
 }

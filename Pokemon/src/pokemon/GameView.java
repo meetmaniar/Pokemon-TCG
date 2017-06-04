@@ -297,6 +297,7 @@ public class GameView extends JFrame {
 				GameView.AI.drawOneCard(ge);
 				AI.nextMove();
 				refreshUI();
+				GameView.AI.attack();
 			}
 
 		});
@@ -338,7 +339,7 @@ public class GameView extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				GameView.HUMAN.drawOneCard(ge);
+				GameView.HUMAN.attack();
 				refreshUI();
 			}
 
