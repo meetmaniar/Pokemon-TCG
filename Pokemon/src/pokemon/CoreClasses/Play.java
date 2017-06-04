@@ -437,10 +437,27 @@ public class Play {
 		if(this.role==true)
 		{
 			((CardPokemon)GameView.HUMAN.active).m_hp=((CardPokemon)GameView.HUMAN.active).m_hp-((CardPokemon)GameView.AI.active).m_energy;
+			if(((CardPokemon)GameView.HUMAN.active).m_hp<=0)
+			{
+				System.out.println("AI wins");
+			}
+			else
+			{
+				System.out.println("Continue Attacking");
+			}
 		}
 		else
 		{
 			((CardPokemon)GameView.AI.active).m_hp=((CardPokemon)GameView.AI.active).m_hp-((CardPokemon)GameView.HUMAN.active).m_energy;
+			
+			if(((CardPokemon)GameView.AI.active).m_hp<=0)
+			{
+				System.out.println("Human wins");
+			}
+			else
+			{
+				System.out.println("Continue Attacking");
+			}
 		}
 		
 	}
