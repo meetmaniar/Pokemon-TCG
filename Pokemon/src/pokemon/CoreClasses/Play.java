@@ -462,6 +462,18 @@ public class Play {
 		
 	}
 	
+	public void heal()
+	{
+		if(this.role=true)
+		{	
+			((CardPokemon)GameView.HUMAN.active).m_hp=(int) (((CardPokemon)GameView.HUMAN.active).m_hp+(0.3*((CardPokemon)GameView.HUMAN.active).m_hp));
+		}
+		else
+		{
+			((CardPokemon)GameView.AI.active).m_hp=(int) (((CardPokemon)GameView.AI.active).m_hp+(0.3*((CardPokemon)GameView.AI.active).m_hp));
+		}
+	}
+	
 	
 
 }

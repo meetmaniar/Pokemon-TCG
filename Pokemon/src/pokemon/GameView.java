@@ -366,14 +366,14 @@ public class GameView extends JFrame {
 		long seconds = timePassed / 1000;
 
 		String turn = "";
-		if (true) {
+		if (seconds%2==0) {
 			turn = "Player's turn";
 			// flag=true;
 		} 
-//		else {
-//			turn = "AI's turn";
+		else {
+			turn = "AI's turn";
 //			// flag=false;
-//		}
+		}
 
 		JPanel turnPanel = new JPanel();
 		turnPanel.setPreferredSize(new Dimension(90, 90));
