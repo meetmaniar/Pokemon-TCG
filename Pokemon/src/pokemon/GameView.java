@@ -342,14 +342,14 @@ public class GameView extends JFrame {
 				GameView.HUMAN.attack();
 				refreshUI();
 				if(((CardPokemon)GameView.HUMAN.active).m_hp<=0){
-					getContentPane().removeAll();
-					JLabel winLabel=new JLabel("Player Wins",SwingConstants.CENTER);
-					mainPanel.add(winLabel);
+					//getContentPane().removeAll();
+					//JLabel winLabel=new JLabel("Player Wins",SwingConstants.CENTER);
+					//mainPanel.add(winLabel);
 				}
 				else if(((CardPokemon)GameView.AI.active).m_hp<=0){
-					getContentPane().removeAll();
-					JLabel winLabel=new JLabel("AI Wins",SwingConstants.CENTER);
-					mainPanel.add(winLabel);
+					//getContentPane().removeAll();
+					//JLabel winLabel=new JLabel("AI Wins",SwingConstants.CENTER);
+					//mainPanel.add(winLabel);
 				}
 			}
 

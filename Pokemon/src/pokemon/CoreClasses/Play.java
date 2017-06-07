@@ -439,6 +439,7 @@ public class Play {
 			((CardPokemon)GameView.HUMAN.active).m_hp=((CardPokemon)GameView.HUMAN.active).m_hp-((CardPokemon)GameView.AI.active).m_energy;
 			if(((CardPokemon)GameView.HUMAN.active).m_hp<=0)
 			{
+				((CardPokemon)GameView.HUMAN.active).m_hp=0;
 				System.out.println("AI wins");
 			}
 			else
@@ -452,6 +453,7 @@ public class Play {
 			
 			if(((CardPokemon)GameView.AI.active).m_hp<=0)
 			{
+				((CardPokemon)GameView.AI.active).m_hp=0;
 				System.out.println("Human wins");
 			}
 			else
@@ -462,15 +464,17 @@ public class Play {
 		
 	}
 	
-	public void heal()
+	public void heal(int index)
 	{
 		if(this.role=true)
 		{	
 			((CardPokemon)GameView.HUMAN.active).m_hp=(int) (((CardPokemon)GameView.HUMAN.active).m_hp+(0.3*((CardPokemon)GameView.HUMAN.active).m_hp));
+			swap(hand,index);
 		}
 		else
 		{
 			((CardPokemon)GameView.AI.active).m_hp=(int) (((CardPokemon)GameView.AI.active).m_hp+(0.3*((CardPokemon)GameView.AI.active).m_hp));
+			swap(hand,index);
 		}
 	}
 	

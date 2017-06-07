@@ -175,6 +175,11 @@ public class CardView extends JPanel implements MouseListener {
 		
 		CardView temp = (CardView) e.getSource();
 		
+		if(temp.place.equals("T"))
+		{
+			GameView.HUMAN.heal(temp.index_hand);	
+		}
+		
 		if(temp.place.equals("E"))
 		if(temp.IS_AI==0)
 		{
@@ -197,7 +202,7 @@ public class CardView extends JPanel implements MouseListener {
 				return;
 		} catch (Exception ed) {
 
-		}
+		} 
 		if (temp.index_bench > -1) {
 			System.out.println("Moving to Active");
 			GameView.HUMAN.placeBenchtoActive(temp.index_bench);
