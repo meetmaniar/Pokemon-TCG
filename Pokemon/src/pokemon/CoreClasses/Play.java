@@ -80,22 +80,28 @@ public class Play {
 
 	public void drawOneCard(GameEngine g) {
 		if (!role) {
-			if (deck_top == 61) {
+			if (deck_top >= g.deck1.length) {
 				System.out.println("No cards in decks");
 			}
 			for (int i = 0; i < hand.length; i++) {
 				if (hand[i] == null) {
+					while(g.deck1[deck_top] == null){
+						deck_top = deck_top +1;
+					}
 					hand[i] = g.deck1[deck_top];
 					deck_top = deck_top + 1;
 					break;
 				}
 			}
 		} else {
-			if (deck_top == 61) {
+			if (deck_top >= g.deck2.length) {
 				System.out.println("No cards in decks");
 			}
 			for (int i = 0; i < hand.length; i++) {
 				if (hand[i] == null) {
+					while(g.deck2[deck_top] == null){
+						deck_top = deck_top +1;
+					}
 					hand[i] = g.deck2[deck_top];
 					deck_top = deck_top + 1;
 					break;
@@ -196,45 +202,45 @@ public class Play {
 	public void useTrainerCard(CardTrainer a, GameEngine g, CardPokemon c, CardPokemon d) {
 		switch (a.trainer_ability) {
 
-		case 1:
-			a.abilityTrainer.ability1_Tierno(this, g);
+		case 31:
+			a.abilityTrainer.ability31_Tierno(this, g);
 
-		case 2:
-			a.abilityTrainer.ability2_Potion(c);
+		case 32:
+			a.abilityTrainer.ability32_Potion(c);
 			;
 
-		case 3:
-			a.abilityTrainer.ability3_MistyDetermination();
+		case 33:
+			a.abilityTrainer.ability33_MistyDetermination();
 
-		case 4:
-			a.abilityTrainer.ability4_PokmonCenterLady(c, d);
+		case 34:
+			a.abilityTrainer.ability34_PokmonCenterLady(c, d);
 
-		case 5:
-			a.abilityTrainer.ability5_Clemont(this, g);
+		case 35:
+			a.abilityTrainer.ability35_Clemont(this, g);
 
-		case 6:
-			a.abilityTrainer.ability6_FloralCrown();
+		case 67:
+			a.abilityTrainer.ability67_FloralCrown(c);
 
-		case 7:
-			a.abilityTrainer.ability7_PokemonBall(this, g);
+		case 68:
+			a.abilityTrainer.ability68_PokemonBall(this, g);
 
-		case 8:
-			a.abilityTrainer.ability8_Shauna();
+		case 69:
+			a.abilityTrainer.ability69_Shauna(this,g);
 
-		case 9:
-			a.abilityTrainer.ability9_PokmonFanClub(this, g);
+		case 70:
+			a.abilityTrainer.ability70_PokmonFanClub(this, g);
 
-		case 10:
-			a.abilityTrainer.ability10_Switch((CardPokemon) active, c);
+		case 71:
+			a.abilityTrainer.ability71_Switch((CardPokemon) this.active, c);
 
-		case 11:
-			a.abilityTrainer.ability11_EnergySwitch(c, d, 20);
+		case 72:
+			a.abilityTrainer.ability72_EnergySwitch(c, d, 20);
 
-		case 12:
-			a.abilityTrainer.ability12_RedCard();
+		case 73:
+			a.abilityTrainer.ability73_RedCard(this, g);
 
-		case 13:
-			a.abilityTrainer.ability13_Wally();
+		case 74:
+			a.abilityTrainer.ability74_Wally(this, g);
 
 		default:
 			System.out.println("do nothing");
