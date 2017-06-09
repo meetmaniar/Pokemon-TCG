@@ -434,6 +434,10 @@ public class Play {
 
 	public void attack ( )
 	{
+		/*if(count=3){
+			
+		}
+		else{*/
 		if(this.role==true)
 		{
 			((CardPokemon)GameView.HUMAN.active).m_hp=((CardPokemon)GameView.HUMAN.active).m_hp-((CardPokemon)GameView.AI.active).m_energy;
