@@ -71,25 +71,25 @@ public class CardPokemon extends Card{
 		m_energy = m_energy + 10;
 	}
 
-	public void attackBasic(CardPokemon opponent){
+	public void attackBasic(Play p, CardPokemon opponent){
 
 		// Check if we can attack or not.
 		if (!validateAction(ACTION_ATTACK)) {
 			System.out.println("not able to attack");
 		}
 		else{
-			m_attack.attackBasic(this, opponent);
+			m_attack.attackBasic(p, this, opponent);
 		}
 	}
 
-	public void attackAdvance(CardPokemon opponent){
+	public void attackAdvance(Play p, CardPokemon opponent){
 
 		// Check if we can attack or not.
 		if (!validateAction(ACTION_ATTACK)) {
 			System.out.println("not able to attack");
 		}
 		else{
-			m_attack.attackAdvance(this, opponent);
+			m_attack.attackAdvance(p, this, opponent);
 		}
 	}
 

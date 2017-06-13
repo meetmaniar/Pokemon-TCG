@@ -1,11 +1,26 @@
 package pokemon.CoreClasses;
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import pokemon.GameEngine;
 
 public class AbilityTrainer {
 	
+	
+	public void shuffle(Card[] deck)
+	  {
+	    // If running on Java 6 or older, use `new Random()` on RHS here
+	    Random rnd = ThreadLocalRandom.current();
+	    for (int i = deck.length - 1; i > 0; i--)
+	    {
+	      int index = rnd.nextInt(i + 1);
+	      // Simple swap
+	      Card a = deck[index];
+	      deck[index] = deck[i];
+	      deck[i] = a;
+	    }
+	  }
 	
 	//draw 3 cards
 	public void ability31_Tierno(Play p, GameEngine g){
@@ -132,6 +147,12 @@ public class AbilityTrainer {
 	public void ability69_Shauna(Play p, GameEngine g){
 		//deck
 		//shuffle your own deck
+		if(!p.role){
+			shuffle(g.deck1);
+		}
+		else{
+			shuffle(g.deck2);
+		}
 		//draw 5 cards
 		for(int i = 0; i <5; i++){
 			p.drawOneCard(g);
@@ -178,6 +199,13 @@ public class AbilityTrainer {
 				}else{break;}
 			}
 		}
+		//shuffle
+		if(!p.role){
+			shuffle(g.deck1);
+		}
+		else{
+			shuffle(g.deck2);
+		}
 		
 	}
 	
@@ -197,6 +225,14 @@ public class AbilityTrainer {
 	}
 	
 	public void ability73_RedCard(Play p, GameEngine g){
+		//deck 
+		//shuffle
+		if(!p.role){
+			shuffle(g.deck1);
+		}
+		else{
+			shuffle(g.deck2);
+		}
 		//draw opponent 4 cards
 	}
 	
@@ -239,6 +275,13 @@ public class AbilityTrainer {
 					}
 				}else{break;}
 			}
+		}
+		//shuffle
+		if(!p.role){
+			shuffle(g.deck1);
+		}
+		else{
+			shuffle(g.deck2);
 		}
 	}
 	

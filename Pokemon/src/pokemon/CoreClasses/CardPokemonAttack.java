@@ -28,7 +28,7 @@ public class CardPokemonAttack {
 		
 	}
 
-	public void attackBasic(CardPokemon attacking, CardPokemon target){
+	public void attackBasic(Play p, CardPokemon attacking, CardPokemon target){
 
 		int collectTypeEnergy = 0;
 		int collectColorlessEnergy = 0;
@@ -70,10 +70,10 @@ public class CardPokemonAttack {
 				attacking.m_abilityPokemon.ability6_QuickAttack(target);
 					
 			case 7:
-				attacking.m_abilityPokemon.ability7_CircleCircuit(target);
+				attacking.m_abilityPokemon.ability7_CircleCircuit(p,target);
 			
 			case 8:
-				attacking.m_abilityPokemon.ability8_Thunderbolt(target, attacking, 20);
+				attacking.m_abilityPokemon.ability8_Thunderbolt(p, target);
 					
 			case 9:
 				attacking.m_abilityPokemon.ability9_RainSplash(target);
@@ -93,7 +93,7 @@ public class CardPokemonAttack {
 
 	}
 
-	public void attackAdvance(CardPokemon attacking, CardPokemon target){
+	public void attackAdvance(Play p, CardPokemon attacking, CardPokemon target){
 
 		int collectTypeEnergy = 0;
 		int collectColorlessEnergy = 0;
@@ -136,10 +136,10 @@ public class CardPokemonAttack {
 				attacking.m_abilityPokemon.ability6_QuickAttack(target);
 					
 			case 7:
-				attacking.m_abilityPokemon.ability7_CircleCircuit(target);
+				attacking.m_abilityPokemon.ability7_CircleCircuit(p,target);
 			
 			case 8:
-				attacking.m_abilityPokemon.ability8_Thunderbolt(target, attacking, 20);
+				attacking.m_abilityPokemon.ability8_Thunderbolt(p, target);
 					
 			case 9:
 				attacking.m_abilityPokemon.ability9_RainSplash(target);

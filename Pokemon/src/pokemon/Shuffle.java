@@ -17,7 +17,7 @@ class Shuffle
     System.out.println();
   }
 
-  // Implementing Fisher–Yates shuffle
+  // Implementing shuffle
   static void shuffleArray(int[] ar)
   {
     // If running on Java 6 or older, use `new Random()` on RHS here

@@ -51,12 +51,14 @@ public class Play {
 			deck_top = 0;
 			for (int i = 0; i < 7; i++) {
 				hand[i] = g.deck1[deck_top];
+				g.deck1[deck_top] = null;
 				deck_top = deck_top + 1;
 			}
 		} else {
 			deck_top = 0;
 			for (int i = 0; i < 7; i++) {
 				hand[i] = g.deck2[deck_top];
+				g.deck2[deck_top] = null;
 				deck_top = deck_top + 1;
 			}
 		}
@@ -67,11 +69,13 @@ public class Play {
 		if (!role) {
 			for (int i = 0; i < 6; i++) {
 				prize[i] = g.deck1[deck_top];
+				g.deck1[deck_top] = null;
 				deck_top = deck_top + 1;
 			}
 		} else {
 			for (int i = 0; i < 6; i++) {
 				prize[i] = g.deck2[deck_top];
+				g.deck2[deck_top] = null;
 				deck_top = deck_top + 1;
 			}
 		}
@@ -89,6 +93,7 @@ public class Play {
 						deck_top = deck_top +1;
 					}
 					hand[i] = g.deck1[deck_top];
+					g.deck1[deck_top] = null;
 					deck_top = deck_top + 1;
 					break;
 				}
@@ -103,6 +108,7 @@ public class Play {
 						deck_top = deck_top +1;
 					}
 					hand[i] = g.deck2[deck_top];
+					g.deck2[deck_top] = null;
 					deck_top = deck_top + 1;
 					break;
 				}
@@ -172,6 +178,7 @@ public class Play {
 		for (int i = 0; i < prize.length; i++) {
 			if (hand[i] == null) {
 				hand[i] = prize[prize_top];
+				prize[prize_top] = null;
 				prize_top = prize_top + 1;
 				break;
 			}
@@ -295,11 +302,11 @@ public class Play {
 	}
 
 	public void attack1(CardPokemon opponent) {
-		((CardPokemon) active).attackBasic(opponent);
+		((CardPokemon) active).attackBasic(this, opponent);
 	}
 
 	public void attack2(CardPokemon opponent) {
-		((CardPokemon) active).attackAdvance(opponent);
+		((CardPokemon) active).attackAdvance(this, opponent);
 	}
 
 	public void checkKnock(CardPokemon a) {
