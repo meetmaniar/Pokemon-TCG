@@ -29,6 +29,10 @@ public class AbilityPokemon {
 		return count;
 	}
 	
+	public void heal(CardPokemon c, int amount){
+		c.m_hp = c.m_hp + amount;
+	}
+	
 	public void shuffle(Card[] deck)
 	  {
 	    // If running on Java 6 or older, use `new Random()` on RHS here
@@ -99,6 +103,110 @@ public class AbilityPokemon {
 	public void ability9_RainSplash(CardPokemon active ){
 		dam(active,20);
 	}
+	
+	public void ability10_SoakingHorn(CardPokemon active){
+		dam(active,10);
+		//cond:healed
+	}
+	public void ability11_RecklessCharge(Play p, CardPokemon active){
+		dam(active,40);
+		dam((CardPokemon) p.active, 10);
+		
+	}
+	public void ability12_RecklessCharge(Play p, CardPokemon active){
+		dam(active,20);
+		dam((CardPokemon) p.active, 10);
+	}
+	public void ability13_Cut(CardPokemon active){
+		dam(active, 30);
+	}
+	public void ability14_Pound(CardPokemon active){
+		dam(active, 10);
+	}
+	public void ability15_ClampCrush(CardPokemon active){
+		dam(active, 30);
+		//flip a coin and deenergize
+		int i = ThreadLocalRandom.current().nextInt(0,2);
+		if(i == 1){
+		deenergize(active,1);	
+		}
+		//applystat
+		active.paralize(active);
+	}
+	
+	public void ability16_SpikeCannon(CardPokemon active){
+		dam(active, 30);
+		//flip a coin
+		int i = ThreadLocalRandom.current().nextInt(0,2);
+		if(i == 1){
+			dam(active,30);	
+		}else{
+			System.out.println("Can't apply 30 damage");
+		}
+		//flip a coin
+		int j = ThreadLocalRandom.current().nextInt(0,2);
+		if(j == 1){
+			dam(active,30);	
+		}else{
+			System.out.println("Can't apply 30 damage");
+		}
+		//flip a coin
+		int k = ThreadLocalRandom.current().nextInt(0,2);
+		if(k == 1){
+			dam(active,30);	
+		}else{
+			System.out.println("Can't apply 30 damage");
+		}
+		//flip a coin
+		int a = ThreadLocalRandom.current().nextInt(0,2);
+		if(a == 1){
+			dam(active,30);	
+		}else{
+			System.out.println("Can't apply 30 damage");
+		}
+		//flip a coin
+		int b = ThreadLocalRandom.current().nextInt(0,2);
+		if(b == 1){
+			dam(active,30);	
+		}else{
+			System.out.println("Can't apply 30 damage");
+		}
+	}
+	
+	public void ability17_SpiralDrain(Play p, CardPokemon active){
+		dam(active, 20);
+		heal((CardPokemon) p.active, 20);
+	}
+	
+	public void ability18_AuroraBeam(CardPokemon active){
+		dam(active, 80);
+	}
+	
+	public void ability19_WingAttack(CardPokemon active){
+		dam(active, 20);
+	}
+	
+	public void ability20_BraveBird(Play p, CardPokemon active){
+		dam(active, 80);
+		dam((CardPokemon) p.active, 20);
+	}
+	public void ability21_Lunge(CardPokemon active){
+		
+		//flip a coin
+		int i = ThreadLocalRandom.current().nextInt(0,2);
+			if(i == 1){
+				dam(active,20);	
+			}else{
+				System.out.println("Can't apply 20 damage");
+			}
+	}
+	
+	public void ability22_Slash(CardPokemon active){
+		dam(active, 30);
+	}
+	
+	
+	
 	
 	
 }
