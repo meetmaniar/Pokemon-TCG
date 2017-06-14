@@ -84,14 +84,14 @@ public class CardPokemon extends Card{
 		}
 	}
 
-	public void attackAdvance(Play p, CardPokemon opponent){
+	public void attackAdvance(Play p, GameEngine g, CardPokemon opponent){
 
 		// Check if we can attack or not.
 		if (!validateAction(ACTION_ATTACK)) {
 			System.out.println("not able to attack");
 		}
 		else{
-			m_attack.attackAdvance(p, this, opponent);
+			m_attack.attackAdvance(p, g, this, opponent);
 		}
 	}
 

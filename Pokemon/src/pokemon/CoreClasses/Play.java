@@ -305,8 +305,8 @@ public class Play {
 		((CardPokemon) active).attackBasic(this, g, opponent);
 	}
 
-	public void attack2(CardPokemon opponent) {
-		((CardPokemon) active).attackAdvance(this, opponent);
+	public void attack2(GameEngine g, CardPokemon opponent) {
+		((CardPokemon) active).attackAdvance(this, g, opponent);
 	}
 
 	public void checkKnock(CardPokemon a) {
