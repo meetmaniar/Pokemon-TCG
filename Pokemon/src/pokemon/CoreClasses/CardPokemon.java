@@ -65,9 +65,9 @@ public class CardPokemon extends Card{
 		
 	}
 
-	public void addEnergy(int energy_val) {
+	public void addEnergy(CardEnergy energy) {
 
-		//m_energyCards.add(energy);
+		m_energyCards.add(energy);
 		m_energy = m_energy + 10;
 	}
 
@@ -180,7 +180,6 @@ public class CardPokemon extends Card{
 		opponent.m_statusEffect = 3;
 	}
 	public void poison(CardPokemon opponent){
-		opponent.m_statusEffect = 4;
 		opponent.m_hp = opponent.m_hp - 10;
 	}
 }

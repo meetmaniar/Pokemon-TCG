@@ -190,19 +190,19 @@ public class Play {
 		discard_top = discard_top + 1;
 	}
 
-	// choose card in hand[i] to evolve pokemon on bench[j]
+	// choose energy card in hand[i] to add to pokemon on bench[j]
 	public void attachEnergyBench(int i, int j) {
-		((CardPokemon) bench[j]).addEnergy(10);
+		((CardPokemon) bench[j]).addEnergy((CardEnergy)hand[i]);
 		swap(hand, i);
 
 	}
 
-	// choose card in hand[i] to evolve pokemon on bench[j]
+	// choose energy card in hand[i] to add to pokemon in active section
 	public void attachEnergyActive(int i) 
 	{
 		System.out.println("Energy Card Detected");
 		System.out.println(i);
-		((CardPokemon) active).addEnergy(10);
+		((CardPokemon) active).addEnergy((CardEnergy)hand[i]);
 		swap(hand, i);
 	}
 
