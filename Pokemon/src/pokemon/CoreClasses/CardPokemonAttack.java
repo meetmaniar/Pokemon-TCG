@@ -1,5 +1,7 @@
 package pokemon.CoreClasses;
 
+import pokemon.GameEngine;
+
 public class CardPokemonAttack {
 
 	int	m_attacktype1;
@@ -28,7 +30,7 @@ public class CardPokemonAttack {
 		
 	}
 
-	public void attackBasic(Play p, CardPokemon attacking, CardPokemon target){
+	public void attackBasic(Play p, GameEngine g,  CardPokemon attacking, CardPokemon target){
 
 		int collectTypeEnergy = 0;
 		int collectColorlessEnergy = 0;
@@ -77,6 +79,139 @@ public class CardPokemonAttack {
 					
 			case 9:
 				attacking.m_abilityPokemon.ability9_RainSplash(target);
+				
+			case 10:
+				attacking.m_abilityPokemon.ability10_SoakingHorn(target);
+				
+			case 11:
+				attacking.m_abilityPokemon.ability11_RecklessCharge(p, target);
+				
+			case 12:
+				attacking.m_abilityPokemon.ability12_RecklessCharge(p, target);
+				
+			case 13:
+				attacking.m_abilityPokemon.ability13_Cut(target);
+				
+			case 14:
+				attacking.m_abilityPokemon.ability15_ClampCrush(target);
+				
+			case 15:
+				attacking.m_abilityPokemon.ability15_ClampCrush(target);
+			
+			case 16:
+				attacking.m_abilityPokemon.ability16_SpikeCannon(target);
+				
+			case 17:
+				attacking.m_abilityPokemon.ability17_SpiralDrain(p, target);
+				
+			case 18:
+				attacking.m_abilityPokemon.ability18_AuroraBeam(target);
+				
+			case 19:
+				attacking.m_abilityPokemon.ability19_WingAttack(target);
+				
+			case 20:
+				attacking.m_abilityPokemon.ability20_BraveBird(p, target);
+				
+			case 21:
+				attacking.m_abilityPokemon.ability21_Lunge(target);
+				
+			case 22:
+				attacking.m_abilityPokemon.ability22_Slash(target);
+				
+			case 23:
+				attacking.m_abilityPokemon.ability23_NyanPress(target);
+				
+			case 24:
+				attacking.m_abilityPokemon.ability24_RandomSpark(target);
+			
+			case 25:
+				attacking.m_abilityPokemon.ability25_Bite(target);
+				
+			case 26:
+				attacking.m_abilityPokemon.ability26_Bite(target);
+				
+			case 27:
+				attacking.m_abilityPokemon.ability27_KnucklePunch(target);
+				
+			case 28:
+				attacking.m_abilityPokemon.ability28_Electroslug(target);
+				
+			case 29:
+				attacking.m_abilityPokemon.ability29_KnucklePunch(target);
+				
+			case 30:
+				attacking.m_abilityPokemon.ability30_DestructiveBeam(target);
+				
+			case 31:
+				attacking.m_abilityPokemon.ability31_Tierno(p, g);
+				
+			case 32:
+				attacking.m_abilityPokemon.ability32_Potion(attacking);
+				
+			case 33:
+				attacking.m_abilityPokemon.ability33_MistyDetermination();
+				
+			case 34:
+				attacking.m_abilityPokemon.ability34_PokmonCenterLady(attacking, attacking);
+				
+			case 35:
+				attacking.m_abilityPokemon.ability35_Clemont(p, g);
+				
+			case 36:
+				attacking.m_abilityPokemon.ability36_EarInfluence();
+				
+			case 37:
+				attacking.m_abilityPokemon.ability37_Psychic(target);
+				
+			case 38:
+				attacking.m_abilityPokemon.ability38_Hug(target);
+				
+			case 39:
+				attacking.m_abilityPokemon.ability39_Wish(p, g);
+				
+			case 40:
+				attacking.m_abilityPokemon.ability40_HeartSign(target);
+			
+			case 41:
+				attacking.m_abilityPokemon.ability41_ActTough(p, target);
+				
+			case 42:
+				attacking.m_abilityPokemon.ability42_ExhaustedTackle(p, target);
+			
+			case 43:
+				attacking.m_abilityPokemon.ability43_KnucklePunch(target);
+				
+			case 44:
+				attacking.m_abilityPokemon.ability44_DoubleStab(target);
+				
+			case 45:
+				attacking.m_abilityPokemon.ability45_DoduoDelivery(p, g);
+				
+			case 46:
+				attacking.m_abilityPokemon.ability46_FuryAttack(target);
+				
+			case 47:
+				attacking.m_abilityPokemon.ability47_Rollout(target);
+				
+			case 48:
+				attacking.m_abilityPokemon.ability48_Flail();
+				
+			case 49:
+				attacking.m_abilityPokemon.ability49_SkillDive(target);
+				
+			case 50:
+				attacking.m_abilityPokemon.ability50_PoisonRing(target);
+				
+			case 51:
+				attacking.m_abilityPokemon.ability51_SleepPoison(target);
+				
+			case 52:
+				attacking.m_abilityPokemon.ability52_Mine();
+				
+			case 53:
+				attacking.m_abilityPokemon.ability53_MudSlap(target);
+			
 
 			default:
 					System.out.println("do nothing");

@@ -301,8 +301,8 @@ public class Play {
 		((CardPokemon) active).retreat();
 	}
 
-	public void attack1(CardPokemon opponent) {
-		((CardPokemon) active).attackBasic(this, opponent);
+	public void attack1(GameEngine g, CardPokemon opponent) {
+		((CardPokemon) active).attackBasic(this, g, opponent);
 	}
 
 	public void attack2(CardPokemon opponent) {
