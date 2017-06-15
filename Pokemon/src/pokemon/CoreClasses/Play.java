@@ -124,6 +124,8 @@ public class Play {
 	// ((CardPokemon) active).m_active = true;
 	// swap(hand,i);
 	// }
+	
+	
 
 	public void placeBenchtoActive(int i) {
 		active = bench[i];

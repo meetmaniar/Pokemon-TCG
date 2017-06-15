@@ -124,7 +124,58 @@ public class CardView extends JPanel implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		// TODO Auto-generated method stub
+		if(e.getClickCount()<2){
+			
+			CardView temp = (CardView) e.getSource();
+			
+			if(temp.place.equals("T"))
+			{
+				GameView.HUMAN.heal(temp.index_hand);	
+			}
+			
+			if(temp.place.equals("E"))
+			if(temp.IS_AI==0)
+			{
+				GameView.HUMAN.attachEnergyActive(temp.index_hand);	
+				System.out.println("Energy for the Human AP"+((CardPokemon)GameView.HUMAN.active).m_energy);
+				gameView.refreshUI();
+				
+				return;
+			}
+			else
+			{
+				GameView.AI.attachEnergyActive(temp.index_hand);	
+				gameView.refreshUI();
+				return;
+			}
+			
+			
+			try {
+				if (GameView.HUMAN.hand[temp.index_hand].m_type != 0)
+					return;
+			} catch (Exception ed) {
 
+			} 
+			if (temp.index_bench > -1) {
+				System.out.println("Moving to Active");
+				GameView.HUMAN.placeBenchtoActive(temp.index_bench);
+			} else {
+				System.out.println("Moving to Bench");
+				GameView.HUMAN.placeBench(temp.index_hand);
+				temp.index_bench = GameView.AI.bench_top;
+			}
+			gameView.refreshUI();
+
+			// System.out.println(((CardPokemon)GameView.HUMAN.active).m_name);
+			// gameView.refreshUI();
+		}
+		if(e.getClickCount()==2){
+			CardView temp = (CardView) e.getSource();
+			GameView.HUMAN.placeBench(temp.index_hand);
+			temp.index_bench = GameView.AI.bench_top;
+			GameView.HUMAN.placeBenchtoActive(temp.index_bench);
+			gameView.refreshUI();
+		}
 		System.out.println(index_hand);
 
 	}
@@ -177,49 +228,7 @@ public class CardView extends JPanel implements MouseListener {
 
 		
 		
-		
-		CardView temp = (CardView) e.getSource();
-		
-		if(temp.place.equals("T"))
-		{
-			GameView.HUMAN.heal(temp.index_hand);	
-		}
-		
-		if(temp.place.equals("E"))
-		if(temp.IS_AI==0)
-		{
-			GameView.HUMAN.attachEnergyActive(temp.index_hand);	
-			System.out.println("Energy for the Human AP"+((CardPokemon)GameView.HUMAN.active).m_energy);
-			gameView.refreshUI();
-			
-			return;
-		}
-		else
-		{
-			GameView.AI.attachEnergyActive(temp.index_hand);	
-			gameView.refreshUI();
-			return;
-		}
-		
-		
-		try {
-			if (GameView.HUMAN.hand[temp.index_hand].m_type != 0)
-				return;
-		} catch (Exception ed) {
-
-		} 
-		if (temp.index_bench > -1) {
-			System.out.println("Moving to Active");
-			GameView.HUMAN.placeBenchtoActive(temp.index_bench);
-		} else {
-			System.out.println("Moving to Bench");
-			GameView.HUMAN.placeBench(temp.index_hand);
-			temp.index_bench = GameView.AI.bench_top;
-		}
-		gameView.refreshUI();
-
-		// System.out.println(((CardPokemon)GameView.HUMAN.active).m_name);
-		// gameView.refreshUI();
+	
 	}
 
 	@Override
