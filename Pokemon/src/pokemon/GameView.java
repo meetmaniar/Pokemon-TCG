@@ -41,7 +41,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class GameView extends JFrame {
+public class GameView extends JFrame implements MouseListener {
 
 	public JPanel toolTip;
 
@@ -416,6 +416,7 @@ public class GameView extends JFrame {
 		deck2.setBounds(1274, 300, 80, 80);
 		deck2.setVisible(false);
 		gamePanel.add(deck2);
+		deck2.addMouseListener(this);
 
 		gamePanel.add(bench1);
 		gamePanel.add(bench2);
@@ -741,6 +742,40 @@ public class GameView extends JFrame {
 			}
 		}
 
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent ev) {
+		// TODO Auto-generated method stub
+		GameView.HUMAN.drawOneCard(ge);
+		/*this.removeAll();*/
+		this.revalidate();
+		this.repaint();
+		System.out.println("Draw Working");
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

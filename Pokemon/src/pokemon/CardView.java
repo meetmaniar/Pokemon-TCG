@@ -41,7 +41,7 @@ public class CardView extends JPanel implements MouseListener {
 		String name = e.m_name;
 		int hitPoints = e.m_hp;
 		int energy= e.m_energy;
-		int adv_energy=e.m_adv_attack;
+		//int adv_energy=e.m_adv_attack;
 
 		this.setPreferredSize(new Dimension(63, 63));
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -59,7 +59,7 @@ public class CardView extends JPanel implements MouseListener {
 		apLabel = new JLabel("E:" + String.valueOf(energy));
 		apLabel.setBounds(5, 29, 700, 20);
 		
-		sapLabel = new JLabel("AE:" + String.valueOf(adv_energy));
+		//sapLabel = new JLabel("AE:" + String.valueOf(adv_energy));
 		sapLabel.setBounds(5,45, 700, 20);
 		
 		this.add(nameLabel);
