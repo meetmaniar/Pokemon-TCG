@@ -86,7 +86,6 @@ public class DeckBuilderPokemonCard extends DeckBuilderCard {
 		int pokemonType;
 		if (m_evolved == null) { pokemonType = 0; } else { pokemonType = 1; };
 		int energyType = m_color;
-		int advanceEnergy = 0; // TODO!
 		int HP = m_hp;
 		
 		int attacktype1 = m_attacks.get(0).getColor();
@@ -112,11 +111,11 @@ public class DeckBuilderPokemonCard extends DeckBuilderCard {
 		int retreatCost = m_retreatCost;
 		
 		
-		System.out.println("Pokemon; init(" + name + ", " + pokemonType + ", " + advanceEnergy + ", " + HP + ", " + retreatCost + ", " + ", " + attacktype1 + ", " + energyBasicCost + ", " + colorless1 + ", " + colorless1Cost + ", " + ability1 + ", " + attacktype2 + ", " + energyAdvanceCost + ", " + colorless2 + ", " + colorless2Cost + ", " + ability2 + ")");
+		System.out.println("Pokemon; init(" + name + ", " + pokemonType + ", " + HP + ", " + retreatCost  + ", " + attacktype1 + ", " + energyBasicCost + ", " + colorless1 + ", " + colorless1Cost + ", " + ability1 + ", " + attacktype2 + ", " + energyAdvanceCost + ", " + colorless2 + ", " + colorless2Cost + ", " + ability2 + ")");
 		
 		CardPokemon card = new CardPokemon();
 		
-		card.initPokemon(name, pokemonType, energyType, advanceEnergy, HP, retreatCost, attacktype1, energyBasicCost, colorless1, colorless1Cost, ability1, attacktype2, energyAdvanceCost, colorless2, colorless2Cost, ability2);
+		card.initPokemon(name, pokemonType, energyType, HP, retreatCost, attacktype1, energyBasicCost, colorless1, colorless1Cost, ability1, attacktype2, energyAdvanceCost, colorless2, colorless2Cost, ability2);
 		
 
 		

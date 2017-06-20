@@ -23,15 +23,15 @@ public class placeBenchtoActiveTest {
 
 		try {
 			pokemon[0].initPokemon("Meowstic", 0, 0, 0, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top,
-					deck2_top, deck2_top, deck2_top, deck2_top, 0);
+					deck2_top, deck2_top, deck2_top, deck2_top);
 			pokemon[1].initPokemon("Jynx", 0, 0, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top, deck2_top,
-					deck2_top, deck2_top, deck2_top, deck2_top,0);
+					deck2_top, deck2_top, deck2_top, deck2_top);
 			pokemon[2].initPokemon("Jirachi", 0, 0, deck2_top, deck2_top, deck2_top,0,0, deck2_top, deck2_top, deck2_top,
-					deck2_top, deck2_top, deck2_top, deck2_top,0);
+					deck2_top, deck2_top, deck2_top, deck2_top);
 			pokemon[3].initPokemon("Meowth", 0, 0, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top, deck2_top,
-					deck2_top, deck2_top, deck2_top, deck2_top,0);
+					deck2_top, deck2_top, deck2_top, deck2_top);
 			pokemon[4].initPokemon("Machop", 0, 0, deck2_top, deck2_top, deck2_top, 0,0,deck2_top, deck2_top, deck2_top,
-					deck2_top, deck2_top, deck2_top, deck2_top,0);
+					deck2_top, deck2_top, deck2_top, deck2_top);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
