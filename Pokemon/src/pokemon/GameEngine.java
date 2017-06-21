@@ -169,7 +169,7 @@ public class GameEngine {
 		 * System.out.println(); for(int a=0; a<deck2.length; a++) {
 		 * System.out.print(deck2[a].m_type+" "); }
 		 */
-
+		//GameView.AI.role=true;
 		GameView.AI.drawSevenCards(this);
 		GameView.HUMAN.drawSevenCards(this);
 		

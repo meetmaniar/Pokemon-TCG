@@ -317,7 +317,7 @@ public class GameView extends JFrame implements MouseListener {
 
 		});
 		
-		JButton draw = new JButton("Draw");
+		/*JButton draw = new JButton("Draw");
 		draw.setPreferredSize(new Dimension(90, 90));
 		draw.setBounds(1350, 250, 70, 35);
 		draw.setVisible(false);
@@ -329,7 +329,7 @@ public class GameView extends JFrame implements MouseListener {
 				refreshUI();
 			}
 
-		});
+		});*/
 		
 		JButton attack = new JButton("Attack");
 		attack.setPreferredSize(new Dimension(90, 90));
@@ -426,7 +426,7 @@ public class GameView extends JFrame implements MouseListener {
 		gamePanel.add(discardA);
 		gamePanel.add(done);
 		gamePanel.add(refresh);
-		gamePanel.add(draw);
+		//gamePanel.add(draw);
 		gamePanel.add(attack);
 		gamePanel.add(turnPanel);
 
@@ -489,7 +489,7 @@ public class GameView extends JFrame implements MouseListener {
 				bench2.setVisible(true);
 				done.setVisible(true);
 				refresh.setVisible(true);
-				draw.setVisible(true);
+			//	draw.setVisible(true);
 				attack.setVisible(true);
 				label.setVisible(true);
 				discardP.setVisible(true);
@@ -747,8 +747,10 @@ public class GameView extends JFrame implements MouseListener {
 	@Override
 	public void mouseClicked(MouseEvent ev) {
 		// TODO Auto-generated method stub
+		GameView.HUMAN.role=true;
 		GameView.HUMAN.drawOneCard(ge);
 		/*this.removeAll();*/
+		this.invalidate();
 		this.revalidate();
 		this.repaint();
 		System.out.println("Draw Working");
