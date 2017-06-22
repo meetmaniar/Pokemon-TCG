@@ -335,7 +335,8 @@ public class GameView extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				
+				((CardPokemon)GameView.HUMAN.active).attackAdvance(HUMAN, ge, (CardPokemon) AI.active);
+				refreshUI();
 			}
 
 		});
@@ -349,7 +350,7 @@ public class GameView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				((CardPokemon)GameView.HUMAN.active).attackBasic(HUMAN, ge, (CardPokemon) AI.active);
-				System.out.println("======================hp "+((CardPokemon)GameView.HUMAN.active).m_hp);
+				//System.out.println("======================hp "+((CardPokemon)GameView.HUMAN.active).m_hp);
 				refreshUI();
 				
 			}
