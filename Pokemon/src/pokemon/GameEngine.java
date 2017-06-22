@@ -17,13 +17,28 @@ public class GameEngine {
 	public GameEngine() {
 
 	}
-
+	
+	public void initDeck(){
+		DeckBuilder deck = new DeckBuilder("C:\Users\M_ANIAR\git\Pokemon-TCG\Pokemon\\src\\pokemon\\parser\\cards.txt");
+		
+		deck1 = deck.buildDeck("C:\\Users\\M_ANIAR\\Downloads\\Pokemon-TCG\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\deck1.txt");
+		deck2 = deck.buildDeck("C:\\Users\\M_ANIAR\\Downloads\\Pokemon-TCG\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\deck2.txt");
+	}
+	
+	public void iniDeck(){
+		DeckBuilder deck = new DeckBuilder("C:\\Users\\M_ANIAR\\Downloads\\Pokemon-TCG\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\cards.txt");
+		
+		deck1 = deck.buildDeck("C:\\Users\\M_ANIAR\\Downloads\\Pokemon-TCG\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\deck1.txt");
+		deck2 = deck.buildDeck("C:\\Users\\M_ANIAR\\Downloads\\Pokemon-TCG\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\deck2.txt");
+		
+	}
+	
 	public void initGame() {
 		
-		DeckBuilder deck = new DeckBuilder("C:/Users/M_ANIAR/git/Pokemon-TCG/Pokemon/src/pokemon/parser/cards.txt");
+		DeckBuilder deck = new DeckBuilder("C:\\Users\\M_ANIAR\\Downloads\\Pokemon-TCG\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\cards.txt");
 		
-		deck1 = deck.buildDeck("C:/Users/M_ANIAR/git/Pokemon-TCG/Pokemon/src/pokemon/parser/deck1.txt");
-		deck2 = deck.buildDeck("C:/Users/M_ANIAR/git/Pokemon-TCG/Pokemon/src/pokemon/parser/deck2.txt");
+		deck1 = deck.buildDeck("C:\\Users\\M_ANIAR\\Downloads\\Pokemon-TCG\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\deck1.txt");
+		deck2 = deck.buildDeck("C:\\Users\\M_ANIAR\\Downloads\\Pokemon-TCG\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\Pokemon-TCG-2d99a8680457f8e83cf07f72f4de004d324057a3\\deck2.txt");
 		
 		
 		
@@ -169,9 +184,12 @@ public class GameEngine {
 		 * System.out.println(); for(int a=0; a<deck2.length; a++) {
 		 * System.out.print(deck2[a].m_type+" "); }
 		 */
-		//GameView.AI.role=true;
+
 		GameView.AI.drawSevenCards(this);
 		GameView.HUMAN.drawSevenCards(this);
+		
+		GameView.AI.drawPrizeCards(this);
+		GameView.HUMAN.drawPrizeCards(this);
 		
 		//GameView.AI.drawPrizeCards(this);
 		//GameView.HUMAN.drawPrizeCards(this);

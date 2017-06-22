@@ -1,6 +1,7 @@
 package pokemon.parser;
 import pokemon.CoreClasses.Card;
 import pokemon.CoreClasses.CardEnergy;
+import pokemon.CoreClasses.CardTrainer;
 
 public class DeckBuilderEnergyCard extends DeckBuilderCard {
 
@@ -23,8 +24,10 @@ public class DeckBuilderEnergyCard extends DeckBuilderCard {
 	public Card toPlayableCard() {
 		
 		System.out.println("Energy; init(" + m_color + ")");
-		
-		return new CardEnergy(m_color);
+
+		CardEnergy card = new CardEnergy();
+		card.initEnergy(m_color);
+		return card;
 		
 	}
 	

@@ -28,8 +28,17 @@ public class CardPokemon extends Card{
 	public boolean									m_active;
 	public String									m_evolve;
 	public int 										m_energy;
-
-
+	public int										m_adv_attack;
+	public int										m_attacktype1;
+	public int										m_attacktype2;
+	public int										m_attacktype1cost;
+	public int										m_attacktype2cost;
+	public int										m_color1;
+	public int										m_color2;
+	public int										m_color1cost;
+	public int										m_color2cost;
+	public int 										m_collectEnergy;
+	
 	public CardPokemon()
 	{
 		super(0);
@@ -52,16 +61,25 @@ public class CardPokemon extends Card{
 //
 //	}
 	
-	public void initPokemon(String name, int pokemonType, int energyType, int HP , int retreatCost, int attacktype1, int energyBasicCost, int colorless1, int colorless1Cost, int ability1, int attacktype2, int energyAdvanceCost, int colorless2, int colorless2Cost, int ability2)
+	public void initPokemon(String name, int pokemonType, int energyType, int advanceEnergy, int HP , int retreatCost, int attacktype1, int energyBasicCost, int colorless1, int colorless1Cost, int ability1, int attacktype2, int energyAdvanceCost, int colorless2, int colorless2Cost, int ability2)
 	{
 		m_name=name;
 		m_pokemonType = pokemonType;
 		m_energy=energyType;
+		m_adv_attack=advanceEnergy;
 		m_hp=HP;
 		m_retreatCost = retreatCost;
 		m_energyCards = new LinkedList<CardEnergy>();
 		m_attack = new CardPokemonAttack(attacktype1, energyBasicCost, colorless1, colorless1Cost, ability1, attacktype2, energyAdvanceCost, colorless2, colorless2Cost, ability2 );
 		m_abilityPokemon = new AbilityPokemon();
+		m_attacktype1 = attacktype1;
+		m_attacktype2 = attacktype2;
+		m_attacktype1cost = energyBasicCost;
+		m_attacktype2cost = energyAdvanceCost;
+		m_color1 =  colorless1;
+		m_color2 =  colorless2;
+		m_color1cost =  colorless1Cost;
+		m_color2cost =  colorless2Cost;
 		
 		
 	}
@@ -69,7 +87,7 @@ public class CardPokemon extends Card{
 	public void addEnergy(CardEnergy energy) {
 
 		m_energyCards.add(energy);
-		m_energy = m_energy + 10;
+		m_collectEnergy = m_collectEnergy + 10;
 	}
 
 	public void attackBasic(Play p, GameEngine g, CardPokemon opponent){

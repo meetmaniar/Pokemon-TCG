@@ -16,15 +16,15 @@ public class CardEnergy extends Card{
 		super(1);
 	}
 	
-	public CardEnergy(int type) {
-		super(type);
-		m_type = type;
-	}
+//	public CardEnergy(int type) {
+//		m_type = type;
+//	}
 
 	public void initEnergy(int type)
 	{
 		m_type=type;
 	}
+	
 	
 	
 }

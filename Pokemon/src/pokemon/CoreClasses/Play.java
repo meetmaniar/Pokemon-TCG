@@ -117,13 +117,13 @@ public class Play {
 
 	}
 
-	// public void placeActive( int i){
-	// active = hand[i];
-	//
-	// //System.out.println("Poke" + bench[i].m_type);
-	// ((CardPokemon) active).m_active = true;
-	// swap(hand,i);
-	// }
+	 public void placeActive( int i){
+	 active = hand[i];
+	
+	// System.out.println("Poke" + bench[i].m_type);
+	 ((CardPokemon) active).m_active = true;
+	 swap(hand,i);
+	 }
 	
 	
 
@@ -177,11 +177,12 @@ public class Play {
 	}
 
 	public void pickPrize() {
-		for (int i = 0; i < prize.length; i++) {
-			if (hand[i] == null) {
+		
+		for(int i = 0; i < hand.length; i++){
+			if(hand[i] == null){
 				hand[i] = prize[prize_top];
 				prize[prize_top] = null;
-				prize_top = prize_top + 1;
+				prize_top ++;
 				break;
 			}
 		}
@@ -213,43 +214,55 @@ public class Play {
 
 		case 31:
 			a.abilityTrainer.ability31_Tierno(this, g);
+			break;
 
 		case 32:
 			a.abilityTrainer.ability32_Potion(c);
-			;
+			break;
 
 		case 33:
 			a.abilityTrainer.ability33_MistyDetermination();
+			break;
 
 		case 34:
 			a.abilityTrainer.ability34_PokmonCenterLady(c, d);
-
+			break;
+			
 		case 35:
 			a.abilityTrainer.ability35_Clemont(this, g);
+			break;
 
 		case 67:
 			a.abilityTrainer.ability67_FloralCrown(c);
+			break;
 
 		case 68:
 			a.abilityTrainer.ability68_PokemonBall(this, g);
+			break;
 
 		case 69:
 			a.abilityTrainer.ability69_Shauna(this,g);
+			break;
 
 		case 70:
 			a.abilityTrainer.ability70_PokmonFanClub(this, g);
+			break;
 
 		case 71:
 			a.abilityTrainer.ability71_Switch((CardPokemon) this.active, c);
+			break;
 
 		case 72:
 			a.abilityTrainer.ability72_EnergySwitch(c, d, 20);
+			break;
 
 		case 73:
 			a.abilityTrainer.ability73_RedCard(this, g);
+			break;
 
 		case 74:
 			a.abilityTrainer.ability74_Wally(this, g);
+			break;
 
 		default:
 			System.out.println("do nothing");
@@ -323,6 +336,7 @@ public class Play {
 
 		case 1:
 			a.m_statusEffect = 0;
+			break;
 
 		case 2:
 
@@ -330,17 +344,21 @@ public class Play {
 			int i = ThreadLocalRandom.current().nextInt(0, 2);
 			if (i == 1) {
 				a.m_statusEffect = 0;
+				break;
 			}
 		}
 
 		case 3:
 			a.m_statusEffect = 0;
+			break;
 
 		case 4:
 			a.m_statusEffect = 0;
+			break;
 
 		default:
 			a.m_statusEffect = 0;
+			break;
 		}
 	}
 
@@ -447,12 +465,12 @@ public class Play {
 
 	}
 
-	public void attack ( )
+	/*public void attack ( )
 	{
-		/*if(count=3){
+		if(count=3){
 			
 		}
-		else{*/
+		else{
 		if(this.role==true)
 		{
 			((CardPokemon)GameView.HUMAN.active).m_hp=((CardPokemon)GameView.HUMAN.active).m_hp-((CardPokemon)GameView.AI.active).m_energy;
@@ -481,7 +499,7 @@ public class Play {
 			}
 		}
 		
-	}
+	}*/
 	
 	public void heal(int index)
 	{

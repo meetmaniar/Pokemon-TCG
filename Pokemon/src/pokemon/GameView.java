@@ -41,7 +41,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
-public class GameView extends JFrame implements MouseListener {
+public class GameView extends JFrame {
 
 	public JPanel toolTip;
 
@@ -68,6 +68,22 @@ public class GameView extends JFrame implements MouseListener {
 
 		JPanel subPanel = new JPanel();
 		subPanel.setLayout(new BorderLayout());
+		
+		JButton priceCard=new JButton("PriceCard");
+		priceCard.setPreferredSize(new Dimension(90, 90));
+		priceCard.setBounds(100, 700, 70, 35);
+		priceCard.setVisible(false);
+		priceCard.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				GameView.HUMAN.pickPrize();
+				refreshUI();
+				
+				}
+
+		});
 
 		player1Panel = new JPanel();
 		player1Panel.setPreferredSize(new Dimension(700, 76));
@@ -75,7 +91,9 @@ public class GameView extends JFrame implements MouseListener {
 		player1Panel.setLayout(new FlowLayout());
 		player1Panel.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		player1Panel.setVisible(false);
-
+		
+		
+		
 		// player 1 panel start ----
 
 		CardView hand_ai[] = new CardView[15];
@@ -230,28 +248,7 @@ public class GameView extends JFrame implements MouseListener {
 			}
 		}
 
-		// CardView B11 = new CardView("PC-1",50,20,20); //PC: Player bench
-		// cards
-		// bench2.add(B11);
-		//
-		// CardView B12 = new CardView("PC-2",50,20,20);
-		// bench2.add(B12);
-		//
-		// CardView B13 = new CardView("PC-3",50,20,20);
-		// bench2.add(B13);
-		//
-		// CardView B14 = new CardView("PC-4",50,20,20);
-		// bench2.add(B14);
-		//
-		// CardView B15 = new CardView("PC-5",50,20,20);
-		// bench2.add(B15);
-
-		// Player 2 bench cards end---
-
-		// --drag and drop--start
-		// new DragAndDropCardView(p1, B11);
-
-		// --drag and drop--end
+		
 
 		subPanel.add(player2Panel, BorderLayout.PAGE_END);
 
@@ -297,7 +294,7 @@ public class GameView extends JFrame implements MouseListener {
 				GameView.AI.drawOneCard(ge);
 				AI.nextMove();
 				refreshUI();
-				GameView.AI.attack();
+				//GameView.AI.attack();
 			}
 
 		});
@@ -317,7 +314,7 @@ public class GameView extends JFrame implements MouseListener {
 
 		});
 		
-		/*JButton draw = new JButton("Draw");
+		JButton draw = new JButton("Draw");
 		draw.setPreferredSize(new Dimension(90, 90));
 		draw.setBounds(1350, 250, 70, 35);
 		draw.setVisible(false);
@@ -329,9 +326,21 @@ public class GameView extends JFrame implements MouseListener {
 				refreshUI();
 			}
 
-		});*/
+		});
+		JButton attack2=new JButton("Atk-2");
+		attack2.setPreferredSize(new Dimension(90, 90));
+		attack2.setBounds(100, 100, 70, 35);
+		attack2.setVisible(false);
+		attack2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+		});
 		
-		JButton attack = new JButton("Attack");
+		JButton attack = new JButton("Atk-1");
 		attack.setPreferredSize(new Dimension(90, 90));
 		attack.setBounds(1050, 450, 70, 35);
 		attack.setVisible(false);
@@ -339,18 +348,10 @@ public class GameView extends JFrame implements MouseListener {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				GameView.HUMAN.attack();
+				((CardPokemon)GameView.HUMAN.active).attackBasic(HUMAN, ge, (CardPokemon) AI.active);
+				System.out.println("======================hp "+((CardPokemon)GameView.HUMAN.active).m_hp);
 				refreshUI();
-				if(((CardPokemon)GameView.HUMAN.active).m_hp<=0){
-					//getContentPane().removeAll();
-					//JLabel winLabel=new JLabel("Player Wins",SwingConstants.CENTER);
-					//mainPanel.add(winLabel);
-				}
-				else if(((CardPokemon)GameView.AI.active).m_hp<=0){
-					//getContentPane().removeAll();
-					//JLabel winLabel=new JLabel("AI Wins",SwingConstants.CENTER);
-					//mainPanel.add(winLabel);
-				}
+				
 			}
 
 		});
@@ -358,6 +359,22 @@ public class GameView extends JFrame implements MouseListener {
 		
 		// done.setBackground(Color.red);
 		// Button for passing the turn--end
+		
+		JButton shuffle = new JButton("Shuffle");
+		shuffle.setPreferredSize(new Dimension(110, 110));
+		shuffle.setBounds(950, 300, 70, 35);
+		shuffle.setVisible(false);
+		shuffle.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+//				GameEngine.doShuffle(GameEngine.deck1);
+	//			GameEngine.doShuffle(GameEngine.deck2);
+			}
+
+		});
+
 
 		// Randomly assigning the turn to the players--start
 
@@ -393,6 +410,8 @@ public class GameView extends JFrame implements MouseListener {
 		leftTop.setBounds(10, 10, 82, 123);
 		gamePanel.add(leftTop);
 		leftTop.setVisible(false);
+		GameView.AI.drawPrizeCards(ge);
+		GameView.HUMAN.drawPrizeCards(ge);
 
 		PriceCard rightBottom = new PriceCard();
 		rightBottom.setBounds(1274, 390, 82, 123);
@@ -416,7 +435,6 @@ public class GameView extends JFrame implements MouseListener {
 		deck2.setBounds(1274, 300, 80, 80);
 		deck2.setVisible(false);
 		gamePanel.add(deck2);
-		deck2.addMouseListener(this);
 
 		gamePanel.add(bench1);
 		gamePanel.add(bench2);
@@ -426,10 +444,12 @@ public class GameView extends JFrame implements MouseListener {
 		gamePanel.add(discardA);
 		gamePanel.add(done);
 		gamePanel.add(refresh);
-		//gamePanel.add(draw);
+		gamePanel.add(draw);
 		gamePanel.add(attack);
 		gamePanel.add(turnPanel);
-
+		gamePanel.add(shuffle);
+		gamePanel.add(priceCard);
+		gamePanel.add(attack2);
 		// center image start --
 
 		ImageIcon background = new ImageIcon("image/Pokeball.png");
@@ -449,18 +469,7 @@ public class GameView extends JFrame implements MouseListener {
 		toolTip.setVisible(false);
 		toolTip.setBounds(300, 100, 200, 400);
 
-		/*
-		 * MouseListener listener=new MouseAdapter(){ public void
-		 * mouseEntered(MouseEvent e){
-		 * 
-		 * System.out.println(e.getClickCount());
-		 * toolTip.add(ttnameLabel,BorderLayout.CENTER);
-		 * toolTip.add(ttattackLabel,BorderLayout.CENTER);
-		 * toolTip.add(ttspecialLabel,BorderLayout.CENTER);
-		 * toolTip.add(tthitLabel,BorderLayout.CENTER);
-		 * 
-		 * } }; toolTip.addMouseListener(listener); //toolTip.repaint();
-		 */
+		
 		gamePanel.add(toolTip);
 		// toolTip end---
 
@@ -478,24 +487,26 @@ public class GameView extends JFrame implements MouseListener {
 				gamePanel.setVisible(true);
 				bench1.setVisible(true);
 				bench2.setVisible(true);
-				rightBottom.setVisible(true);
-				leftTop.setVisible(true);
+				rightBottom.setVisible(false);
+				leftTop.setVisible(false);
 				deck1.setVisible(true);
 				deck2.setVisible(true);
-				;
+				priceCard.setVisible(true);
 				active2.setVisible(true);
 				active1.setVisible(true);
 				bench1.setVisible(true);
 				bench2.setVisible(true);
 				done.setVisible(true);
 				refresh.setVisible(true);
-			//	draw.setVisible(true);
+				draw.setVisible(true);
 				attack.setVisible(true);
 				label.setVisible(true);
 				discardP.setVisible(true);
 				discardA.setVisible(true);
 				toolTip.setVisible(true);
-
+				shuffle.setVisible(true);
+				attack2.setVisible(true);
+ 
 				// remove the cards on bench start--
 				ScheduledExecutorService exec = Executors.newScheduledThreadPool(1);
 
@@ -623,7 +634,7 @@ public class GameView extends JFrame implements MouseListener {
 			try {
 				// System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );
 				if (HUMAN.hand[i] == null) {
-
+					//System.out.println("1111111");
 				}
 				if (HUMAN.hand[i].m_type == 0) {
 					hand_player[i] = new CardView((CardPokemon) HUMAN.hand[i], this, i, -1, -1,0,"P");
@@ -653,7 +664,10 @@ public class GameView extends JFrame implements MouseListener {
 		for (int i = 0; i < 15; i++) {
 			try {
 				// System.out.println(HUMAN.hand[i].m_type + " M_TYPE" );
-
+				if (HUMAN.hand[i] == null) {
+					System.out.println("22222");
+				}
+				
 				if (AI.hand[i].m_type == 0) {
 					hand_ai[i] = new CardView((CardPokemon) AI.hand[i], this, i, -1, -1,1,"P");
 
@@ -742,42 +756,6 @@ public class GameView extends JFrame implements MouseListener {
 			}
 		}
 
-	}
-
-	@Override
-	public void mouseClicked(MouseEvent ev) {
-		// TODO Auto-generated method stub
-		GameView.HUMAN.role=true;
-		GameView.HUMAN.drawOneCard(ge);
-		/*this.removeAll();*/
-		this.invalidate();
-		this.revalidate();
-		this.repaint();
-		System.out.println("Draw Working");
-	}
-
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
 	}
 	
 	
