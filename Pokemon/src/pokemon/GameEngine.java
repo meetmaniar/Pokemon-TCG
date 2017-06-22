@@ -18,29 +18,19 @@ public class GameEngine {
 
 	}
 	
-	public void initDeck(){
-		DeckBuilder deck = new DeckBuilder("C:\\Users\\M_ANIAR\\git\\Pokemon-TCG\\Pokemon\\src\\pokemon\\parser\\cards.txt");
-		
-		deck1 = deck.buildDeck("C:\\Users\\M_ANIAR\\git\\Pokemon-TCG\\Pokemon\\src\\pokemon\\parser\\deck1.txt");
-		deck2 = deck.buildDeck("C:\\Users\\M_ANIAR\\git\\Pokemon-TCG\\Pokemon\\src\\pokemon\\parser\\deck2.txt");
-	}
-	
 	public void iniDeck(){
-		DeckBuilder deck = new DeckBuilder("C:\\Users\\M_ANIAR\\git\\Pokemon-TCG\\Pokemon\\src\\pokemon\\parser\\cards.txt");
+		DeckBuilder deck = new DeckBuilder("C:/Users/Zac/git/Pokemon-TCG/cards.txt");
 		
-		deck1 = deck.buildDeck("C:\\Users\\M_ANIAR\\git\\Pokemon-TCG\\Pokemon\\src\\pokemon\\parser\\deck1.txt");
-		deck2 = deck.buildDeck("C:\\Users\\M_ANIAR\\git\\Pokemon-TCG\\Pokemon\\src\\pokemon\\parser\\deck2.txt");
-		
+		deck1 = deck.buildDeck("C:/Users/Zac/git/Pokemon-TCG/deck1.txt");
+		deck2 = deck.buildDeck("C:/Users/Zac/git/Pokemon-TCG/deck2.txt");
 	}
 	
 	public void initGame() {
 		
-		DeckBuilder deck = new DeckBuilder("C:\\Users\\M_ANIAR\\git\\Pokemon-TCG\\Pokemon\\src\\pokemon\\parser\\cards.txt");
+		DeckBuilder deck = new DeckBuilder("C:/Users/Zac/git/Pokemon-TCG/cards.txt");
 		
-		deck1 = deck.buildDeck("C:\\Users\\M_ANIAR\\git\\Pokemon-TCG\\Pokemon\\src\\pokemon\\parser\\deck1.txt");
-		deck2 = deck.buildDeck("C:\\Users\\M_ANIAR\\git\\Pokemon-TCG\\Pokemon\\src\\pokemon\\parser\\deck2.txt");
-		
-		
+		deck1 = deck.buildDeck("C:/Users/Zac/git/Pokemon-TCG/deck1.txt");
+		deck2 = deck.buildDeck("C:/Users/Zac/git/Pokemon-TCG/deck2.txt");
 		
 //		// initialize the game by starting parser, and initializing the core
 //		// classes

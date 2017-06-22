@@ -363,7 +363,7 @@ public class Play {
 	}
 
 	public boolean checkEnd(Play opponent) {
-		if (prize == null) {
+		if (prize_top == 7) {
 			System.out.println("Congrats! You Win");
 			return true;
 		}
