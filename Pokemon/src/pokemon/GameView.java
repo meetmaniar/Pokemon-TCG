@@ -588,8 +588,8 @@ public class GameView extends JFrame {
 		player1Panel.removeAll();
 		bench1.removeAll();
 		bench2.removeAll();
-		deck1.removeAll();
-		deck2.removeAll();
+		/*deck1.removeAll();
+		deck2.removeAll();*/
 		active1.removeAll();
 		active2.removeAll();
 		deck2.invalidate();
