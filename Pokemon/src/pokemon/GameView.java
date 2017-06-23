@@ -618,6 +618,10 @@ public class GameView extends JFrame {
 	public static Play AI, HUMAN;
 	static GameEngine ge;
 	public static void main(String[] args) {
+		
+		System.out.println("Working Directory = " +
+	              System.getProperty("user.dir"));
+		
 		ge = new GameEngine();
 		GameEngine.ge=ge;
 		AI = new Play();
