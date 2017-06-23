@@ -50,7 +50,8 @@ public class GameView extends JFrame {
 	JPanel bench2;
 	JPanel bench1;
 	JPanel active2,active1;
-	
+	JButton attack = null;
+	JButton done = null;
 
 	public GameView() {
 		this.setTitle("Pokemon");
@@ -68,6 +69,8 @@ public class GameView extends JFrame {
 
 		JPanel subPanel = new JPanel();
 		subPanel.setLayout(new BorderLayout());
+		
+		
 		
 		JButton priceCard=new JButton("PriceCard");
 		priceCard.setPreferredSize(new Dimension(90, 90));
@@ -282,7 +285,7 @@ public class GameView extends JFrame {
 
 		// Button for passing the turn--begin
 
-		JButton done = new JButton("DONE");
+		done = new JButton("DONE");
 		done.setPreferredSize(new Dimension(90, 90));
 		done.setBounds(950, 250, 70, 35);
 		done.setVisible(false);
@@ -291,10 +294,12 @@ public class GameView extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				GameEngine.ge.turnCounter++;
 				GameView.AI.drawOneCard(ge);
 				AI.nextMove();
 				refreshUI();refreshUI();refreshUI();refreshUI();refreshUI();refreshUI();
 				//GameView.AI.attack();
+				attack.setVisible(true);
 			}
 
 		});
@@ -341,7 +346,7 @@ public class GameView extends JFrame {
 
 		});
 		
-		JButton attack = new JButton("Atk-1");
+		attack = new JButton("Atk-1");
 		attack.setPreferredSize(new Dimension(90, 90));
 		attack.setBounds(1050, 450, 70, 35);
 		attack.setVisible(false);
@@ -351,6 +356,8 @@ public class GameView extends JFrame {
 				// TODO Auto-generated method stub
 				((CardPokemon)GameView.HUMAN.active).attackBasic(HUMAN, ge, (CardPokemon) AI.active);
 				//System.out.println("======================hp "+((CardPokemon)GameView.HUMAN.active).m_hp);
+				done.setVisible(true);
+				attack.setVisible(false);
 				refreshUI();
 				
 			}
@@ -524,7 +531,6 @@ public class GameView extends JFrame {
 							// B13.setVisible(false);
 							// B14.setVisible(false);
 							// B15.setVisible(false);
-
 							exec.shutdown();
 
 						}

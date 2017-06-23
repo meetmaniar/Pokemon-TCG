@@ -11,6 +11,9 @@ import java.util.*;
 
 public class GameEngine {
 
+	
+	
+	public static int turnCounter=0;
 	public Card[] deck1 = new Card[60];
 	public Card[] deck2 = new Card[60];
 	public String Path=System.getProperty("user.dir")+"\\src\\pokemon\\parser\\";

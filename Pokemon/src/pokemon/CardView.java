@@ -433,6 +433,12 @@ public class CardView extends JPanel implements MouseListener {
 				gameView.toolTip.add(color1Label);
 				gameView.toolTip.add(sa2Label);
 				gameView.toolTip.add(reLabel);
+				
+				//ADD ENERGY
+				
+				/*gameView.toolTip.add();*/
+				
+				
 		}
 		
 		else {

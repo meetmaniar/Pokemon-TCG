@@ -2,6 +2,8 @@ package pokemon.CoreClasses;
 
 import java.util.concurrent.ThreadLocalRandom;
 
+import javax.swing.JOptionPane;
+
 import pokemon.GameEngine;
 import pokemon.GameView;
 
@@ -389,6 +391,11 @@ public class Play {
 	// ------ AI Function ------//
 
 	public void nextMove() {
+		
+		
+		
+		if(GameEngine.ge.turnCounter==1)
+		{
 		//find the active pokemon
 		if(GameView.AI.active==null)
 		{
@@ -404,6 +411,32 @@ public class Play {
 		
 		//attack();
 		((CardPokemon)GameView.AI.active).attackBasic(GameView.AI, GameEngine.ge, (CardPokemon) GameView.HUMAN.active);
+		}
+		
+		
+		
+		if(GameEngine.ge.turnCounter==3)
+		{
+		//find the active pokemon
+		if(GameView.AI.active==null)
+		{
+			System.out.println("NULL Found So assigning the okemon to active");
+			addPokemonToBenchForAI();
+
+			addPokemontoActiveForAI();
+		}
+		
+		//addEnergyToAP();
+		GameView.AI.attachEnergyActive(0);
+		
+		
+		//attack();
+		((CardPokemon)GameView.AI.active).attackBasic(GameView.AI, GameEngine.ge, (CardPokemon) GameView.HUMAN.active);
+		}
+
+		
+		JOptionPane.showMessageDialog(null, "Player's Turn");
+		GameEngine.ge.turnCounter++;
 		
 	}
 
