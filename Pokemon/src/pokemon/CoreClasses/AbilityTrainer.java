@@ -39,9 +39,9 @@ public class AbilityTrainer {
 	}
 	
 	// heal and destat
-	public void ability34_PokmonCenterLady(CardPokemon a, CardPokemon b){
+	public void ability34_PokmonCenterLady(CardPokemon a){
 		a.m_hp = a.m_hp + 60;
-		b.removeStatus();
+		a.removeStatus();
 	}
 	
 	//search

@@ -49,9 +49,13 @@ public class GameView extends JFrame {
 	JPanel player2Panel;
 	JPanel bench2;
 	JPanel bench1;
+	JPanel deck1, deck2;
 	JPanel active2,active1;
 	JButton attack = null;
+	JButton attack2=null;
 	JButton done = null;
+	int AI_deck_size=60-AI.deck_top;
+	int HUMAN_deck_size=60-HUMAN.deck_top;
 
 	public GameView() {
 		this.setTitle("Pokemon");
@@ -74,7 +78,7 @@ public class GameView extends JFrame {
 		
 		JButton priceCard=new JButton("PriceCard");
 		priceCard.setPreferredSize(new Dimension(90, 90));
-		priceCard.setBounds(100, 700, 70, 35);
+		priceCard.setBounds(100, 400, 70, 35);
 		priceCard.setVisible(false);
 		priceCard.addActionListener(new ActionListener() {
 
@@ -82,6 +86,7 @@ public class GameView extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				GameView.HUMAN.pickPrize();
+				HUMAN.checkEnd(AI);
 				refreshUI();
 				
 				}
@@ -300,6 +305,7 @@ public class GameView extends JFrame {
 				refreshUI();refreshUI();refreshUI();refreshUI();refreshUI();refreshUI();
 				//GameView.AI.attack();
 				attack.setVisible(true);
+				attack2.setVisible(true);
 			}
 
 		});
@@ -329,6 +335,7 @@ public class GameView extends JFrame {
 				// TODO Auto-generated method stub
 				GameView.HUMAN.drawOneCard(ge);
 				refreshUI();
+				System.out.println("+++++++++++++++++++++++++++++++++++++++" + AI_deck_size+HUMAN_deck_size);
 			}
 
 		});
@@ -425,20 +432,20 @@ public class GameView extends JFrame {
 		rightBottom.setBounds(1274, 390, 82, 123);
 		gamePanel.add(rightBottom);
 		rightBottom.setVisible(false);
-		JPanel deck1 = new JPanel();
+		deck1 = new JPanel();
 		deck1.setPreferredSize(new Dimension(90, 90));
 		deck1.setLayout(new BorderLayout());
 		deck1.setBorder(BorderFactory.createLineBorder(Color.black));
-		JLabel deck1Label = new JLabel("DECK1");
+		JLabel deck1Label = new JLabel("DECK:" + HUMAN_deck_size);
 		deck1.add(deck1Label, BorderLayout.CENTER);
 		deck1.setBounds(10, 145, 80, 80);
 		deck1.setVisible(false);
 		gamePanel.add(deck1);
 
-		JPanel deck2 = new JPanel();
+		deck2 = new JPanel();
 		deck2.setLayout(new BorderLayout());
 		deck2.setBorder(BorderFactory.createLineBorder(Color.black));
-		JLabel deck2Label = new JLabel("DECK2");
+		JLabel deck2Label = new JLabel("DECK:" + AI_deck_size);
 		deck2.add(deck2Label, BorderLayout.CENTER);
 		deck2.setBounds(1274, 300, 80, 80);
 		deck2.setVisible(false);
@@ -509,8 +516,8 @@ public class GameView extends JFrame {
 				draw.setVisible(true);
 				attack.setVisible(true);
 				label.setVisible(true);
-				discardP.setVisible(true);
-				discardA.setVisible(true);
+				discardP.setVisible(false);
+				discardA.setVisible(false);
 				toolTip.setVisible(true);
 				shuffle.setVisible(true);
 				attack2.setVisible(true);
@@ -581,8 +588,17 @@ public class GameView extends JFrame {
 		player1Panel.removeAll();
 		bench1.removeAll();
 		bench2.removeAll();
+		deck1.removeAll();
+		deck2.removeAll();
 		active1.removeAll();
 		active2.removeAll();
+		deck2.invalidate();
+		deck2.validate();
+		deck2.revalidate();
+		deck2.repaint();
+		
+		
+		
 		refreshPlayer2Panel();
 		refreshBench();
 		refreshActive();
@@ -617,7 +633,7 @@ public class GameView extends JFrame {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
+		
 		System.out.println("refresh working");
 	}
 
