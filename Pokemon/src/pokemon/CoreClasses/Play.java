@@ -209,59 +209,73 @@ public class Play {
 		swap(hand, i);
 	}
 
-	public void useTrainerCard(CardTrainer a, GameEngine g, CardPokemon c, CardPokemon d) {
-		switch (a.trainer_ability) {
+	public void useTrainerCard(int i, GameEngine g) {
+		switch (((CardTrainer)hand[i]).trainer_ability) {
 
 		case 31:
-			a.abilityTrainer.ability31_Tierno(this, g);
+			((CardTrainer)hand[i]).abilityTrainer.ability31_Tierno(this, g);
+			swap(hand,i);
 			break;
 
 		case 32:
-			a.abilityTrainer.ability32_Potion(c);
+			((CardTrainer)hand[i]).abilityTrainer.ability32_Potion((CardPokemon) this.active);
+			swap(hand,i);
 			break;
 
 		case 33:
-			a.abilityTrainer.ability33_MistyDetermination();
+			((CardTrainer)hand[i]).abilityTrainer.ability33_MistyDetermination();
+			swap(hand,i);
 			break;
 
 		case 34:
-			a.abilityTrainer.ability34_PokmonCenterLady(c, d);
+			((CardTrainer)hand[i]).abilityTrainer.ability34_PokmonCenterLady((CardPokemon) this.active);
+			swap(hand,i);
 			break;
 			
 		case 35:
-			a.abilityTrainer.ability35_Clemont(this, g);
+			((CardTrainer)hand[i]).abilityTrainer.ability35_Clemont(this, g);
+			
+			swap(hand,i);
 			break;
 
 		case 67:
-			a.abilityTrainer.ability67_FloralCrown(c);
+			((CardTrainer)hand[i]).abilityTrainer.ability67_FloralCrown((CardPokemon) this.active);
+			swap(hand,i);
 			break;
 
 		case 68:
-			a.abilityTrainer.ability68_PokemonBall(this, g);
+			((CardTrainer)hand[i]).abilityTrainer.ability68_PokemonBall(this, g);
+			swap(hand,i);
 			break;
 
 		case 69:
-			a.abilityTrainer.ability69_Shauna(this,g);
+			((CardTrainer)hand[i]).abilityTrainer.ability69_Shauna(this,g);
+			swap(hand,i);
 			break;
 
 		case 70:
-			a.abilityTrainer.ability70_PokmonFanClub(this, g);
+			((CardTrainer)hand[i]).abilityTrainer.ability70_PokmonFanClub(this, g);
+			swap(hand,i);
 			break;
 
 		case 71:
-			a.abilityTrainer.ability71_Switch((CardPokemon) this.active, c);
+			((CardTrainer)hand[i]).abilityTrainer.ability71_Switch((CardPokemon) this.active, (CardPokemon) this.bench[0]);
+			swap(hand,i);
 			break;
 
 		case 72:
-			a.abilityTrainer.ability72_EnergySwitch(c, d, 20);
+			((CardTrainer)hand[i]).abilityTrainer.ability72_EnergySwitch((CardPokemon)this.active, (CardPokemon)this.bench[0], 20);
+			swap(hand,i);
 			break;
 
 		case 73:
-			a.abilityTrainer.ability73_RedCard(this, g);
+			((CardTrainer)hand[i]).abilityTrainer.ability73_RedCard(this, g);
+			swap(hand,i);
 			break;
 
 		case 74:
-			a.abilityTrainer.ability74_Wally(this, g);
+			((CardTrainer)hand[i]).abilityTrainer.ability74_Wally(this, g);
+			swap(hand,i);
 			break;
 
 		default:
@@ -363,26 +377,32 @@ public class Play {
 	}
 
 	public boolean checkEnd(Play opponent) {
-		if (prize_top == 7) {
+		if (opponent.prize_top >= 6) {
 			System.out.println("Congrats! You Win");
 			return true;
 		}
-		if (opponent.active == null && opponent.bench == null) {
+		int c = 0;
+		for(int i = 0; i < opponent.bench.length; i++){
+			if(opponent.bench[i] == null){
+				c++;
+			}
+		}
+		if (opponent.active == null && c == 5) {
 			System.out.println("Congrats! You Win");
 			return true;
 		}
 		if (!role) {
-			if (opponent.deck_top == 61) {
+			if (opponent.deck_top >= 60) {
 				System.out.println("Congrats! You Win!");
 				return true;
 			}
 		} else {
-			if (opponent.deck_top == 61) {
+			if (opponent.deck_top >= 60) {
 				System.out.println("Oops! You Lose!");
 				return true;
 			}
 		}
-		return true;
+		return false;
 
 	}
 
