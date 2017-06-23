@@ -204,78 +204,64 @@ public class Play {
 	public void attachEnergyActive(int i) 
 	{
 		System.out.println("Energy Card Detected");
-		System.out.println(i);
+		System.out.println(hand[i].m_type);
 		((CardPokemon) active).addEnergy((CardEnergy)hand[i]);
 		swap(hand, i);
 	}
 
-	public void useTrainerCard(int i, GameEngine g) {
-		switch (((CardTrainer)hand[i]).trainer_ability) {
+	public void useTrainerCard(CardTrainer a, GameEngine g, CardPokemon c, CardPokemon d) {
+		switch (a.trainer_ability) {
 
 		case 31:
-			((CardTrainer)hand[i]).abilityTrainer.ability31_Tierno(this, g);
-			swap(hand,i);
+			a.abilityTrainer.ability31_Tierno(this, g);
 			break;
 
 		case 32:
-			((CardTrainer)hand[i]).abilityTrainer.ability32_Potion((CardPokemon) this.active);
-			swap(hand,i);
+			a.abilityTrainer.ability32_Potion(c);
 			break;
 
 		case 33:
-			((CardTrainer)hand[i]).abilityTrainer.ability33_MistyDetermination();
-			swap(hand,i);
+			a.abilityTrainer.ability33_MistyDetermination();
 			break;
 
 		case 34:
-			((CardTrainer)hand[i]).abilityTrainer.ability34_PokmonCenterLady((CardPokemon) this.active);
-			swap(hand,i);
+			a.abilityTrainer.ability34_PokmonCenterLady(c, d);
 			break;
 			
 		case 35:
-			((CardTrainer)hand[i]).abilityTrainer.ability35_Clemont(this, g);
-			
-			swap(hand,i);
+			a.abilityTrainer.ability35_Clemont(this, g);
 			break;
 
 		case 67:
-			((CardTrainer)hand[i]).abilityTrainer.ability67_FloralCrown((CardPokemon) this.active);
-			swap(hand,i);
+			a.abilityTrainer.ability67_FloralCrown(c);
 			break;
 
 		case 68:
-			((CardTrainer)hand[i]).abilityTrainer.ability68_PokemonBall(this, g);
-			swap(hand,i);
+			a.abilityTrainer.ability68_PokemonBall(this, g);
 			break;
 
 		case 69:
-			((CardTrainer)hand[i]).abilityTrainer.ability69_Shauna(this,g);
-			swap(hand,i);
+			a.abilityTrainer.ability69_Shauna(this,g);
 			break;
 
 		case 70:
-			((CardTrainer)hand[i]).abilityTrainer.ability70_PokmonFanClub(this, g);
-			swap(hand,i);
+			a.abilityTrainer.ability70_PokmonFanClub(this, g);
 			break;
 
 		case 71:
-			((CardTrainer)hand[i]).abilityTrainer.ability71_Switch((CardPokemon) this.active, (CardPokemon) this.bench[0]);
-			swap(hand,i);
+			a.abilityTrainer.ability71_Switch((CardPokemon) this.active, c);
 			break;
 
 		case 72:
-			((CardTrainer)hand[i]).abilityTrainer.ability72_EnergySwitch((CardPokemon)this.active, (CardPokemon)this.bench[0], 20);
-			swap(hand,i);
+			a.abilityTrainer.ability72_EnergySwitch(c, d, 20);
 			break;
 
 		case 73:
-			((CardTrainer)hand[i]).abilityTrainer.ability73_RedCard(this, g);
-			swap(hand,i);
+			a.abilityTrainer.ability73_RedCard(this, g);
 			break;
 
 		case 74:
-			((CardTrainer)hand[i]).abilityTrainer.ability74_Wally(this, g);
-			swap(hand,i);
+			a.abilityTrainer.ability74_Wally(this, g);
 			break;
 
 		default:
@@ -377,48 +363,48 @@ public class Play {
 	}
 
 	public boolean checkEnd(Play opponent) {
-		if (opponent.prize_top >= 6) {
+		if (prize == null) {
 			System.out.println("Congrats! You Win");
 			return true;
 		}
-		int c = 0;
-		for(int i = 0; i < opponent.bench.length; i++){
-			if(opponent.bench[i] == null){
-				c++;
-			}
-		}
-		if (opponent.active == null && c == 5) {
+		if (opponent.active == null && opponent.bench == null) {
 			System.out.println("Congrats! You Win");
 			return true;
 		}
 		if (!role) {
-			if (opponent.deck_top >= 60) {
+			if (opponent.deck_top == 61) {
 				System.out.println("Congrats! You Win!");
 				return true;
 			}
 		} else {
-			if (opponent.deck_top >= 60) {
+			if (opponent.deck_top == 61) {
 				System.out.println("Oops! You Lose!");
 				return true;
 			}
 		}
-		return false;
+		return true;
 
 	}
 
 	// ------ AI Function ------//
 
 	public void nextMove() {
-		//selectActivePokemon();
-		
-		addPokemonToBenchForAI();
+		//find the active pokemon
+		if(GameView.AI.active==null)
+		{
+			System.out.println("NULL Found So assigning the okemon to active");
+			addPokemonToBenchForAI();
 
-		addPokemontoActiveForAI();
-		
+			addPokemontoActiveForAI();
+		}
 		
 		//addEnergyToAP();
-
+		GameView.AI.attachEnergyActive(0);
+		
+		
 		//attack();
+		((CardPokemon)GameView.AI.active).attackBasic(GameView.AI, GameEngine.ge, (CardPokemon) GameView.HUMAN.active);
+		
 	}
 
 	public void selectActivePokemon() {
@@ -430,6 +416,25 @@ public class Play {
 		
 	}
 
+	
+	public int findAIEnergyCard()
+	{
+		int selected_energy_card = 0, max_hp = 0;
+		for (int i = 0; i < 7; i++) {
+			try{
+			if (hand[i].m_type == 1) {
+				selected_energy_card=i;
+			}
+		}
+		catch(Exception e)
+		{
+			
+		}
+		}
+		return selected_energy_card;	
+	}
+	
+	
 	public void addPokemonToBenchForAI() {
 		// check the hand to see if the pokemon is available, If yes, Move it to
 		// deck.

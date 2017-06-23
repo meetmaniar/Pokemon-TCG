@@ -293,7 +293,7 @@ public class GameView extends JFrame {
 				// TODO Auto-generated method stub
 				GameView.AI.drawOneCard(ge);
 				AI.nextMove();
-				refreshUI();
+				refreshUI();refreshUI();refreshUI();refreshUI();refreshUI();refreshUI();
 				//GameView.AI.attack();
 			}
 
@@ -619,6 +619,7 @@ public class GameView extends JFrame {
 	static GameEngine ge;
 	public static void main(String[] args) {
 		ge = new GameEngine();
+		GameEngine.ge=ge;
 		AI = new Play();
 		HUMAN = new Play();
 		

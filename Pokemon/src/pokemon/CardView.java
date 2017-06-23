@@ -482,6 +482,7 @@ public class CardView extends JPanel implements MouseListener {
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
+		
 		// TODO Auto-generated method stub
 		// gameView.refreshUI();
 	}
