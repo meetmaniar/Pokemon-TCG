@@ -506,8 +506,8 @@ public class GameView extends JFrame {
 				bench2.setVisible(true);
 				rightBottom.setVisible(false);
 				leftTop.setVisible(false);
-				deck1.setVisible(true);
-				deck2.setVisible(true);
+				//deck1.setVisible(true);
+				//deck2.setVisible(true);
 				priceCard.setVisible(true);
 				active2.setVisible(true);
 				active1.setVisible(true);
