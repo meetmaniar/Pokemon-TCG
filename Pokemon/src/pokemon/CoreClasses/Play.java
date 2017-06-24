@@ -38,6 +38,10 @@ public class Play {
 	public void setDeck() {
 		role = true;
 	}
+	public int checkDeckSize(){
+		int a = 60 - deck_top;
+		return a;
+	}
 
 	// public void handToBench(int hand_index){
 	// System.arraycopy(hand, hand_index, bench, 0, 1);
@@ -493,12 +497,12 @@ public class Play {
 	public void addPokemonToBenchForAI() {
 		// check the hand to see if the pokemon is available, If yes, Move it to
 		// deck.
-		int selected_pokemon = 0, max_hp = 0;
+		int selected_pokemon = 0, max_hp = 70;
 		for (int i = 0; i < 7; i++) {
 			try{
 			if (hand[i].m_type == 0) {
 				int temp = ((CardPokemon) hand[i]).m_hp;
-				if (temp > max_hp) {
+				if (temp < max_hp) {
 					selected_pokemon = i;
 					max_hp = temp;
 				}

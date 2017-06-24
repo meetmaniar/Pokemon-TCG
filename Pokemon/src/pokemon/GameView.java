@@ -54,8 +54,8 @@ public class GameView extends JFrame {
 	JButton attack = null;
 	JButton attack2=null;
 	JButton done = null;
-	int AI_deck_size=60-AI.deck_top;
-	int HUMAN_deck_size=60-HUMAN.deck_top;
+	//int AI_deck_size=60-AI.deck_top;
+	//int HUMAN_deck_size=60-HUMAN.deck_top;
 
 	public GameView() {
 		this.setTitle("Pokemon");
@@ -335,7 +335,9 @@ public class GameView extends JFrame {
 				// TODO Auto-generated method stub
 				GameView.HUMAN.drawOneCard(ge);
 				refreshUI();
-				System.out.println("+++++++++++++++++++++++++++++++++++++++" + AI_deck_size+HUMAN_deck_size);
+				//System.out.println("+++++++++++++++++++++++++++++++++++++++" + AI_deck_size+HUMAN_deck_size);
+				System.out.println("===========human deck size: "+HUMAN.checkDeckSize());
+				System.out.println("===========AI deck size: "+AI.checkDeckSize());
 			}
 
 		});
@@ -436,7 +438,7 @@ public class GameView extends JFrame {
 		deck1.setPreferredSize(new Dimension(90, 90));
 		deck1.setLayout(new BorderLayout());
 		deck1.setBorder(BorderFactory.createLineBorder(Color.black));
-		JLabel deck1Label = new JLabel("DECK:" + HUMAN_deck_size);
+		JLabel deck1Label = new JLabel("DECK:" + AI.checkDeckSize());
 		deck1.add(deck1Label, BorderLayout.CENTER);
 		deck1.setBounds(10, 145, 80, 80);
 		deck1.setVisible(false);
@@ -445,7 +447,7 @@ public class GameView extends JFrame {
 		deck2 = new JPanel();
 		deck2.setLayout(new BorderLayout());
 		deck2.setBorder(BorderFactory.createLineBorder(Color.black));
-		JLabel deck2Label = new JLabel("DECK:" + AI_deck_size);
+		JLabel deck2Label = new JLabel("DECK:" + HUMAN.checkDeckSize());
 		deck2.add(deck2Label, BorderLayout.CENTER);
 		deck2.setBounds(1274, 300, 80, 80);
 		deck2.setVisible(false);
