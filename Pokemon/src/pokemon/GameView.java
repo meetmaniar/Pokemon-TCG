@@ -299,8 +299,13 @@ public class GameView extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				GameEngine.energy_counter=0;
+				GameEngine.trainer_counter=0;
 				GameEngine.ge.turnCounter++;
 				GameView.AI.drawOneCard(ge);
+				GameView.HUMAN.drawOneCard(ge);
+				System.out.println("===========human deck size: "+HUMAN.checkDeckSize());
+				System.out.println("===========AI deck size: "+AI.checkDeckSize());
 				AI.nextMove();
 				refreshUI();refreshUI();refreshUI();refreshUI();refreshUI();refreshUI();
 				//GameView.AI.attack();
@@ -321,6 +326,7 @@ public class GameView extends JFrame {
 				// TODO Auto-generated method stub
 				
 				refreshUI();
+				
 			}
 
 		});
@@ -343,7 +349,7 @@ public class GameView extends JFrame {
 		});
 		JButton attack2=new JButton("Atk-2");
 		attack2.setPreferredSize(new Dimension(90, 90));
-		attack2.setBounds(100, 100, 70, 35);
+		attack2.setBounds(950, 450, 70, 35);
 		attack2.setVisible(false);
 		attack2.addActionListener(new ActionListener() {
 			@Override
@@ -380,7 +386,7 @@ public class GameView extends JFrame {
 		JButton shuffle = new JButton("Shuffle");
 		shuffle.setPreferredSize(new Dimension(110, 110));
 		shuffle.setBounds(950, 300, 70, 35);
-		shuffle.setVisible(false);
+		shuffle.setVisible(true);
 		shuffle.addActionListener(new ActionListener() {
 
 			@Override
@@ -516,14 +522,15 @@ public class GameView extends JFrame {
 				bench2.setVisible(true);
 				done.setVisible(true);
 				refresh.setVisible(true);
-				draw.setVisible(true);
+//				draw.setVisible(true);
 				attack.setVisible(true);
 				label.setVisible(true);
 				discardP.setVisible(false);
 				discardA.setVisible(false);
 				toolTip.setVisible(true);
-				shuffle.setVisible(true);
+				//shuffle.setVisible(true);
 				attack2.setVisible(true);
+				shuffle.setVisible(false);
  
 				// remove the cards on bench start--
 				ScheduledExecutorService exec = Executors.newScheduledThreadPool(1);

@@ -1,15 +1,18 @@
-package unitTest;
-
-import static org.junit.Assert.assertEquals;
+package TestSuite.IntegrationTest;
 
 import org.junit.Test;
 
 import pokemon.GameEngine;
 import pokemon.CoreClasses.CardEnergy;
 import pokemon.CoreClasses.CardPokemon;
+import pokemon.CoreClasses.CardTrainer;
 import pokemon.CoreClasses.Play;
+import pokemon.parser.DeckBuilder;
+import pokemon.parser.DeckBuilderPokemonCard.DeckBuilderPokemonCardAttack;
 
-public class basicAttackTest {
+public class addEnergyTest {
+	
+
 	@Test
 	public void test() {
 		GameEngine g = new GameEngine();
@@ -18,7 +21,6 @@ public class basicAttackTest {
 		Play AI = new Play();
 		AI.setDeck();
 		human.active = g.deck1[4];
-		AI.active = g.deck2[2];
 		System.out.println(((CardPokemon)human.active).m_name);
 		System.out.println("\tHP: " +((CardPokemon)human.active).m_hp);
 		if(((CardPokemon)human.active).m_attacktype1 == 0){
@@ -76,11 +78,16 @@ public class basicAttackTest {
 		m1.initEnergy(3);
 		((CardPokemon)human.active).addEnergy(m1);
 		System.out.println("current gathered energy: "+((CardPokemon)human.active).m_collectEnergy);
-		System.out.println("before attacking opponent HP: "+((CardPokemon) AI.active).m_hp);
-		((CardPokemon)human.active).attackBasic(human, g, (CardPokemon) AI.active);
-		System.out.println("after attacking opponent HP: "+((CardPokemon) AI.active).m_hp);
-		assertEquals(30,((CardPokemon) AI.active).m_hp);
+		
+		
+			
 	}
 	
+
+		
+		
+	
+	
+
 	
 }

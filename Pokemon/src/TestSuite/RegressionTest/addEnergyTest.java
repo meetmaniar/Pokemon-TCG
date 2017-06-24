@@ -1,4 +1,4 @@
-package unitTest;
+package RegressionTest;
 
 import org.junit.Test;
 

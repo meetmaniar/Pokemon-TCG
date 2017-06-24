@@ -18,6 +18,7 @@ public class GameEngine {
 	public Card[] deck2 = new Card[60];
 	public String Path=System.getProperty("user.dir")+"\\src\\pokemon\\parser\\";
 	public static GameEngine ge;
+	public static int energy_counter=0,trainer_counter=0;
 	
 	
 	public GameEngine() {

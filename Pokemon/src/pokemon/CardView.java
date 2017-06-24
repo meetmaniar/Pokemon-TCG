@@ -83,7 +83,7 @@ public class CardView extends JPanel implements MouseListener {
 			
 		case 1:
 			typeLabel = new JLabel("stage-one");
-			typeLabel.setBounds(5, 20, 700, 20);
+			typeLabel.setBounds(5, 28, 700, 20);
 		
 		default:
 			System.out.println("***no pokemo type");
@@ -165,10 +165,10 @@ public class CardView extends JPanel implements MouseListener {
 		
 		if(attacktype1cost != 0){
 			cost1Label = new JLabel("first attack cost: "+String.valueOf(attacktype1cost));
-			cost1Label.setBounds(5, 42, 700, 20);
+			cost1Label.setBounds(5, 160, 700, 20);
 		}else{
 			cost1Label = new JLabel("first attack specific cost: "+String.valueOf(attacktype1cost));
-			cost1Label.setBounds(5, 42, 700, 20);
+			cost1Label.setBounds(5, 160, 700, 20);
 		}
 		
 		if(color1 != -1){
@@ -184,32 +184,32 @@ public class CardView extends JPanel implements MouseListener {
 
 		case 0:
 			sa2Label = new JLabel("second attack type: water");
-			sa2Label.setBounds(5, 70, 700, 20);
+			sa2Label.setBounds(5, 140, 700, 20);
 			break;
 
 		case 1:
 			sa2Label = new JLabel("second attack type: lighting");
-			sapLabel.setBounds(5, 70, 700, 20);
+			sapLabel.setBounds(5, 140, 700, 20);
 			break;
 		
 		case 2:
 			sa2Label = new JLabel("second attack type: psychic");
-			sa2Label.setBounds(5, 70, 700, 20);
+			sa2Label.setBounds(5, 140, 700, 20);
 			break;
 			
 		case 3:
 			sa2Label = new JLabel("second attack type: fighting");
-			sa2Label.setBounds(5, 70, 700, 20);
+			sa2Label.setBounds(5, 140, 700, 20);
 			break;
 			
 		case 4:
 			sa2Label = new JLabel("second attack type: colorless");
-			sa2Label.setBounds(5, 70, 700, 20);
+			sa2Label.setBounds(5, 140, 700, 20);
 			break;
 		
 		default:
 			sa2Label = new JLabel("second attack type: no specific type");
-			sa2Label.setBounds(5, 70, 700, 20);
+			sa2Label.setBounds(5, 140, 700, 20);
 
 
 		}
@@ -353,10 +353,22 @@ public class CardView extends JPanel implements MouseListener {
 			
 			if(temp.place.equals("T"))
 			{
+				GameEngine.trainer_counter++;
+				if(GameEngine.trainer_counter>1)
+				{
+					System.out.println("Trainer Card Return");
+					return;
+				}
 				GameView.HUMAN.heal(temp.index_hand);	
+				gameView.refreshUI();
+
 			}
 			
 			if(temp.place.equals("E"))
+			{
+			GameEngine.energy_counter++;
+			if(GameEngine.energy_counter>1)
+				return;
 			if(temp.IS_AI==0)
 			{
 				GameView.HUMAN.attachEnergyActive(temp.index_hand);	
@@ -371,7 +383,7 @@ public class CardView extends JPanel implements MouseListener {
 				gameView.refreshUI();
 				return;
 			}
-			
+			}
 			
 			try {
 				if (GameView.HUMAN.hand[temp.index_hand].m_type != 0)

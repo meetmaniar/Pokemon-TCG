@@ -1,4 +1,4 @@
-package unitTest;
+package RegressionTest;
 
 import static org.junit.Assert.*;
 
@@ -10,7 +10,7 @@ import pokemon.CoreClasses.CardPokemon;
 import pokemon.CoreClasses.CardTrainer;
 import pokemon.CoreClasses.Play;
 
-public class drawCardsTest {
+public class drawOneCardTest {
 
 	@Test
 	public void test() {
@@ -21,8 +21,8 @@ public class drawCardsTest {
 		AI.setDeck();
 		
 		System.out.println("==========game starts==========");
-		human.drawSevenCards(g);
-		AI.drawSevenCards(g);
+		human.drawOneCard(g);
+		AI.drawOneCard(g);
 		
 		System.out.println("===========human player hand============");
 		for(int i = 0; i < 7 ;i++){
@@ -61,8 +61,9 @@ public class drawCardsTest {
 			}
 		}
 			
+			
 	}
-	
+
 	
 
 }

@@ -1,4 +1,4 @@
-package unitTest;
+package RegressionTest;
 
 import static org.junit.Assert.*;
 
@@ -11,8 +11,7 @@ import pokemon.CoreClasses.CardPokemon;
 import pokemon.CoreClasses.CardTrainer;
 import pokemon.CoreClasses.Play;
 
-public class placeBenchTest {
-
+public class placeBenchtoActiveTest {
 	@Test
 	public void test() {
 		GameEngine g = new GameEngine();
@@ -145,14 +144,31 @@ public class placeBenchTest {
 				}
 				
 			
-		}
-		
-		
+			}
+			
+			
+			System.out.println("human places one pokemon from bench to active");
+			human.placeBenchtoActive(0);
+
+			System.out.println("===========human active pokemon============");
+			if(human.active.m_type == 0){
+					System.out.println("pokemon card: "+((CardPokemon)human.active).m_name);
+				}
+			
+			System.out.println("============human player bench=============");
+			
+			for(int i = 0; i < 5 ;i++){
+				try{
+					if(human.bench[i].m_type == 0){
+						System.out.println("pokemon card: "+((CardPokemon)human.bench[i]).m_name);
+					}
+				}catch(Exception e){	
+				}
+			}
 		
 		
 	
 	
 	
 	}
-
 }

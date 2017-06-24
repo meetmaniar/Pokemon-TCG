@@ -1,4 +1,4 @@
-package unitTest;
+package RegressionTest;
 
 import static org.junit.Assert.assertEquals;
 
@@ -9,8 +9,7 @@ import pokemon.CoreClasses.CardEnergy;
 import pokemon.CoreClasses.CardPokemon;
 import pokemon.CoreClasses.Play;
 
-public class advancedAttackTest {
-	
+public class basicAttackTest {
 	@Test
 	public void test() {
 		GameEngine g = new GameEngine();
@@ -76,14 +75,12 @@ public class advancedAttackTest {
 		CardEnergy m1 = new CardEnergy();
 		m1.initEnergy(3);
 		((CardPokemon)human.active).addEnergy(m1);
-		((CardPokemon)human.active).addEnergy(m1);
 		System.out.println("current gathered energy: "+((CardPokemon)human.active).m_collectEnergy);
 		System.out.println("before attacking opponent HP: "+((CardPokemon) AI.active).m_hp);
-		((CardPokemon)human.active).attackAdvance(human, g, (CardPokemon) AI.active);
+		((CardPokemon)human.active).attackBasic(human, g, (CardPokemon) AI.active);
 		System.out.println("after attacking opponent HP: "+((CardPokemon) AI.active).m_hp);
 		assertEquals(30,((CardPokemon) AI.active).m_hp);
 	}
-	
 	
 	
 }

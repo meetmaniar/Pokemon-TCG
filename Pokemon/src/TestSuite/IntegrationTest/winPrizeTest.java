@@ -1,13 +1,15 @@
-package unitTest;
+package IntegrationTest;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 import pokemon.GameEngine;
+import pokemon.CoreClasses.CardPokemon;
 import pokemon.CoreClasses.Play;
 
-public class winDeckTest {
+public class winPrizeTest {
+	
 	@Test
 	public void test() {
 		GameEngine g = new GameEngine();
@@ -16,11 +18,10 @@ public class winDeckTest {
 		Play AI = new Play();
 		AI.setDeck();
 		
-	
-		for(int i = 0; i < 60; i++){
-			AI.deck_top++;
+		AI.drawPrizeCards(g);
+		for(int i = 0; i < 6; i++){
+			AI.pickPrize();
 		}
-		//opponent deck is empty
 		assertEquals(true, human.checkEnd(AI));
 	
 	
