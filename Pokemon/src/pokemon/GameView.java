@@ -405,8 +405,9 @@ public class GameView extends JFrame {
 			// flag=true;
 		} 
 		else {
-			turn = "AI's turn";
-//			// flag=false;
+			//turn = "AI's turn";
+			turn = "Player's turn";
+			// flag=false;
 		}
 
 		JPanel turnPanel = new JPanel();
